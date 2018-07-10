@@ -1,0 +1,36 @@
+﻿<form ng-submit="submitBtn.click()">
+    <div>
+        <div class="mark-question">
+            <button type="button" class="btn btn-default btn-xs" ng-click="toggleMarkBtn.click()" ng-class="{'is-marked': questionModel.isMarked}">{{toggleMarkBtn.name}}</button>
+        </div>
+        <div class="question-label">Question:</div>
+
+        <div ng-if="questionModel.questionViewType == 0" >
+            <qz-editor-view id="view-{{question.id}}" editor-control="question" no-actions="1" no-title="1"></qz-editor-view>
+        </div>
+
+        <div ng-if="questionModel.questionViewType == 1" class="clock-container">
+            <clock-render time="{{question.textContent}}" c-id="clock-canvas_{{questionModel.id}}" add-class="clock-canvas"></clock-render>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <div class="answer-label">Answer</div>
+    </div>
+    <div ng-repeat="item in answers">
+        <div class="col-letter">
+            {{$index | letter}}
+        </div>
+        <div class="form-group">
+            <input id="input_{{$index}}" type="text" class="form-control" ng-model="item.value" ng-if="$index == 0" focus="true" ng-change="changed()" autocomplete="off">
+            <input id="input_{{$index}}" type="text" class="form-control" ng-model="item.value" ng-if="$index != 0" ng-change="changed()" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="submit-btn">
+        <button type="submit" class="btn btn-danger btn-xs" ng-disabled="submitBtn.disabled">
+            Submit <save-wait-is-ready item="submitBtn"></save-wait-is-ready>
+        </button>
+    </div>
+    <div class="clearfix"></div>
+</form>

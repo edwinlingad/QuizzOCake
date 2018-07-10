@@ -1,0 +1,50 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container qz-page-no-header grade-levels-html ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <!--<button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>Grade Levels</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <div class="grade-levels">
+                <div ng-repeat="item in gradeLevels">
+                    <div class="grade-level-divider" ng-if="item.gradeLevel == 3">
+                        Grade School
+                    </div>
+                    <div class="grade-level-divider" ng-if="item.gradeLevel == 8">
+                        Middle School
+                    </div>
+                    <div class="grade-level-divider" ng-if="item.gradeLevel == 11">
+                        High School
+                    </div>
+                    <div class="grade-level-divider" ng-if="item.gradeLevel == 15">
+                        College and Professionals
+                    </div>
+                    <div class="grade-level link-container">
+                        <a ui-sref="si.gradeLevel({gradeLevel: item.gradeLevel})" class="link-elem"></a>
+                        <div class="grade-level-info-right">{{item.numQuizz}} Quizz</div>
+                        <div class="grade-level-name qz-title">{{item.name}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<load-wait page="page"></load-wait>
+<div class="content-container row with-bg-color">
+    <h2>Levels</h2>
+
+    <div ng-repeat="item in gradeLevels" class="col-sm-4 center-block">
+        <a ui-sref="si.gradeLevel({gradeLevel: item.gradeLevel})" class="btn btn-default">
+            <div>
+                {{item.name}}
+            </div>
+        </a>
+    </div>
+</div>-->

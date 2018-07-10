@@ -1,0 +1,196 @@
+﻿[
+  {
+    "outputFile": "Content/stylesheets/forms.css",
+    "inputFile": "Content/stylesheets/forms.less",
+    "minify": {
+      "enabled": true
+    },
+    "options": {
+      "sourceMap": false
+    }
+  },
+  {
+    "outputFile": "Content/stylesheets/layout-promo.css",
+    "inputFile": "Content/stylesheets/layout-promo.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/layout.css",
+    "inputFile": "Content/stylesheets/layout.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/site.css",
+    "inputFile": "Content/stylesheets/site.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/activities.css",
+    "inputFile": "Content/stylesheets/common/activities.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/categories.css",
+    "inputFile": "Content/stylesheets/common/categories.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/common.css",
+    "inputFile": "Content/stylesheets/common/common.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/helpers.css",
+    "inputFile": "Content/stylesheets/common/helpers.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/modals.css",
+    "inputFile": "Content/stylesheets/common/modals.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/notifications.css",
+    "inputFile": "Content/stylesheets/common/notifications.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/questionType.css",
+    "inputFile": "Content/stylesheets/common/questionType.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/quizzOverview.css",
+    "inputFile": "Content/stylesheets/common/quizzOverview.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/common/testSettings.css",
+    "inputFile": "Content/stylesheets/common/testSettings.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Assignment/Assignments.css",
+    "inputFile": "Content/stylesheets/controllers/Assignment/Assignments.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/dependents/depActivities.css",
+    "inputFile": "Content/stylesheets/controllers/dependents/depActivities.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Home/Index.css",
+    "inputFile": "Content/stylesheets/controllers/Home/Index.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/layout/siLayout.css",
+    "inputFile": "Content/stylesheets/controllers/layout/siLayout.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Reviewers/viewAsFlash.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Reviewers/viewAsFlash.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Reviewers/ViewReviewer.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Reviewers/ViewReviewer.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/TakeTest/PrepTest.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/TakeTest/PrepTest.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/TakeTest/TakeTest.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/TakeTest/TakeTest.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/TakeTest/ViewResult.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/TakeTest/ViewResult.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Tests/EditTest.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Tests/EditTest.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Tests/EditTestSetting.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Tests/EditTestSetting.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Types/MultiChoice/editMultiChoice.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Types/MultiChoice/editMultiChoice.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Types/MultiChoiceSame/editMultiChoiceSameChoiceGroup.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Types/MultiChoiceSame/editMultiChoiceSameChoiceGroup.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Types/MultiChoiceSame/editMultiChoiceSameQuestion.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Types/MultiChoiceSame/editMultiChoiceSameQuestion.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Types/QandA/editQandA.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Types/QandA/editQandA.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Categories.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Categories.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/Category.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/Category.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/CreateEdit.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/CreateEdit.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/GradeLevel.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/GradeLevel.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/quizzOverview.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/quizzOverview.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzes/ViewQuizz.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzes/ViewQuizz.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/QuizzCommon.css",
+    "inputFile": "Content/stylesheets/controllers/QuizzCommon.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/directives/quizz/test-log-grouped.css",
+    "inputFile": "Content/stylesheets/directives/quizz/test-log-grouped.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Quizzer/Quizzer.css",
+    "inputFile": "Content/stylesheets/controllers/Quizzer/Quizzer.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/QuizzPoints/QuizzPoints.css",
+    "inputFile": "Content/stylesheets/controllers/QuizzPoints/QuizzPoints.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/mobile/layout/account.css",
+    "inputFile": "Content/stylesheets/mobile/layout/account.less"
+  },
+  {
+    "outputFile": "Content/lib/ionic/scss/ionic.css",
+    "inputFile": "Content/lib/ionic/scss/ionic.scss"
+  },
+  {
+    "outputFile": "Content/stylesheets/common-site.css",
+    "inputFile": "Content/stylesheets/common-site.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Relationships/relationships.css",
+    "inputFile": "Content/stylesheets/controllers/Relationships/relationships.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Search/Search.css",
+    "inputFile": "Content/stylesheets/controllers/Search/Search.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Relationships/messages.css",
+    "inputFile": "Content/stylesheets/controllers/Relationships/messages.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/controllers/Classroom/classrooms.css",
+    "inputFile": "Content/stylesheets/controllers/Classroom/classrooms.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/directives/qzEditor.css",
+    "inputFile": "Content/stylesheets/directives/qzEditor.less"
+  },
+  {
+    "outputFile": "Content/stylesheets/utils/ed-css.css",
+    "inputFile": "Content/stylesheets/utils/ed-css.less"
+  }
+]

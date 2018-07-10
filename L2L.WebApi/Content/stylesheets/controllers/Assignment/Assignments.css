@@ -1,0 +1,133 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.assignment-html .qz-content-container .qz-header {
+  overflow: hidden;
+  padding-right: 15px;
+  /*.views {
+                float: right;
+            }*/
+}
+.assignment-html .qz-content-container .qz-header .quizz-name-icon {
+  min-height: 50px;
+}
+.assignment-html .qz-content-container .qz-header form .form-action {
+  float: right;
+}
+.assignment-html .qz-content-container .qz-header form .form-group .message {
+  min-height: 75px;
+  padding: 10px;
+}
+.assignment-html .qz-content-container .qz-header form .form-group .no-due-date {
+  font-weight: 500;
+}
+.assignment-html .qz-content-container .qz-header form .form-group .blank-date {
+  color: #ebebe4;
+  background-color: #ebebe4;
+}
+.assignment-container .assignment-page-action {
+  background-color: orange;
+  padding: 10px;
+  min-height: unset;
+  overflow: hidden;
+}
+.assignment-container .assignment-page-action .views {
+  float: right;
+}
+.assignment-container .row {
+  overflow: hidden;
+}
+.assignment-container .row .col-sm-6,
+.assignment-container .row .col-sm-12 {
+  padding-left: 0;
+}
+.assignment-container .assignment-item {
+  padding: 15px;
+  background-color: white;
+  margin: 10px 0;
+}
+.assignment-container .assignment-item .asssignment-action {
+  float: right;
+}
+.assignment-container .assignment-item .quizz-header {
+  min-height: 30px;
+  margin-bottom: 5px;
+}
+.assignment-container .assignment-item .assignment-detail {
+  margin-left: 60px;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .title {
+  font-weight: 600;
+  font-size: 0.85em;
+  color: #808080;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .detail {
+  font-weight: 700;
+  font-size: 0.85em;
+  color: green;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .target-score-value {
+  font-size: 0.75em;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .dependents {
+  padding-left: 10px;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .dependents .completed {
+  padding-left: 10px;
+  color: #e53d0e;
+  font-size: 0.85em;
+  font-weight: 700;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .dependents .completed .fa-check-square-o {
+  color: green;
+  margin-right: 5px;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .test-setting .control-label {
+  color: #808080;
+  font-weight: 700;
+  font-size: 0.9em;
+}
+.assignment-container .assignment-item .assignment-detail .assignment-detail-item .test-setting .test-setting-summary {
+  margin-top: 0;
+}
+.assignment-container .past-due {
+  border: 2px dashed red;
+}
+.assignment-container .due-today {
+  border: 2px dashed orange;
+}
+.assignment-container .date-past-due span {
+  color: red !important;
+}
+.assignment-container .date-due-today span {
+  color: darkorange !important;
+}
+#given-assignment-html .qz-content-container .qz-header {
+  background-color: orange;
+  padding: 0;
+  min-height: unset;
+}
+#given-assignment-html .message {
+  margin-top: 5px;
+}
+.edit-assignment-group-html .qz-content-container .qz-header .quizz-header {
+  min-height: 60px;
+}
+.edit-assignment-group-html .qz-content-container .qz-header form {
+  margin-left: 60px;
+}
+.edit-assignment-group-html .qz-content-container .qz-header form .dependents .dependent-choice label {
+  background-color: #f1f1f1;
+  width: 100%;
+  padding: 10px;
+  font-size: 0.9em;
+}
+.edit-assignment-group-html .qz-content-container .qz-header form .target-score input[type=number] {
+  margin-left: 20px;
+  width: 80px;
+  text-align: right;
+  display: inline-block;
+}

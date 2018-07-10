@@ -1,0 +1,208 @@
+﻿@import "../../common/common";
+
+#quizz-class-html {
+
+    .create-classroom {
+        .class-image {
+            text-align: left;
+            margin-bottom: 10px;
+            margin-left: 10px;
+        }
+    }
+
+    .request-message {
+        margin-top: 5px;
+    }
+
+    .my-classrooms, .enrolled-classrooms {
+        .qz-item-container {
+            overflow: hidden;
+        }
+    }
+}
+
+#my-quizz-class-html {
+    .qz-header {
+        min-height: 95px;
+        //overflow: hidden;
+    }
+
+    .announcement {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 5px;
+
+        .posted-date {
+        }
+    }
+
+    .edit-quizz-room {
+    }
+}
+
+#quizz-class-lesson-html {
+     .qz-header {
+        min-height: 80px;
+    }
+
+    .topics {
+        .topic {
+            padding-bottom: 1px !important;
+            .avatar-image {
+                font-size: 2.5em;
+            }
+
+            .main-info {
+            }
+        }
+    }
+}
+
+.students-html {
+    .pending-invites {
+        .qz-item-container {
+            min-height: 60px;
+        }
+    }
+
+    .search-result-container {
+        .qz-item-container {
+            min-height: 70px;
+            padding: 10px 15px !important;
+        }
+    }
+}
+
+.classroom-page {
+    .qz-page-title-action {
+        div.quizzer {
+            margin: -5px 0 5px 20px;
+        }
+    }
+
+    .qz-header {
+        .avatar-image {
+            float: left;
+
+            img {
+                width: 75px;
+            }
+        }
+
+        .main-info {
+            margin-left: 85px;
+        }
+    }
+
+    .quizzroom-head-container {
+        margin-bottom: 5px;
+        background-color: rgba(0, 255, 100, 0.2) !important;
+    }
+
+    .find-quizzroom, .find-items {
+        text-align: left;
+
+        .search-result-container {
+            height: 300px;
+            background-color: #f1f1f1;
+            overflow: auto;
+            border: 1px solid #f1f1f1;
+        }
+    }
+
+    .qz-item-container {
+        .avatar-image {
+            float: left;
+
+            img {
+                width: 50px;
+            }
+
+            img.avatar-image-big {
+                width: 100px;
+            }
+        }
+
+        .icon-info {
+            float: right;
+
+            .icon-info-row {
+                display: inline-block;
+            }
+
+            .icon-item {
+                font-size: 1.5em;
+                margin-left: 10px;
+                color: #afafaf;
+                position: relative;
+
+                .badge {
+                    font-size: 0.5em;
+                    position: absolute;
+                    right: -5px;
+                    background-color: @company-theme-color;
+                }
+
+                .badge:hover {
+                    background-color: @company-theme-color2;
+                }
+            }
+        }
+    }
+
+    .main-info {
+        margin-left: 60px;
+
+        .main-info-item {
+        }
+
+        .classroom-name {
+            font-size: 1.1em;
+        }
+
+        .classroom-stats {
+            font-size: 0.85em;
+            color: green;
+        }
+
+        .latest-announcement {
+            font-style: italic;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 5px;
+            color: @company-theme-color2;
+        }
+    }
+
+    @media screen and (max-width: @mobile-lg-max-width) {
+        .icon-info-row {
+            display: block !important;
+        }
+    }
+}
+
+.class-quizzes-html {
+    .qz-assigned-quizz.qz-item-container {
+        padding: 0 !important;
+        margin-bottom: 0;
+    }
+
+    .qz-assigned-quizz.new-item {
+        .quizz-o-overview {
+            background-color: transparent !important;
+            margin-bottom: 0 !important;
+
+            .quizz-o-info {
+                background-color: transparent !important;
+            }
+        }
+        margin-bottom: 7px;
+    }
+
+    .assigned-quizzes {
+        .qz-item-actions {
+            padding: 0 15px 15px 15px;
+            margin-top: -15px !important;
+        }
+    }
+}

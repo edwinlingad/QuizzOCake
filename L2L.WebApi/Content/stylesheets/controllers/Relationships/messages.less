@@ -1,0 +1,236 @@
+﻿@import "../../common/common";
+
+#quizzmate-msg-html {
+    .qz-page-title {
+        h1 {
+            display: inline-block;
+        }
+
+        .qz-page-sub-title {
+            display: inline-block;
+        }
+    }
+}
+
+.qz-connect-message-page {
+    margin: 0 10px;
+
+    .qz-connect-top-action {
+        padding: 10px;
+        background-color: orange;
+
+        .button-actions {
+            text-align: right;
+        }
+
+        .available-quizzmates {
+            margin-top: 5px;
+
+            .available-quizzmates-list {
+                background-color: white;
+                padding: 5px;
+                height: 150px;
+                overflow: auto;
+                margin-top: 5px;
+
+                .quizzmate {
+                    margin-bottom: 2px;
+
+                    label {
+                        background-color: @company-theme-color3;
+                        display: block;
+                        padding: 5px;
+                    }
+
+                    .avatar {
+                        float: none;
+                        display: inline-block;
+                        height: 25px;
+                        width: 25px;
+
+                        img {
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+
+                    .user-name {
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            .available-quizzmates-action {
+                text-align: right;
+                margin-top: 10px;
+
+                button {
+                    width: 60px;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+   
+    .members {
+        margin: 10px;
+        color: @company-theme-color;
+    }
+
+    .qz-connect-messages {
+        background-color: white;
+        min-height: 100px;
+        margin-bottom: 15px;
+        padding: 10px;
+        max-height: 600px;
+        overflow: auto;
+
+        .message-item {
+            margin-bottom: 5px;
+
+            .avatar {
+                float: left;
+                width: 30px;
+                height: 30px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            .message-common {
+                padding: 5px 10px;
+                font-size: 0.85em;
+                /*-ms-word-break: break-all;
+                word-break: break-all;*/
+            }
+
+            .message-others {
+                margin-left: 40px;
+
+                .user {
+                }
+
+                .actual-message {
+                    .message-common;
+                    background-color: #dbdbdb;
+                    margin-right: 50px;
+                }
+            }
+
+            .message-self {
+                .actual-message {
+                    .message-common;
+                    color: #ffffff;
+                    background-color: @company-theme-color2;
+                    margin-left: 100px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        #message-end {
+            background-color: red;
+        }
+    }
+
+    .qz-connect-actions {
+        background-color: white;
+        padding: 10px;
+
+        .new-message-container {
+            font-size: 0.85em;
+
+            textarea {
+                padding: 10px;
+                //background-color: #f6f6f6;
+            }
+        }
+
+        .send-button-container {
+            margin-top: 5px;
+            text-align: right;
+
+            button {
+                width: 75px;
+            }
+        }
+    }
+}
+
+.message-common-html {
+    .qz-page-action {
+        padding: 10px;
+        margin-bottom: 5px;
+        background-color: orange;
+
+        .new-group {
+            background-color: white;
+            padding: 10px;
+            margin-top: 5px;
+
+            .form-group {
+                text-align: left;
+
+                label {
+                    font-size: 0.85em;
+                }
+            }
+
+            button {
+                margin-left: 5px;
+                width: 60px;
+            }
+        }
+    }
+
+    .msg-threads {
+        .msg-thread-item {
+            background-color: white;
+            overflow: hidden;
+            padding: 10px;
+            margin-bottom: 5px;
+
+            .group-name {
+                font-size: 0.85em;
+                font-weight: 600;
+                color: @company-theme-color2;
+                text-align: right;
+            }
+
+            .last-msg-container {
+                .avatar {
+                    width: 50px;
+                    height: 50px;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+
+                .message-container {
+                    margin-left: 60px;
+
+                    .sender {
+                    }
+
+                    .actual-message {
+                        font-size: 0.85em;
+                        /*-ms-word-break: break-all;
+                        word-break: break-all;*/
+                    }
+
+                    .posted-date {
+                    }
+                }
+            }
+
+            .no-message {
+                text-align: center;
+                color: @company-theme-color;
+            }
+        }
+    }
+}

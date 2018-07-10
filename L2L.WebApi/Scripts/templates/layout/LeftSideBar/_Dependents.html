@@ -1,0 +1,19 @@
+﻿<ul>
+    <li class="item item-divider">
+        quizzling
+    </li>
+    <li ng-if="user.isGuest" class="item item-icon-left item-add link-ng">
+        <i class="fa fa-plus icon"></i>
+        <div class="item-text">Add Quizzling Account</div>
+    </li>
+    <li ng-if="layout.leftSideBar.dependents.length <= 5 && !user.isGuest" class="item item-icon-left item-add link-container ">
+        <a  class="link-elem" ng-click="openSignUpDependentModal()"></a>
+        <i class="fa fa-plus icon"></i>
+        <div class="item-text">Add Quizzling Account</div>
+    </li>
+    <li ng-repeat="item in layout.leftSideBar.dependents" class="item link-container item-icon-left">
+        <a  ui-sref="si.depActivities({ depId: item.userId})" class="link-elem"></a>
+        <i class="fa fa-child icon"></i>
+        <div class="item-text">{{item.dependentName}}</div>
+    </li>
+</ul>

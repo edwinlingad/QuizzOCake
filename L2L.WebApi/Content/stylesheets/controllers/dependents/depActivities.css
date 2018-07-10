@@ -1,0 +1,60 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+#dep-activities-html .dep-activities-common {
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 15px;
+}
+#dep-activities-html .settings {
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 15px;
+}
+#dep-activities-html .settings .heading-title {
+  font-weight: 600;
+  color: #f07a18;
+}
+#dep-activities-html .settings .heading-sub-title {
+  font-size: 0.9em;
+}
+#dep-activities-html .settings .dep-permissions {
+  margin-bottom: 20px;
+}
+#dep-activities-html .settings .group-name {
+  color: #aaaaaa;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-bottom: 1px solid #aaaaaa;
+  padding: 5px 0;
+  margin-left: 20px;
+}
+#dep-activities-html .settings ul {
+  list-style: none;
+}
+#dep-activities-html .settings ul li {
+  font-size: 0.9em;
+  border-bottom: 1px solid #aaaaaa;
+  padding: 5px 0;
+}
+#dep-activities-html .settings ul li label {
+  font-weight: 100;
+  font-size: 1em;
+}
+#dep-activities-html .settings ul li label input {
+  margin-right: 10px;
+}
+#dep-activities-html .settings .dep-settings-action {
+  float: right;
+}
+@media screen and (max-width: 479px) {
+  #dep-activities-html .settings .group-name {
+    margin-left: 0;
+  }
+  #dep-activities-html .settings ul {
+    padding-left: 15px;
+  }
+}

@@ -1,0 +1,174 @@
+﻿<div id="about-html">
+    <div class="header-container">
+        <div class="main-container">
+            <div class="row">
+                <div class="company-logo">
+                    <ng-include src="'scripts/templates/common/_CompanyName.html'"></ng-include>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#left-side-bar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-container about-content">
+        <div id="left-side-bar" class="lsb-common collapse navbar-collapse">
+            <ul class="nav navbar-nav items">
+                <li class="item item-divider link-container" ng-click="gotoHash('help-overview')">
+                    QuizzOCake Overview
+                </li>
+                <li class="item item-divider link-container" ng-click="gotoHash('help-guide')">
+                    Guide to QuizzOCake Speak
+                </li>
+                <li class="item item-divider link-container" ng-click="gotoHash('help-safety')">
+                    Safety and Security
+                </li>
+                <li class="item item-divider link-container" ng-click="gotoHash('help-how-to')">
+                    How Tos
+                </li>
+                <li class="item item-divider link-container" ng-click="gotoHash('help-question')">
+                    Got Questions?
+                </li>
+            </ul>
+        </div>
+        <section class="main-content">
+            <div ui-view class="ng-anim-fade">
+                <h1>Help and Support</h1>
+
+                <h2 id="help-overview">QuizzOCake Overview</h2>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/j4DgfQNr-pc"></iframe>
+                </div>
+
+                <h2 id="help-guide">Guide to QuizzOCake Speak</h2>
+                <div>
+                    <p>
+                        <strong>Quizz</strong> - It's a study set comprising of test questions, flashcards and reviewer notes.
+                        Users may search for available Quizzes or make their own. Parents may assign these
+                        to their Quizzlings and Educators may put suggested Quizzes in the Lessons they make
+                        in their Quizzrooms
+                    </p>
+                    <p>
+                        <strong>Quizzer</strong> - QuizzOCake community member
+                    </p>
+                    <p>
+                        <strong>Quizzling</strong> - Quizzers who are below 16 years old. Only parents with their own QuizzOCake
+                        account may set up accounts for Quizzlings
+                    </p>
+                    <p>
+                        <strong>Quizzmate</strong> - A Quizzer you know and trust. You or the Quizzer accepted the invitation
+                        sent out to be each other's Quizzmates
+                    </p>
+                    <p>
+                        <strong>QuizzOCake</strong> - A online learning tool for learners , parents and educators that provides
+                        a platform for studying, teaching, knowledge sharing and collaboration
+                    </p>
+                    <p>
+                        <strong>Quizzroom</strong> - An online classroom with a teacher/moderator and enrolled learners.
+                        A Quizzroom may have lessons and content (video, text, images, Quizzes) related
+                        to the lessons. It also allows discussions among the Quizzroom members.
+                    </p>
+                </div>
+
+                <h2 id="help-safety">Safety and Security</h2>
+                <div>
+                    <p>
+                        QuizzOCake promotes knowledge sharing and while that means exposure to public users,
+                        we don't compromise on safety and security.
+                    </p>
+                    <p>QuizzOCake safety features include the following:</p>
+                    <ul>
+                        <li>Quizzlings (Learners below 16 years old) need parents to sign them up for an account.</li>
+                        <!--<li>
+                            Parents have the option to prevent their Quizzling from accepting Quizzmate requests.
+                            <span class="coming-soon">coming soon</span>
+                        </li>
+                        <li>
+                            Parents have the option to prevent their Quizzling from seeing and taking Quizzes unless the parents assigned them.
+                            <span class="coming-soon">coming soon</span>
+                        </li>-->
+                        <li>
+                            Parents have the option to receive notifications when:
+                            <ul>
+                                <li>A Quizzling creates a new Quizz</li>
+                                <li>A Quizzling makes a Quizz available to the public.</li>
+                                <li>A Quizz created by a Quizzling receives a comment</li>
+                                <li>A Quizzling posts a comment</li>
+                                <li>A Quizzling's posted comment is flagged as inappropriate</li>
+                                <li>A Quizzling's question is flagged ( incorrect answer, inappropriate, etc)</li>
+                                <li>A Quizzling sends a message</li>
+                                <li>A Quizzling receives a message</li>
+                                <li>A Quizzling receives a Quizzmate request</li>
+                                <li>A Quizzling accepts a Quizzmate request</li>
+
+                            </ul>
+                        </li>
+                        <li>Users can flag inappropriate quizzes and comments and QuizzOCake moderators can remove or hide flagged  content as necessary.</li>
+                        <li>QuizzOCake moderators have the option to suspend or expel troublemakers.</li>
+                        <li>Quizzroom moderators or teachers can choose to accept or drop learners from their Quizzroom.</li>
+                        <li>Private conversations with Quizzlings are not possible. Parents can view all conversation threads that include their Quizzlings.</li>
+                        <li>Parents can see all activities in the Quizzrooms their children are enrolled in.</li>
+                    </ul>
+                </div>
+
+                <h2 id="help-how-to">How Tos</h2>
+                <button data-toggle="collapse" data-target="#how-to-sign-up" class="btn btn-link how-to-btn">
+                    How to sign up for a new account
+                </button>
+                <div class="collapse" id="how-to-sign-up">
+                    <p>
+                        *Note: Only users 16 years old and above are allowed to set up an account.
+                        If setting up an account for a user below 16, the parent or legal guardian must first sign
+                        up using these steps and then set up a Quizzling account for the user after signing in.
+                        See <a href="">How to create a Quizzling account</a>.
+                    </p>
+                    <ol>
+                        <li>Go to quizzocake.com.</li>
+                        <li>If signed in as a guest, select "sign in ->" in the header. Proceed to step 4.</li>
+                        <li>
+                            If signed in with a different account, press the username in the header,
+                            select "-> Log Out" from the drop box, confirm by pressing "Yes" and proceed to step 4.
+                            For devices with small screens, select the icon with the 3 bars in the upper left part
+                            of the screen. The red "Log Out" button is at the bottom of the menu.
+                        </li>
+                        <li>
+                            If not signed in, press the orange "Sign Up" button at the top part of the home page.
+                        </li>
+                        <li>
+                            Select sign up method: using Facebook account, Google account or regular sign up
+                            (blue "SIGN UP" button at the bottom of the dialog box)
+                        </li>
+                        <li>By signing up or signing in, you should have read and agreed with the "Terms and Conditions".</li>
+                        <li>
+                            If you selected Facebook or Google sign up methods, you will be asked to input your
+                            account information.
+                        </li>
+                        <li>
+                            If you selected regular sign up method, input your first name, last name, username, password,
+                            valid email address, and birth date. Read the "Terms and Conditions" and tick the
+                            "I agree with the Terms and Conditions" checkbox. Press "Sign Up".
+                        </li>
+                        <li>
+                            Verify the account by checking the mail sent by the website to the email address used during
+                            account sign up. Follow the steps in the said email.
+                        </li>
+                    </ol>
+                </div>
+
+                <h2 id="help-question">Got Questions?</h2>
+                <p>
+                    If you didn't find what you were looking for, send your questions to
+                    <a href="mailto:support@quizzocake.com?Subject=Question" target="_top">
+                        support@quizzocake.com
+                    </a>. We'll be happy to help you.
+                </p>
+                <br />
+            </div>
+        </section>
+
+    </div>
+</div>
+<ng-include src="'scripts/templates/layout/_Footer.html'"></ng-include>

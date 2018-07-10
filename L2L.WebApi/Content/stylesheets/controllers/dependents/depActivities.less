@@ -1,0 +1,70 @@
+﻿@import "../../common/common";
+
+#dep-activities-html {
+    .dep-activities-common {
+        margin-bottom: 20px;
+        background-color: white;
+        padding: 15px;
+    }
+
+    .settings {
+        .dep-activities-common;
+
+        .heading-title {
+            font-weight: 600;
+            color: @company-theme-color2;
+        }
+
+        .heading-sub-title {
+            font-size: 0.9em;
+        }
+
+        .dep-permissions {
+            margin-bottom: 20px;
+        }
+
+        .group-name {
+            color: #aaaaaa;
+            font-size: 0.9em;
+            font-weight: bold;
+            border-bottom: 1px solid #aaaaaa;
+            padding: 5px 0;
+            margin-left: 20px;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                font-size: 0.9em;
+                border-bottom: 1px solid #aaaaaa;
+                padding: 5px 0;
+
+                label {
+                    font-weight: 100;
+                    font-size: 1em;
+
+                    input {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        .dep-settings-action {
+            float: right;
+        }
+    }
+
+    @media screen and (max-width: @mobile-mid-max-width) {
+        .settings {
+            .group-name {
+                margin-left: 0;
+            }
+
+            ul {
+                padding-left: 15px;
+            }
+        }
+    }
+}

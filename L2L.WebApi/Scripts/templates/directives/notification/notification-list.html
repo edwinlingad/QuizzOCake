@@ -1,0 +1,587 @@
+﻿<div class="notifications">
+    <div ng-repeat="item in list" class="notification-item link-container" ng-class="{'new-notification': item.isNew === true, 'flagged-notification': item.notificationType == 5 || item.notificationType == 11 || item.notificationType == 12}">
+        <!--Quizz Like-->
+        <div ng-if="item.notificationType === 0">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    Your <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    is liked by
+                    <span class="quizzer">{{item.fromUserName}}</span>
+                    <span ng-if="item.newCount > 1 && item.isNewOrigValue == true">
+                        and <span class="quizzer">{{item.newCount-1 | otherQuizzers }}</span>
+                    </span>
+                    <span ng-if="item.count > 1 && item.isNewOrigValue == false">
+                        and <span class="quizzer other-quizzer">{{item.count-1 | otherQuizzers }}</span>
+                    </span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Quizz Comment-->
+        <div ng-if="item.notificationType === 1">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    Your <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    received a comment from
+                    <span class="quizzer">{{item.fromUserName}}</span>
+                    <span ng-if="item.newCount > 1 && item.isNewOrigValue == true">
+                        and <span class="quizzer">{{item.newCount-1 | otherQuizzers }}</span>
+                    </span>
+                    <span ng-if="item.count > 1 && item.isNewOrigValue == false">
+                        and <span class="quizzer other-quizzer">{{item.count-1 | otherQuizzers }}</span>
+                    </span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Quizz Take-->
+        <div ng-if="item.notificationType === 2">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    Your test on <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    was taken by
+                    <span class="quizzer">{{item.fromUserName}}</span>
+                    <span ng-if="item.newCount > 1 && item.isNewOrigValue == true">
+                        and <span class="quizzer">{{item.newCount-1 | otherQuizzers }}</span>
+                    </span>
+                    <span ng-if="item.count > 1 && item.isNewOrigValue == false">
+                        and <span class="quizzer other-quizzer">{{item.count-1 | otherQuizzers }}</span>
+                    </span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Question Comment ################### -->
+        <div ng-if="item.notificationType === 3">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    <span class="quizzer">{{item.fromUserName}}</span>
+                    <span ng-if="item.count > 1"> and {{item.count-1 | otherQuizzers }}</span>
+                    took the test that you made on <span class="quizz">{{item.quizzTitle}}</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Quizz Comment Like-->
+        <div ng-if="item.notificationType === 4">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    Your comment <span class="quizz-comment">"{{item.quizzCommentValue}}"</span>
+                    on the <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>,
+                    is liked by <span class="quizzer">{{item.fromUserName}}</span>
+                    <span ng-if="item.newCount > 1 && item.isNewOrigValue == true">
+                        and <span class="quizzer">{{item.newCount-1 | otherQuizzers }}</span>
+                    </span>
+                    <span ng-if="item.count > 1 && item.isNewOrigValue == false">
+                        and <span class="quizzer other-quizzer">{{item.count-1 | otherQuizzers }}</span>
+                    </span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Quizz Comment Flag-->
+        <div ng-if="item.notificationType === 5">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    Your comment <span class="quizz-comment">"{{item.quizzCommentValue}}"</span>
+                    on the <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    is flagged as inappropriate by
+                    <span ng-if="item.isNewOrigValue == true" class="quizzer other-quizzer">
+                        {{item.newCount}}
+                        <span ng-if="item.newCount > 1"> Quizzers </span>
+                        <span ng-if="item.newCount == 1"> Quizzer</span>
+                    </span>
+                    <span ng-if="item.isNewOrigValue == false" class="quizzer other-quizzer">
+                        {{item.count}}
+                        <span ng-if="item.count > 1"> Quizzers</span>
+                        <span ng-if="item.count == 1"> Quizzer</span>
+                    </span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizz Submit-->
+        <div ng-if="item.notificationType === 6">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    Your <span class="quizzling">Quizzling</span>,
+                    <span class="quizzer">{{item.fromUserName}}</span>,
+                    created a new <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizz Live -->
+        <div ng-if="item.notificationType === 7">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    Your <span class="quizzling">Quizzling</span>,
+                    <span class="quizzer">{{item.fromUserName}}</span>,
+                    made the <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    available to the public
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizz Receive Comment -->
+        <div ng-if="item.notificationType === 8">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>
+                    <span class="quizzer">{{item.quizzOwnerUserName}}'s</span>
+                    <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    received a comment from <span class="quizzer">{{item.fromUserName}}</span>
+                    <span ng-if="item.newCount > 1 && item.isNewOrigValue == true">
+                        and <span class="quizzer">{{item.newCount-1 | otherQuizzers }}</span>
+                    </span>
+                    <span ng-if="item.count > 1 && item.isNewOrigValue == false">
+                        and <span class="quizzer other-quizzer">{{item.count-1 | otherQuizzers }}</span>
+                    </span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Post Comment -->
+        <div ng-if="item.notificationType === 9">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    Your <span class="quizzling">Quizzling</span>,
+                    <span class="quizzer">{{item.fromUserName}}</span>,
+                    posted a comment on the <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Post Comment Modified -->
+        <div ng-if="item.notificationType === 10">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    Your <span class="quizzling">Quizzling</span>,
+                    <span class="quizzer">{{item.fromUserName}}</span>, modified his/her comment posted on the
+                    <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span> to
+                    <span class="quizz-comment">"{{item.quizzCommentValue}}"</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Post Comment Flagged -->
+        <div ng-if="item.notificationType === 11">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>
+                    <span class="quizzer">{{item.quizzCommentOwnerUserName}}'s </span>
+                    comment <span class="quizz-comment">"{{item.quizzCommentValue}}"</span>
+                    on the <span class="quizz">Quizz</span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    was flagged as inappropriate by
+                    <span ng-if="item.isNewOrigValue == true" class="quizzer other-quizzer">
+                        {{item.newCount}}
+                        <span ng-if="item.newCount > 1"> Quizzers</span>
+                        <span ng-if="item.newCount == 1"> Quizzer</span>
+                    </span>
+                    <span ng-if="item.isNewOrigValue == false" class="quizzer other-quizzer">
+                        {{item.count}}
+                        <span ng-if="item.count > 1"> Quizzers</span>
+                        <span ng-if="item.count == 1"> Quizzer</span>
+                    </span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Question Flagged - ##################### -->
+        <div ng-if="item.notificationType === 12">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="dependent">{{item.fromUserFullName}}</span>
+                    posted a comment on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Message Sent - ##################### -->
+        <div ng-if="item.notificationType === 13">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="dependent">{{item.fromUserFullName}}</span>
+                    posted a comment on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Message Received - ##################### -->
+        <div ng-if="item.notificationType === 14">
+            <a class="container" ng-click="openQuizz(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="dependent">{{item.fromUserFullName}}</span>
+                    posted a comment on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizzmate Request -->
+        <div ng-if="item.notificationType === 15">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.fromQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>&nbsp;
+                    <span class="dependent">{{item.toQuizzmateUserName}}</span>
+                    received a <span class="quizzmate">Quizzmate</span> request from
+                    <span class="quizzer">{{item.fromQuizzmateUserName}} ( {{item.fromQuizzmateUserFullName}} )</span>
+                    &nbsp;with a message of&nbsp;<span class="quizzmate-request-message"> "{{item.quizzmateRequestMessage}}" </span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizzmate Request Accept -->
+        <div ng-if="item.notificationType === 16">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.fromQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>&nbsp;
+                    <span class="dependent">{{item.toQuizzmateUserName}}</span>
+                    accepted the <span class="quizzmate">Quizzmate</span> request from
+                    <span class="quizzer">{{item.fromQuizzmateUserName}} ( {{item.fromQuizzmateUserFullName }})</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Assignment Assigned -->
+        <div ng-if="item.notificationType === 17">
+            <a class="container" ng-click="openAssignment(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    <span class="quizzer">{{item.fromUserName}}</span>
+                    gave you an assignment on the <span class="quizz">Quizz </span>titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Assignment Finished -->
+        <div ng-if="item.notificationType === 18">
+            <a class="container" ng-click="openAssignmentGroup(item)"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    <span class="quizzer">{{item.fromUserName}}</span>
+                    finished the assignment you gave on the <span class="quizz">Quizz </span> titled
+                    <span class="quizz-title">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Quizzmate Accept -->
+        <div ng-if="item.notificationType === 19">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.toQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    <span class="quizzer">Quizzer</span>
+                    <span class="quizzer">{{item.toQuizzmateUserName}} ( {{item.toQuizzmateUserFullName }})</span>
+                    accepted your <span class="quizzmate">Quizzmate </span> request
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Quizzling Accept ############### -->
+        <div ng-if="item.notificationType === 20">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.toQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="message">
+                    <span class="quizzer">Quizzer</span>
+                    <span class="quizzer">{{item.toQuizzmateUserName}} </span>
+                    accepted your <span class="quizzmate">Quizzmate </span> request
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizzmate Request Rejected -->
+        <div ng-if="item.notificationType === 21">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.fromQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>&nbsp;
+                    <span class="dependent">{{item.toQuizzmateUserName}}</span>
+                    rejected the <span class="quizzmate">Quizzmate</span> request from
+                    <span class="quizzer">{{item.fromQuizzmateUserName}} ( {{item.fromQuizzmateUserFullName }})</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent UnQuizzmate -->
+        <div ng-if="item.notificationType === 22">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.toUnQuizzmateId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>&nbsp;
+                    <span class="dependent">{{item.toQuizzmateUserName}}</span>
+                    removed the <span class="quizzmate">Quizzmate</span> relationship with
+                    <span class="quizzer">{{item.toUnQuizzmateUserName}} ( {{item.toUnQUizzmateUserFullName }})</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizzmate Send Request -->
+        <div ng-if="item.notificationType === 23">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.toQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>&nbsp;
+                    <span class="dependent">{{item.fromQuizzmateUserName}}</span>
+                    sent a <span class="quizzmate">Quizzmate</span> request to
+                    <span class="quizzer">{{item.toQuizzmateUserName}}</span>
+                    &nbsp;with a message of&nbsp;<span class="quizzmate-request-message"> "{{item.quizzmateRequestMessage}}" </span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizzmate Send Request Accept -->
+        <div ng-if="item.notificationType === 24">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.toQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>&nbsp;
+                    <span class="dependent">{{item.fromQuizzmateUserName}}'s</span>
+                    <span class="quizzmate">Quizzmate</span> request is accepted by
+                    <span class="quizzer">{{item.toQuizzmateUserName}} ( {{item.toQuizzmateUserFullName }})</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Dependent Quizzmate Send Request Cancel -->
+        <div ng-if="item.notificationType === 25">
+            <a class="container" ui-sref="si.quizzer({quizzerId: item.toQuizzmateUserId, view: 0 })"></a>
+            <div class="notification-body">
+                <div class="icon">
+                    <notification-type-icon notification="item"></notification-type-icon>
+                </div>
+                <div class="dependent-icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <div class="message">
+                    <span class="quizzling">Quizzling</span>&nbsp;
+                    <span class="dependent">{{item.fromQuizzmateUserName}}</span>
+                    cancelled the <span class="quizzmate">Quizzmate</span> request sent to 
+                    <span class="quizzer">{{item.toQuizzmateUserName}}</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

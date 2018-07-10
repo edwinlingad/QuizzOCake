@@ -1,0 +1,26 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container finish-test-html ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <div class="unfinished-questions">
+                <div class="title">
+                    Unanswered Questions
+                </div>
+                <div class="button-container">
+                    <div class="qz-no-item" ng-if="unfinishedQuestions.length === 0">
+                        No unanswered question.
+                    </div>
+                    <div ng-repeat="item in unfinishedQuestions track by $index" class="buttons">
+                        <button type="button" class="btn btn-default btn-xs" ng-click="goToQueston(item)">{{item.idx +1}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="finish-test">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="finishTestBtn.click()">
+                    Submit Test and View Result
+                    <item-load-wait item="finishTestBtn" class="inline-block"></item-load-wait>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="all-msg-html" class="qz-page-container ng-anim-fade message-common-html" ng-show="page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <!--<button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>
+                Messages
+                <i class="fa fa-question-circle" ng-click="helpControl.open()"></i>
+            </h1>
+        </div>
+
+        <div class="alert alert-success help-alert ng-anim-fade" role="alert" ng-if="user.isGuest || helpControl.vars.isOpen">
+            <button type="button" class="close" ng-click="helpControl.close()"><span aria-hidden="true">&times;</span></button>
+            <div class="message">
+                <span class="quizzer">Quizzers</span> can chat or send messages to their fellow <span class="quizzmate">Quizzmates</span> 
+                <div>
+                    <ul>
+                        <li>
+                            <strong>New Group Message</strong> - chat with multiple <span class="quizzmate">Quizzmates</span> or invited <span class="quizzer">Quizzers</span>
+                        </li>
+                        <li>
+                            <strong>New Message</strong> - send private message to a <span class="quizzmate">Quizzmate</span> (Note: Quizzlings' messages are never private and are viewable by their parents.)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <div class="qz-page-action">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="newGroupMsgCtrl.open()" ng-disabled="user.isGuest">
+                    New Group Message
+                </button>
+                <button type="button" class="btn btn-danger btn-xs" disabled>
+                    New Message
+                </button>
+
+                <div class="new-group qz-page-action-slide ng-anim-slide-down" ng-show="newGroupMsgCtrl.vars.isOpen">
+                    <div class="form-group">
+                        <label class="control-label">Group Name: </label>
+                        <input type="text" class="form-control" ng-disabled="newGroupMsgCtrl.vars.disabled" ng-change="newGroupMsgCtrl.changed()" ng-model="newGroupMsgCtrl.vars.groupName"/>
+                    </div>
+                    
+                    <div>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="newGroupMsgCtrl.create()" ng-disabled="newGroupMsgCtrl.vars.disabled || !newGroupMsgCtrl.vars.isCreateEnabled">
+                            Create
+                            <save-wait item="newGroupMsgCtrl.vars">
+                            </save-wait>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="newGroupMsgCtrl.close()" ng-disabled="newGroupMsgCtrl.vars.disabled">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <messages dep-id="0"></messages>
+        </div>
+    </div>
+</div>

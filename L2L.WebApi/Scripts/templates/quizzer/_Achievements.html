@@ -1,0 +1,39 @@
+﻿<div class="quizzer-rewards">
+    <div class="daily-rewards reward-group">
+        <div class="reward-group-title">
+            Daily Rewards: {{quizzer.dailyPoints}} total
+        </div>
+        <div class="reward-item">
+            <div class="reward-title">Special Reward: </div>
+            <div class="reward-value">
+                {{quizzer.dailyPointsAllIntList[0]}} <img class="point-image" src="/Content/images/Icons/points-1.0.png" />
+                <span class="reward-extra">( {{quizzer.dailySpecialPointsQuizzIntList.length}}/{{quizzer.totalDailyRewardItems}} )</span>
+            </div>
+        </div>
+        <div class="reward-item">
+            <div class="reward-title">Quizz Reward (Self): </div>
+            <div class="reward-value">
+                {{quizzer.dailyPointsAllIntList[1]}} <img class="point-image" src="/Content/images/Icons/points-1.0.png" />
+                <span class="reward-extra">( {{quizzer.dailyNormalPointsQuizzSelfIntList.length}}/{{quizzer.totalDailyRewardItems}} )</span>
+            </div>
+        </div>
+        <div class="reward-item">
+            <div class="reward-title">Quizz Reward (Others): </div>
+            <div class="reward-value">
+                {{quizzer.dailyPointsAllIntList[2]}} <img class="point-image" src="/Content/images/Icons/points-1.0.png" />
+                <span class="reward-extra">( {{quizzer.dailyNormalPointsQuizzOthersIntList.length}}/{{quizzer.totalDailyRewardItems}} )</span>
+            </div>
+        </div>
+    </div>
+    <div class="achievements reward-group">
+        <div class="reward-group-title">
+            Badges: 
+        </div>
+        <div class="badge-item reward-item" ng-repeat="item in badgeDescriptions" ng-class="{'achieved': quizzer.badgeIntList[$index] == 1}">
+            <div class="reward-title">{{item}}</div>
+            <div class="reward-value" ng-if="quizzer.badgeIntList[$index] == 1">
+                <img class="badge-image" src="/Content/images/Icons/achievement-1.0.png" />
+            </div>
+        </div>
+    </div>
+</div>

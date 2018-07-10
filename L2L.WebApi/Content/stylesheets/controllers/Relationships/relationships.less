@@ -1,0 +1,93 @@
+﻿@import "../../common/common";
+
+#relationship-notification-html {
+
+    .nothing-found {
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 0.9em;
+    }
+
+    .r-notification-container, .p-notification-container {
+        margin-bottom: 10px;
+    }
+
+    .r-notification {
+        background-color: white;
+        padding: 10px 15px;
+        font-size: 0.9em;
+        overflow: hidden;
+        margin-bottom: 5px;
+
+        .icon {
+            margin-top: 5px;
+            display: inline-block;
+            float: left;
+            color: #920000;
+            font-size: 1.3em;
+            text-shadow: 1px 1px 2px gray;
+        }
+
+        .r-body {
+            margin-top: 5px;
+            margin-left: 25px;
+
+            .r-message {
+            }
+
+            .posted-date {
+                margin-top: 5px;
+                font-size: 0.8em;
+            }
+
+            .r-action {
+                margin-top: 5px;
+                float: right;
+
+                button {
+                    margin-left: 5px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+#quizzmates-html {
+    .quizzmate-info {
+        background-color: white;
+        padding: 10px 15px;
+        margin-bottom: 5px;
+        min-height: 70px;
+
+        .quizzmate-detail-top {
+
+            .quizzmate-detail-mid {
+                font-size: 0.9em;
+                margin-left: 60px;
+
+                .name {
+                    font-size: 1.2em;
+                }
+
+                .full-name {
+                    color: @company-theme-color2;
+                    font-weight: 500;
+                }
+
+                .quizzmate-detail-brag {
+                    color: @company-theme-color;
+                    font-size: 0.85em;
+
+                    .quizzer-total-points {
+                    }
+                }
+            }
+        }
+
+        .quizzmate-detail-right {
+            float: right;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+﻿<!--<ion-content overflow-scroll="false" padding="true" id="mobile-sign-in" class="mobile-account" style='background-image:url("Content/images/background/students.jpg")'>-->
+<ion-content overflow-scroll="false" padding="true" id="mobile-sign-in" class="mobile-account">
+    <form name="form" class="account-container" ng-submit="signIn()">
+        <div class="message" ng-if="message.length != 0">{{message}}</div>
+        <div class="card">
+            <div class="item item-text-wrap">
+                <div class="company-name-logo">
+                    <span class="company-quizz hvr-buzz" style="vertical-align:inherit;">Quizz</span><span class="company-o">O</span><span class="company-cake">Cake</span>
+                </div>
+                <div class="company-name-sub">
+                    Getting good grades is a piece-of-cake!
+                </div>
+            </div>
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Username</span>
+                <input type="text" placeholder="Username" ng-model="user.userName" ng-disabled="page.signingIn" focus="true" required>
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="Password" ng-model="user.password" ng-disabled="page.signingIn" required>
+            </label>
+            <label class="item item-input item-floating-label test-label-fix">
+                <span class="input-label">Test</span>
+                <input type="text" placeholder="Test">
+            </label>
+
+        </div>
+        <button type="submit" class="button button-block button-assertive">
+            Sign In
+        </button>
+
+        <button ng-click="signUp()" class="as-link hover-underline create-account">
+            Create Account
+        </button>
+        <button ng-click="signUp()" class="as-link hover-underline create-account">
+            Forgot Username or Password?
+        </button>
+    </form>
+</ion-content>
+

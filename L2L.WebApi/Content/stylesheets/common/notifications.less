@@ -1,0 +1,82 @@
+﻿@import "common";
+.notifications {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    .notification-item {
+        padding: 10px;
+        border-bottom: 1px solid gray;
+        font-size: 0.85em;
+        margin: 0 5px;
+        color: #686868;
+
+        .quizzer {
+            font-size: 1.1em;
+        }
+
+        .quizz-title {
+            font-size: 1.1em;
+        }
+
+        .link-inside {
+            z-index: 1000;
+        }
+
+        .dependent-icon {
+            float: right;
+            color: red;
+            margin-top: 5px;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px gray;
+        }
+
+        .notification-body {
+            //display: flex;
+            .message {
+                margin-left: 25px;
+                margin-right: 25px;
+
+                .other-quizzer {
+                    font-size: 1em;
+                }
+
+                .posted-date {
+                    margin-top: 5px;
+                }
+            }
+
+            .icon {
+                display: inline-block;
+                margin-top: 5px;
+                float: left;
+                color: #920000;
+                font-size: 1.3em;
+                text-shadow: 1px 1px 2px gray;
+            }
+        }
+    }
+}
+
+/*.notification-item.new-notification {
+    background-color: #f1f1f1;
+}*/
+
+.all-notifications-html {
+    .notification-item {
+        background-color: white;
+        margin: 5px 0;
+        padding: 15px;
+        border-bottom: none;
+    }
+
+    /*.notification-item.new-notification {
+        background-color: #d6ffd8;
+        border: 1px dashed black;
+    }*/
+}
+
+.flagged-notification {
+    border: 2px dashed red !important;
+}

@@ -1,0 +1,134 @@
+﻿<div ng-show="page.isReady" class="flash-card-html classroom-page">
+    <div class="qz-page-action">
+
+        <button type="button" class="btn btn-danger btn-xs" ng-click="startCardControl.startRandom()" ng-disabled="!startCardControl.vars.isReady || !startCardControl.randomBtn.isReady" ng-if="flashCardControl.vars.numQuestionCards+flashCards.length > 0">
+            Study Cards (Random)
+            <item-load-wait item="startCardControl.randomBtn" class="inline-block"></item-load-wait>
+        </button>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="startCardControl.startOrdered()" ng-disabled="!startCardControl.vars.isReady || !startCardControl.orderedBtn.isReady" ng-if="flashCardControl.vars.numQuestionCards+flashCards.length > 0">
+            Study Cards (Ordered)
+            <item-load-wait item="startCardControl.orderedBtn" class="inline-block"></item-load-wait>
+        </button>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="flashCardControl.open()" ng-disabled="flashCardControl.vars.disableAll" ng-if="quizzOverview.isOwner">
+            New Card
+        </button>
+
+        <div class="qz-page-action-slide ng-anim-slide-down" ng-show="flashCardControl.vars.isOpen">
+            <div ng-if="flashCardControl.vars.isOpenIf">
+                <qz-editor id="create-new" editor-control="editorControl" no-title="1" no-actions="1" no-video="1"></qz-editor>
+                <div class="form-group">
+                    <label class="control-label">Answer </label>
+                    <input type="text" class="form-control" ng-model="flashCardControl.vars.answer" />
+                </div>
+                <div class="editor-action">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="flashCardControl.create()" ng-disabled="!(editorControl.isModified && editorControl.textContent !== undefined && flashCardControl.vars.answer.length !== 0)">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="flashCardControl.close()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topics">
+
+        <div ng-repeat="item in flashCards" class="qz-item-container topic">
+            <div class="qz-item-container-summary" ng-hide="item.isOpen || item.isViewOpen">
+                <div class="btn-group item-action-right qz-modify-item-ellipsis ng-anim-fade" ng-if="quizzOverview.isOwner" ng-hide="flashCardControl.vars.disableAll">
+                    <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a ng-click="flashCardControl.edit(item)">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit Card</span>
+                            </a>
+                        </li>
+                        <li class="delete-menu-item">
+                            <a ng-click="flashCardControl.remove($index, item)">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete Card</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="item-action-right ng-anim-fade view-icon-container" ng-hide="item.isOpen || item.isViewOpen || flashCardControl.vars.disableAll">
+                    <button type="button" class="btn btn-default btn-sm view-icon" ng-click="viewControl.open(item)">
+                        <i class="fa fa-file-text-o"></i>
+                        <i class="fa fa-search-plus"></i>
+                    </button>
+                </div>
+
+                <div class="ng-anim-slide-down qz-item-content">
+                    <div class="qz-item-number">
+                        {{$index + 1}} .
+                    </div>
+                    <div class="avatar-image">
+                        <div ng-if="item.addContentType === 0">
+                            <i class="fa fa-font"></i>
+                        </div>
+                        <div ng-if="item.addContentType === 1">
+                            <i class="fa fa-picture-o"></i>
+                        </div>
+                        <div ng-if="item.addContentType === 2">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <div ng-if="item.addContentType === 4">
+                            <i class="fa fa-youtube"></i>
+                        </div>
+                    </div>
+                    <div class="main-info">
+                        <div class="tinymce-formatted" ng-bind-html="item.textContent | trustAsHtml"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ng-anim-slide-down qz-item-edit" ng-show="item.isOpen">
+                <div ng-if="item.isOpenIf">
+                    <qz-editor id="edit-{{$index}}" editor-control="editorControl" item="item" no-title="1" no-actions="1" no-video="1"></qz-editor>
+
+                    <div class="form-group">
+                        <label class="control-label">Answer </label>
+                        <input type="text" class="form-control" ng-model="flashCardControl.vars.answer" ng-change="flashCardControl.changed()" />
+                    </div>
+                    <div class="editor-action">
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="flashCardControl.editSave(item)" ng-disabled="!flashCardControl.editSaveEnabled()">
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="flashCardControl.editCancel(item)">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ng-anim-slide-down card-view" ng-show="item.isViewOpen">
+                <div ng-if="item.isViewOpenIf">
+                    <div>
+                        <span class="title">
+                            Card:
+                        </span>
+                    </div>
+                    <qz-editor-view id="view-{{$index}}" editor-control="editorControl" no-title="1" no-actions="1"></qz-editor-view>
+                    <div>
+                        <span class="title">
+                            Answer:
+                        </span>
+                        <div class="answer">
+                            {{item.answer}}
+                        </div>
+                    </div>
+                    <div class="editor-action">
+                        <button type="button" class="btn btn-default btn-xs" ng-click="viewControl.close(item)">
+                            close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

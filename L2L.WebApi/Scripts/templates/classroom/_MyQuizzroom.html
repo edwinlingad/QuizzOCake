@@ -1,0 +1,50 @@
+﻿<div ng-repeat="item in myQuizClasses" class="my-classroom qz-item-container ng-anim-fade">
+    <div class="avatar-image">
+        <img ng-src="{{item.imageUrl}}" />
+    </div>
+
+    <div class="icon-info">
+        <div class="icon-info-row">
+
+            <a ui-sref="si.myQuizzClass({qcId: item.id, depId: depId, view: 1})" class="icon-item" uib-tooltip="announcements" tooltip-placement="left">
+                <i class="fa fa-bullhorn"></i>
+            </a>
+            <a ui-sref="si.myQuizzClass({qcId: item.id, depId: depId, view: 3})" class="icon-item" uib-tooltip="lessons" tooltip-placement="left">
+                <i class="fa fa-book"></i>
+                <span class="badge" ng-if="item.numNewLessonItemCount != 0">{{item.numNewLessonItemCount}}</span>
+            </a>
+        </div>
+        <div class="icon-info-row">
+            <a ui-sref="si.myQuizzClass({qcId: item.id, depId: depId, view: 4})" class="icon-item" uib-tooltip="discussions" tooltip-placement="left">
+                <i class="fa fa-comments"></i>
+                <span class="badge" ng-if="item.member.newClassCommentCount != 0">{{item.member.newClassCommentCount}}</span>
+            </a>
+            <a ui-sref="si.myQuizzClass({qcId: item.id, depId: depId, view: 6})" class="icon-item" uib-tooltip="quizzes" tooltip-placement="left">
+                <i class="fa fa-file-text-o"></i>
+                <span class="badge" ng-if="item.member.newClassQuizzCount != 0">{{item.member.newClassQuizzCount}}</span>
+            </a>
+        </div>
+        <div class="icon-info-row">
+            <a ui-sref="si.myQuizzClass({qcId: item.id, depId: depId, view: 5})" class="icon-item" uib-tooltip="learners" tooltip-placement="left">
+                <i class="fa fa-user-plus"></i>
+                <span class="badge" ng-if="item.numStudentJoinRequests != 0 || item.numNewInviteAccepts !== 0">{{item.numStudentJoinRequests + item.numNewInviteAccepts}}</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-info">
+        <div class="classroom-name">
+            <a ui-sref="si.myQuizzClass({qcId: item.id, depId: depId, view: 1})">
+                {{item.className}}
+            </a>
+        </div>
+        <div class="classroom-description">
+            {{item.description}}
+        </div>
+        <div class="classroom-stats">
+            <a ui-sref="si.myQuizzClass({qcId: item.id, depId: depId, view: 5})" class="icon-item classroom-stat">
+                {{item.numStudents - 1}} Learners
+            </a>
+        </div>
+    </div>
+</div>

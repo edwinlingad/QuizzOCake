@@ -1,0 +1,16 @@
+﻿<div class="qz-image-editor-html">
+    <div class="image">
+        <button class="btn btn-default btn-xs clear-btn" ng-click="imageClick()">
+            <i class="fa fa-edit"></i>
+        </button>
+        <div class="image-container" ng-if="!imageControl.isImageChanged">
+            <img ng-src="{{imageControl.imageUrl}}"  />
+        </div>
+        <div class="image-canvas-container" ng-show="imageControl.isImageChanged">
+            <canvas class="qz-image-editor"></canvas>
+        </div>
+        <div class="editor-action">
+            <input type="file" class="qz-image-editor btn btn-default" ng-model="imageControl.imageContent" onchange="angular.element(this).scope().imageChanged()" />
+        </div>
+    </div>
+</div>

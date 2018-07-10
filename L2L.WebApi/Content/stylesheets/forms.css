@@ -1,0 +1,40 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.input-radio-group input[type=radio] {
+  display: none;
+  margin: 10px;
+}
+.input-radio-group .input-radio-choice {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.input-radio-group input[type=radio] + label {
+  margin: -2px;
+  padding: 5px;
+  background-color: #c4c9b3;
+  text-align: left;
+  font-size: 0.85em;
+  width: 100%;
+}
+.input-radio-group input[type=radio] + label .input-radio-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.input-radio-group input[type=radio] + label .fa {
+  opacity: 0;
+}
+.input-radio-group input[type=radio]:checked + label {
+  position: relative;
+  background-image: none;
+  background-color: #5bc0de;
+  color: white;
+}
+.input-radio-group input[type=radio]:checked + label .fa {
+  opacity: 1;
+}

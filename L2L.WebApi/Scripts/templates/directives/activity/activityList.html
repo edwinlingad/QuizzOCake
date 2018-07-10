@@ -1,0 +1,288 @@
+﻿<div class="activity">
+    <div ng-repeat="item in activities" class="activity-item link-container">
+        <!--QuizzLike-->
+        <div ng-if="item.activityType == 0">
+            <!--<a class="container" ng-click="openActivity(item)"></a>-->
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    liked the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail ng-anim-slide-down" ng-if="item.isDetailsShown">
+                <!--<div class="activity-detail" ng-if="item.isDetailsShown">-->
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzCreate-->
+        <div ng-if="item.activityType == 1">
+            <!--<a class="container" ng-click="openActivity(item)"></a>-->
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    created a new <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzLive-->
+        <div ng-if="item.activityType == 2">
+            <!--<a class="container" ng-click="openActivity(item)"></a>-->
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    made the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+                    available to the public
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzTake-->
+        <div ng-if="item.activityType == 3">
+            <!--<a class="container" ng-click="openActivity(item)"></a>-->
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    took the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+                    <span ng-if="isDependent === 'true'">
+                        and got a score of <span class="score as-link" ng-click="openTestLog(item)">{{(item.score/item.total) | toPercent}}</span>
+                    </span>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzCommentCreate-->
+        <div ng-if="item.activityType == 4">
+            <!--<a class="container" ng-click="openActivity(item)"></a>-->
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    posted a comment on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzCommentModify-->
+        <div ng-if="item.activityType == 5">
+            <a class="container" ng-click="openActivity(item)"></a>
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    modified the comment posted on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzCommentLike-->
+        <div ng-if="item.activityType == 6">
+            <a class="container" ng-click="openActivity(item)"></a>
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    liked the comment <span class="quizz-comment">{{item.quizzComment}}</span>
+                    posted on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+
+        </div>
+        <!--QuizzCommentFlag-->
+        <div ng-if="item.activityType == 7">
+            <a class="container" ng-click="openActivity(item)"></a>
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    flagged the comment <span class="quizz-comment">{{item.quizzComment}}</span>
+                    posted on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzRecivedComment-->
+        <div ng-if="item.activityType == 8">
+            <a class="container" ng-click="openActivity(item)"></a>
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}} </span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}} </span>
+                    <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+                    received a comment
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuizzCommentFlagged-->
+        <div ng-if="item.activityType == 9">
+            <a class="container" ng-click="openActivity(item)"></a>
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+                    <span class="quizzer" ng-hide="isDependent === 'true'">{{item.userName}}'s</span>
+                    <span class="dependent" ng-if="isDependent === 'true'">{{item.fullName}}'s </span>
+                    comment <span class="quizz-comment">{{item.quizzComment}}</span>
+                    posted on the <span class="quizz">Quizz </span>
+                    <span class="quizz-title as-link" ng-click="openQuizz(item)">{{item.quizzTitle}}</span>
+                    was flagged as inappropriate
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+                <div class="show-activity-detail">
+                    <i class="fa" ng-click="showDetails(item)" ng-class="{'fa-chevron-circle-down': !item.isDetailsShown, 'fa-chevron-circle-up': item.isDetailsShown}"></i>
+                </div>
+            </div>
+
+            <div class="activity-detail" ng-if="item.isDetailsShown">
+                <quizz-overview quizz-id="{{item.quizzId}}"></quizz-overview>
+            </div>
+        </div>
+        <!--QuestionFlagged-->
+        <div ng-if="item.activityType == 10">
+            <a class="container" ng-click="openActivity(item)"></a>
+            <div class="activity-body">
+                <div class="avatar">
+
+                </div>
+                <div class="message">
+
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

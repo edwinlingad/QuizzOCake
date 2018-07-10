@@ -1,0 +1,104 @@
+﻿<nav id="top-panel" ng-if="user.isReady">
+    <div class="main-container">
+
+        <div class="top-panel-actions-container">
+            <div id="global-search">
+                <input type="text" class="form-control" placeholder="Search..." ng-model="globalSearchControl.searchText" ng-change="globalSearchControl.search()">
+            </div>
+
+            <div class="top-panel-right">
+                <div class="top-panel-user-container" ng-if="!user.isGuest">
+                    <div class="top-panel-user">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm clear-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{user.userName}}
+                                <i class="fa fa-cogs"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a ng-click="userControl.openProfile()">
+                                        <i class="fa fa-cog"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                                <li ng-if="!user.isThirdPartyLogin">
+                                    <a ng-click="userControl.openChangePasswordModal()" ng-hide="user.isGuest">
+                                        <i class="fa fa-key"></i>
+                                        <span>Change Password</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ng-click="userControl.logOut()">
+                                        <i class="fa fa-sign-out"></i>
+                                        <span>Log Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="top-panel-user-container-sign-in" ng-if="user.isGuest">
+                    <div class="top-panel-user-sign-in">
+                        <span ng-click="signInUpControl.openLoginModal(false)" class="as-link account-action">
+                            sign in
+                            <i class="fa fa-sign-in"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="top-panel-icons">
+                    <a ui-sref="si.quizzClassAll" class="top-panel-icon clear-btn">
+                        <i id="quizzroom-icon" class="fa fa-graduation-cap"></i>
+                        <span class="badge" ng-show="topPanelContent.newQuizzClassNotificationCount > 0">{{topPanelContent.newQuizzClassNotificationCount}}</span>
+                        <span class="top-panel-icon-label">Quizzrooms</span>
+                    </a>
+
+                    <a ui-sref="si.relationshipNotifications" class="top-panel-icon clear-btn" ng-click="friendRequestBtn.click()">
+                        <i id="friends-icon" class="fa fa-users"></i>
+                        <span class="badge" ng-show="friendRequestBtn.newCount > 0">{{friendRequestBtn.newCount}}</span>
+                        <span class="top-panel-icon-label">Quizzmates</span>
+                    </a>
+
+                    <a ui-sref="si.allMessage" class="top-panel-icon clear-btn" ng-click="messageBtn.click()">
+                        <i id="messages-icon" class="fa fa-envelope"></i>
+                        <span class="badge" ng-show="messageBtn.newCount > 0">{{messageBtn.newCount}}</span>
+                        <span class="top-panel-icon-label">Messages</span>
+                    </a>
+
+                    <a ui-sref="si.allNotifications" class="top-panel-icon clear-btn" ng-click="notificationBtn.click()">
+                        <i id="notifications-icon" class="fa fa-bell"></i>
+                        <span class="badge" ng-show="notificationBtn.newCount > 0">{{notificationBtn.newCount}}</span>
+                        <span class="top-panel-icon-label">Notifications</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="company-logo logo" ng-click="clickLogo()">
+            <ng-include src="'scripts/templates/common/_CompanyName.html'"></ng-include>
+        </div>
+         
+        <button type="button" class="top-panel-btn btn btn-default clear-btn show-at-mobile" ng-click="mainMenuControl.open()">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<script type="text/ng-template" id="notification.html">
+    <div class="pop-up-notification">
+        <header>
+            Notifications
+        </header>
+        <div class="nothing-found" ng-show="notificationItem.isReady == true && notificationBtn.list.length == 0">
+            No Notifications Found
+        </div>
+        <notification-list list="notificationBtn.list"></notification-list>
+        <item-load-wait item="notificationItem"></item-load-wait>
+        <div class="link-container footer">
+            <a class="container" ui-sref="si.allNotifications"></a>
+            show all
+        </div>
+    </div>
+</script>
+

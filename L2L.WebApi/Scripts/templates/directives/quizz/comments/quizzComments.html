@@ -1,0 +1,102 @@
+﻿<div class="qz-comments">
+    <div>
+        <div class="comment-info">
+            <div class="comment-count">
+                {{comments.length}} of {{quizzOverview.numComments}}
+            </div>
+            <div class="load-more ng-anim-fade" ng-click="quizzCommentControl.loadMore()" ng-hide="comments.length >= quizzOverview.numComments || isSimple || quizzCommentControl.vars.disableAll">
+                load more previous <i class="fa fa-spin fa-spinner" ng-show="quizzCommentControl.isLoading"></i>
+            </div>
+        </div>
+
+        <div class="comments-list">
+            <div ng-repeat="item in comments track by $index" class="comment ng-anim-fade" >
+                <div class="btn-group item-action-right qz-modify-item-ellipsis comment-item-ellipsis ng-anim-fade" ng-if="quizzOverview.isOwner || item.canEdit" ng-hide="quizzCommentControl.vars.disableAll">
+                    <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="quizzCommentControl.vars.disableAll">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li ng-if="item.canEdit">
+                            <a ng-click="quizzCommentControl.edit(item)">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit</span>
+                            </a>
+                        </li>
+                        <li class="delete-menu-item">
+                            <a ng-click="quizzCommentControl.remove($index, item)">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-show="!item.isOpen" class="ng-anim-slide-down ">
+                    <a ui-sref="si.quizzer({quizzerId: item.authorId, view: 0})" class="avatar-container">
+                        <img ng-src="{{item.authorProfilePixUrl}}" class="avatar" />
+                    </a>
+                    <div class="comment-text">
+                        <span class="quizzer">
+                            <a ui-sref="si.quizzer({quizzerId: item.authorId, view: 0})">
+                                {{item.authorName}}
+                                <child-icon age="{{item.age}}"></child-icon>
+                            </a>
+                        </span>
+                        <span class="posted-date">
+                            {{item.postedDate | formatDate}}
+                        </span>
+                        <div class="actual-comment">
+                            {{item.comment}}
+                        </div>
+                    </div>
+                    <div class="actions ng-anim-fade" ng-if="user.id !== 0 && !item.isAuthor" ng-hide="quizzCommentControl.vars.disableAll">
+                        <button class="clear-btn flag-comment" ng-click="quizzCommentControl.report(item)" ng-disabled="!item.flag.isReady || item.isAuthor" ng-class="{'no-click': item.isAuthor, 'is-flagged': item.isFlagged}" tooltip-placement="left" uib-tooltip="report as offensive">
+                            report
+                            <i class="fa fa-exclamation-circle"></i>
+                            <item-load-wait-with-space item="item.flag"></item-load-wait-with-space>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ng-anim-slide-down edit-comment" ng-show="item.isOpen">
+                    <a ui-sref="si.quizzer({quizzerId: item.authorId, view: 0})" class="avatar-container">
+                        <img ng-src="{{item.authorProfilePixUrl}}" class="avatar" />
+                    </a>
+                    <div class="comment-text">
+                        <textarea ng-disabled="quizzCommentControl.vars.disabled" ng-change="quizzCommentControl.changed()" ng-model="quizzCommentControl.vars.message" />
+                    </div>
+                    <div class="comment-submit-button">
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="quizzCommentControl.editSave(item)" ng-disabled="quizzCommentControl.vars.disabled || !quizzCommentControl.vars.isSaveEnabled">
+                            Save
+                            <save-wait item="quizzCommentControl.vars">
+                            </save-wait>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="quizzCommentControl.editCancel(item)" ng-disabled="quizzCommentControl.vars.disabled">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-hide="quizzCommentControl.vars.disableAll" class="ng-anim-slide-down new-comment" ng-if="user.id !== 0">
+        <div class="comment">
+            <img ng-src="{{user.profile.profileImageUrl}}" class="avatar" />
+            <div class="comment-text">
+                <textarea ng-disabled="quizzCommentControl.vars.disabled || clasCommentCtrl.vars.disableAll" ng-change="quizzCommentControl.changed()" ng-model="quizzCommentControl.vars.message" />
+            </div>
+            <div class="comment-submit-button">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="quizzCommentControl.create()" ng-disabled="quizzCommentControl.vars.disabled || !quizzCommentControl.vars.isSaveEnabled || clasCommentCtrl.vars.disableAll">
+                    Post
+                    <save-wait item="quizzCommentControl.vars">
+                    </save-wait>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="show-more" ng-if="isSimple && comments.length < quizzOverview.numComments">
+        <a ui-sref="si.quizzDetail({quizzId: quizz.id, view: 0})">show more</a>
+    </div>
+</div>

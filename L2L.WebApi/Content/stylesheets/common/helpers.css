@@ -1,0 +1,112 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.as-link {
+  cursor: pointer;
+  background-color: inherit;
+  box-shadow: none;
+  border: none;
+}
+.as-link-button {
+  background-color: inherit;
+  border: none;
+}
+.hover-underline:hover {
+  text-decoration: underline;
+}
+.link-container {
+  position: relative;
+}
+.link-container a.container,
+.link-container a.link-elem {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  /* No underlines on the link */
+  background-color: #FFF;
+  /* Fix to make div clickable in IE */
+  opacity: 0;
+  /* Fix to make div clickable in IE */
+  filter: alpha(opacity=1);
+  /* Fix to make div clickable in IE */
+}
+.link-container a.container.no-click {
+  cursor: default;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.inline-block {
+  display: inline-block;
+}
+.tab-container {
+  margin: 5px 5px 10px 10px;
+}
+.invisible {
+  visibility: hidden;
+}
+.clear-btn {
+  background-color: inherit;
+  padding: 0;
+  border: none;
+  color: #aaaaaa;
+}
+.clear-btn:focus {
+  outline-color: white;
+}
+.clear-btn:hover {
+  background-color: inherit;
+  padding: 0;
+  border: none;
+  color: #e53d0e;
+}
+.clear-btn[disabled]:hover {
+  color: #aaaaaa;
+}
+.clear-btn.is-liked {
+  color: green;
+  font-weight: bold;
+}
+.clear-btn.is-lived {
+  color: red;
+  font-weight: bold;
+}
+@media screen and (min-width: 750px) {
+  .hide-at-mobile {
+    display: block;
+  }
+  .show-at-mobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 750px) {
+  .hide-at-mobile {
+    display: none;
+  }
+  .show-at-mobile {
+    display: block;
+  }
+}
+@media screen and (min-width: 480px) {
+  .show-at-mobile-sm {
+    display: none;
+  }
+}
+@media screen and (max-width: 479px) {
+  .hide-at-mobile-sm {
+    display: none;
+  }
+  .show-at-mobile-sm {
+    display: block;
+  }
+}

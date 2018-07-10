@@ -1,0 +1,18 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container quizz-overviews-html ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <!--<button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>{{page.title}}</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+
+        <div class="qz-body">
+            <quizz-overviews search-params="searchParams"></quizz-overviews>
+        </div>
+    </div>
+</div>

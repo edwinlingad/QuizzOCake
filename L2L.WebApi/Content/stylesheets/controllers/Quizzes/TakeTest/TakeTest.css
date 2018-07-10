@@ -1,0 +1,151 @@
+﻿.take-test-html .qz-body .quizz-area {
+  margin-right: 120px;
+  min-height: 300px;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: white;
+  /*.clock-canvas {
+                
+               height: 200px;
+            }*/
+}
+.take-test-html .qz-body .quizz-area .clock-container {
+  text-align: center;
+}
+.take-test-html .qz-body .quizz-area .question-label,
+.take-test-html .qz-body .quizz-area .answer-label {
+  font-size: 0.9em;
+  color: #aaaaaa;
+  margin-bottom: 10px;
+}
+.take-test-html .qz-body .quizz-area .mark-question {
+  float: right;
+  position: relative;
+  top: -10px;
+  right: -10px;
+}
+.take-test-html .qz-body .quizz-area .mark-question .is-marked {
+  color: white;
+  background-color: #008000;
+}
+.take-test-html .qz-body .quizz-area .question {
+  font-size: 1.2em;
+  margin-left: 20px;
+}
+.take-test-html .qz-body .quizz-area .col-letter {
+  float: left;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.take-test-html .qz-body .quizz-area .form-group {
+  margin-left: 20px;
+}
+.take-test-html .qz-body .quizz-area .form-group .choice-selected {
+  color: white;
+  background-color: #5fa3c7;
+}
+.take-test-html .qz-body .quizz-area .form-group label {
+  display: inline-block;
+  width: 100%;
+  background-color: #eaeaea;
+  padding: 10px;
+  margin: -5px 0;
+}
+.take-test-html .qz-body .quizz-area .form-group label input {
+  display: block;
+  float: left;
+}
+.take-test-html .qz-body .quizz-area .form-group label .choice-text {
+  display: block;
+  margin-left: 20px;
+}
+.take-test-html .qz-body .quizz-info-area {
+  background-color: white;
+  /*height: 200px;*/
+  padding: 20px 10px;
+  font-weight: 700;
+  font-size: 0.85em;
+  margin-top: 10px;
+}
+.take-test-html .qz-body .submit-btn {
+  float: right;
+}
+.take-test-html .qz-body .unfinished-questions {
+  margin: 50px 15px;
+}
+.take-test-html .qz-body .unfinished-questions .title {
+  font-weight: 700;
+  font-size: 0.9em;
+  color: gray;
+}
+.take-test-html .qz-body .unfinished-questions .button-container {
+  margin: 7px;
+  min-height: 25px;
+}
+.take-test-html .qz-body .unfinished-questions .button-container .buttons {
+  display: inline-block;
+  margin-left: 5px;
+}
+.take-test-html .qz-body .finish-test {
+  float: right;
+}
+.take-test-html .quizz-action {
+  margin-top: 15px;
+  background-color: orange;
+  padding: 10px;
+  overflow: hidden;
+}
+.take-test-html .quizz-action .marked-questions .marked-question-title {
+  font-weight: 700;
+  font-size: 0.9em;
+  color: gray;
+}
+.take-test-html .quizz-action .marked-questions .furthest-question {
+  float: right;
+}
+.take-test-html .quizz-action .marked-questions .marked-questions-container {
+  margin: 7px;
+  min-height: 25px;
+}
+.take-test-html .quizz-action .marked-questions .marked-questions-container .marked-question-btn {
+  display: inline-block;
+  margin-left: 5px;
+}
+.take-test-html .quizz-action .marked-questions .marked-questions-container .qz-no-item {
+  margin: 0 15px;
+}
+.take-test-html .quizz-action .test-action {
+  float: right;
+}
+.take-test-html .quizz-navigation {
+  margin-top: 15px;
+  background-color: orange;
+  padding: 10px;
+}
+.take-test-html .quizz-navigation .navigation {
+  font-size: 2.1em;
+  margin-top: -5px;
+}
+.take-test-html .quizz-navigation .go-to-prev {
+  font-size: 2.1em;
+  margin-top: -5px;
+  float: left;
+}
+.take-test-html .quizz-navigation .go-to-next {
+  font-size: 2.1em;
+  margin-top: -5px;
+  float: right;
+}
+.take-test-html .quizz-navigation .question-counter {
+  text-align: center;
+}
+.take-test-html .quizz-navigation .question-counter .counter {
+  cursor: default;
+  font-weight: 700;
+}
+.take-test-html .quizz-navigation .question-counter .go-to-question input[type='text'] {
+  width: 35px;
+  height: 20px;
+  text-align: right;
+  padding-right: 5px;
+}

@@ -1,0 +1,16 @@
+﻿<div class="input-radio-group">
+    <div class="input-radio-choice">
+        <input name="{{name}}" type="radio" id="{{name}}-true" ng-value="true" ng-model="model" ng-change="changed()" />
+        <label for="{{name}}-true" style="position:relative">
+            <i class="fa fa-check"></i>
+            <span class="input-radio-main-text">{{labelTrue}}</span>
+        </label>
+    </div>
+    <div class="input-radio-choice">
+        <input name="{{name}}" type="radio" id="{{name}}-false" ng-value="false" ng-model="model" ng-change="changed()" />
+        <label for="{{name}}-false" style="position:relative">
+            <i class="fa fa-check"></i>
+            <span class="input-radio-main-text">{{labelFalse}}</span>
+        </label>
+    </div>
+</div>

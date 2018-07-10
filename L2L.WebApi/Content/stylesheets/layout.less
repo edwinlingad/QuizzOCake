@@ -1,0 +1,166 @@
+﻿@import "common/common";
+@logo-color: #FF6666;
+@logo-container-height: 60px;
+
+.company-logo {
+    background-color: white;
+    width: 200px;
+    height: @logo-container-height;
+    text-align: center;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bolder;
+    line-height: @logo-container-height;
+
+    a, a:visited, a:hover, a:active {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .company-quizz {
+        color: @logo-color;
+    }
+
+    .company-inator {
+    }
+}
+
+#footer {
+    height: @footer-height;
+    background-color: #343434;
+    margin: 0 0 -20px 0;
+    color: white;
+    padding-top: 20px;
+
+    .main-container {
+        background-color: #343434;
+    }
+
+    .footer-col {
+        padding: 0 20px;
+        height: 100%;
+        /*background-color: #343434;*/
+    }
+
+    .footer-col-mid {
+        text-align: right;
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .company-logo {
+        color: black;
+    }
+
+    .company-description {
+        margin-top: 20px;
+        font-weight: 500;
+    }
+
+    .total-questions-taken {
+        margin-top: 20px;
+        .actual-count {
+            color: @company-theme-color2;
+        }
+
+        .questions-taken {
+            color: @company-theme-color3;
+        }
+    }
+
+    .feedback {
+        margin-top: 20px;
+        font-size: 0.9em;
+        font-weight: 100 !important;
+        color: @company-theme-color2;
+    }
+
+    .company-share {
+        margin-top: 20px;
+
+        .share-icon {
+            font-size: 1.5em;
+            font-weight: 100 !important;
+            padding-bottom: 10px;
+        }
+
+        a {
+            margin-left: 10px;
+        }
+    }
+
+    .founder {
+        font-size: 0.85em;
+        color: red;
+        margin-top: 10px;
+    }
+
+    .legal {
+        margin-top: 5px;
+
+        a {
+            color: @company-theme-color;
+        }
+    }
+
+    .external-thanks {
+        margin-top: 20px;
+        font-size: 0.85em;
+    }
+}
+
+.like-page {
+    /*margin-top: 70px;*/
+    a, a:visited {
+        color: white;
+        position: relative;
+        display: inline-block;
+
+        span.share-icon-bg {
+            position: absolute;
+            display: inline-block;
+            /*background-color: red;*/
+            width: 18px;
+            height: 22px;
+            top: 4px;
+            left: 3px;
+            z-index: 1;
+        }
+
+        i.fa {
+            z-index: 100;
+            position: relative;
+        }
+    }
+
+    a:hover {
+        span.share-icon-bg {
+            background-color: white;
+        }
+    }
+
+    a.facebook-icon:hover {
+        color: #4862a3;
+    }
+
+    a.twitter-icon:hover {
+        color: #00aced;
+    }
+
+    a.gplus-icon:hover {
+        color: #d74633;
+    }
+
+    .like-text {
+        color: gray;
+        margin-top: 7px;
+    }
+}
+
+.developer {
+    margin-top: 10px;
+    color: #5077d3;
+
+    span {
+        color: white;
+    }
+}

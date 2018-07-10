@@ -1,0 +1,58 @@
+﻿<div class="class-quizzes-html">
+    <div class="qz-page-action" ng-if="quizzClassLesson.isTeacher">
+        <button type="button" class="btn btn-danger btn-xs" ng-click="findQuizzesControl.open()" ng-disabled="findQuizzesControl.vars.isOpen || findQuizzesControl.vars.isJoinOpen">
+            Find Quizzes
+        </button>
+
+        <div class="find-quizzroom qz-page-action-slide ng-anim-slide-down" ng-show="findQuizzesControl.vars.isOpen">
+            <div class="form-group">
+                <input class="form-control" ng-model="findQuizzesControl.vars.searchString" ng-change="findQuizzesControl.search()" placeholder="Search Quizz..." />
+            </div>
+            <div class="search-result-container">
+                <div ng-if="findQuizzesControl.quizzes.length === 0" class="qz-no-item">
+                    No Quizzes found.
+                </div>
+                <div ng-repeat="item in findQuizzesControl.quizzes" class="qz-item-container ng-anim-fade" ng-if="findQuizzesControl.classes.length !== 0">
+                    <div class="item-action-right">
+                        <button class="btn btn-danger btn-xs" ng-click="findQuizzesControl.submitRequest(item)">
+                            Add to Lesson
+                        </button>
+                    </div>
+                    <div>
+                        <div class="avatar-image">
+                            <add-category-icon-dyn category="item.quizzCategory" add-class="quizz-category-icon category-icon-big"></add-category-icon-dyn>
+                        </div>
+                        <div class="main-info">
+                            <a ui-sref="si.quizzDetail({quizzId: item.quizzId, view: 3})" class="quizz-title qz-title main-info-item">
+                                {{item.quizzName}}
+                            </a>
+                            <div class="qz-description main-info-item">
+                                {{model.quizzDescription}}
+                            </div>
+                            <div class="quizz-owner main-info-item">
+                                by: <a ui-sref="si.quizzer({quizzerId: item.ownerId })" class="quizzer">{{item.quizzAuthor}}</a>
+                                <child-icon age="{{item.age}}"></child-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qz-item-actions">
+                <button type="button" class="btn btn-default btn-xs" ng-click="findQuizzesControl.close()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="assigned-quizzes">
+        <div ng-if="assignedQuizzes.length === 0" class="qz-no-item">
+            No Suggested Quizzes.
+        </div>
+        <div ng-repeat="item in assignedQuizzes" class="qz-item-container qz-assigned-quizz ng-anim-fade" ng-class="{'new-item' : item.isNew}">
+            <quizz-overview model="item"></quizz-overview>
+            <div class="qz-item-actions" ng-if="quizzClassLesson.isTeacher">
+                <button type="button" class="btn btn-default btn-xs" ng-click="remove($index, item)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>

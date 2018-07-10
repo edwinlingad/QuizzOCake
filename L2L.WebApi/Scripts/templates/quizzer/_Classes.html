@@ -1,0 +1,88 @@
+﻿<load-wait page="page"></load-wait>
+<div class="classroom-page" ng-show="page.isReady">
+    <div ng-if="classes.length === 0">
+        No Quizzrooms.
+    </div>
+    <div ng-repeat="item in classes" class="qz-item-container">
+        <div class="item-action-right" ng-if="item.isMember">
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="lessonsCtrl.vars.disableAll">
+                    <i class="fa fa-ellipsis-h"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="delete-menu-item">
+                        <a ng-click="classesControl.leaveClass($index, item)">
+                            <i class="fa fa-trash"></i>
+                            <span>Drop Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="avatar-image">
+                <img ng-src="{{item.imageUrl}}"/>
+            </div>
+            <div class="main-info">
+                <div class="classroom-name" ng-if="!item.isTeacher">
+                    <a ui-sref="si.quizzClass({qcId: item.id, view: 0})" ng-if="!item.isMember">
+                        {{item.className}}
+                    </a>
+                    <a ui-sref="si.enrolledQuizzClass({qcId: item.id, view: 1})" ng-if="item.isMember">
+                        {{item.className}}
+                    </a>
+                </div>
+                <div class="classroom-name" ng-if="item.isTeacher">
+                    <a ui-sref="si.myQuizzClass({qcId: item.id, view: 0})">
+                        {{item.className}}
+                    </a>
+                </div>
+                <div class="classroom-description">
+                    {{item.description}}
+                </div>
+                <div class="classroom-stats">
+                    <div class="classroom-stat">
+                        Tags: {{item.tags}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="qz-item-actions" ng-if="!item.isTeacher">
+            <div ng-if="item.isRequestSent && !item.isMember">
+                <button class="btn btn-default btn-xs" ng-click="classesControl.cancelRequest(item)" ng-disabled="classesControl.vars.disableAll || item.disabled">
+                    Cancel Request
+                    <save-wait-is-ready item="item.cancelRequestItem">
+                    </save-wait-is-ready>
+                </button>
+            </div>
+            <div ng-if="!item.isMember && !item.isRequestSent">
+                <button class="btn btn-danger btn-xs" ng-click="classesControl.open(item)" ng-disabled="classesControl.vars.disableAll || item.disabled || user.isGuest">
+                    Request to Join
+                </button>
+            </div>
+            <!--<div ng-if="item.isMember">
+                <button class="btn btn-danger btn-xs" ng-click="classesControl.leaveClass($index, item)" ng-disabled="classesControl.vars.disableAll || item.disabled">
+                    Drop Out
+                    <save-wait item="item">
+                    </save-wait>
+                </button>
+            </div>-->
+        </div>
+        <div class="item-action-open ng-anim-slide-down" ng-show="item.isOpen">
+            <div class="form-group">
+                <label class="control-label">Message: </label>
+                <textarea class="form-control" ng-disabled="item.disabled" ng-change="classesControl.changed()" ng-model="classesControl.vars.message" maxlength="512" />
+            </div>
+            <div class="qz-item-actions">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="classesControl.submitRequest(item)" ng-disabled="item.disabled || !classesControl.vars.isSaveEnabled">
+                    Send Request
+                    <save-wait item="item">
+                    </save-wait>
+                </button>
+                <button type="button" class="btn btn-default btn-xs" ng-click="classesControl.close(item)">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

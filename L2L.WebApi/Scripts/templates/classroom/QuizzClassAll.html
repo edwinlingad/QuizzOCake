@@ -1,0 +1,267 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="quizz-class-html" class="qz-page-container classroom-page  ng-anim-fade" ng-show="page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <!--<button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>
+                Quizzrooms
+                <i class="fa fa-question-circle" ng-click="helpControl.open()"></i>
+            </h1>
+        </div>
+
+        <div class="alert alert-success help-alert ng-anim-fade" role="alert" ng-if="user.isGuest || helpControl.vars.isOpen">
+            <button type="button" class="close" ng-click="helpControl.close()"><span aria-hidden="true">&times;</span></button>
+            <span class="message">
+               <strong>Quizzrooms</strong> are virtual classroom that supplement or could substitute for the traditional method of teaching.
+                The teacher, course materials and practice <span class="quizz">Quizz</span> sets are more accessible to the learners and it also facilitates discussion among the Quizzroom members.
+            </span>
+        </div>
+
+    </div>
+
+    <div class="qz-content-container">
+
+        <div class="qz-body">
+            <div class="pending-requests" ng-if="pendingClasses.length !== 0">
+                <div class="qz-title">
+                    Pending Requests
+                </div>
+                <div class="qz-no-item" ng-if="pendingClasses.length === 0">
+                    No Pending Requests.
+                </div>
+                <div ng-repeat="item in pendingClasses" class="qz-item-container ng-anim-fade">
+                    <div class="item-action-right">
+                        <button class="btn btn-default btn-xs" ng-click="pendingClassesControl.cancelRequest($index, item)" ng-disabled="classesControl.vars.disableAll || item.disabled">
+                            Cancel Request
+                            <save-wait item="item">
+                            </save-wait>
+                        </button>
+                    </div>
+
+                    <div>
+                        <div class="avatar-image">
+                            <img ng-src="{{item.imageUrl}}" />
+                        </div>
+                        <div class="main-info">
+                            <a ui-sref="si.quizzClass({qcId: item.id, view: 0})" class="classroom-name">
+                                {{item.className}}
+                            </a>
+                            <div class="classroom-description">
+                                {{item.description}}
+                            </div>
+                            <div class="main-info-item">
+                                <span class="quizzcher">Teacher</span>
+                                <a ui-sref="si.quizzer({quizzerId: item.teacherId, view: 0})" class="quizzer info-content">
+                                    {{item.teacherName}}
+                                    <child-icon age="{{item.age}}"></child-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pending-invites" ng-if="pendingInvites.length !== 0">
+                <div class="qz-title">
+                    Invites Awaiting Your Approval
+                </div>
+                <div class="qz-no-item" ng-if="pendingInvites.length === 0">
+                    No Pending Invites.
+                </div>
+                <div ng-repeat="item in pendingInvites" class="qz-item-container new-item ng-anim-fade" ng-if="pendingInvites.length !== 0">
+                    <div class="avatar-image">
+                        <img ng-src="{{item.imageUrl}}" />
+                    </div>
+
+                    <div class="item-action-right">
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="pendingInvitesControl.accept($index, item)" ng-disabled="item.disabled">
+                            Accept
+                            <save-wait-is-ready item="item.acceptRequestItem"></save-wait-is-ready>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="pendingInvitesControl.reject($index, item)" ng-disabled="item.disabled">
+                            Reject
+                            <save-wait-is-ready item="item.rejectRequestItem"></save-wait-is-ready>
+                        </button>
+                    </div>
+
+                    <div class="main-info">
+                        <div class="classroom-name">
+                            <a ui-sref="si.quizzClass({qcId: item.quizzClassId, view: 1})">
+                                {{item.className}}
+                            </a>
+                        </div>
+                        <div class="classroom-description">
+                            {{item.description}}
+                        </div>
+                        <div class="main-info-item">
+                            <span class="quizzcher">Teacher</span>
+                            <a ui-sref="si.quizzer({quizzerId: item.teacherId, view: 0})" class="quizzer info-content">
+                                {{item.teacherName}}
+                                <child-icon age="{{item.teacherAge}}"></child-icon>
+                            </a>
+                        </div>
+                        <div class="main-info-item">
+                            <div class="request-message">
+                                "{{item.message}}"
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="my-classrooms">
+                <div class="qz-title">
+                    My Quizzrooms
+                </div>
+                <div class="qz-page-action">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="addClassroomCtrl.open()" ng-disabled="addClassroomCtrl.vars.isOpen || myQuizClasses.length >= 5 || user.isGuest">
+                        Create Quizzroom
+                    </button>
+
+                    <div class="create-classroom qz-page-action-slide ng-anim-slide-down" ng-show="addClassroomCtrl.vars.isOpen">
+                        <div class="class-image">
+                            <qz-image-editor id="new-class-editor" size="100" image-control="imageControl"></qz-image-editor>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Quizzroom Name: </label>
+                            <input type="text" class="form-control" ng-disabled="addClassroomCtrl.vars.disabled" ng-change="addClassroomCtrl.changed()" ng-model="addClassroomCtrl.vars.classroomName" maxlength="64" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Description: </label>
+                            <textarea class="form-control" ng-disabled="addClassroomCtrl.vars.disabled" ng-change="addClassroomCtrl.changed()" ng-model="addClassroomCtrl.vars.description" maxlength="128" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Tags: </label>
+                            <input type="text" class="form-control" ng-disabled="addClassroomCtrl.vars.disabled" ng-change="addClassroomCtrl.changed()" ng-model="addClassroomCtrl.vars.tags" />
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="addClassroomCtrl.create()" ng-disabled="addClassroomCtrl.vars.disabled || !addClassroomCtrl.vars.isCreateEnabled">
+                                Create
+                                <save-wait item="addClassroomCtrl.vars">
+                                </save-wait>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs" ng-click="addClassroomCtrl.close()" ng-disabled="addClassroomCtrl.vars.disabled">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qz-no-item" ng-if="myQuizClasses.length === 0">
+                    You haven't created any Quizzrooms.
+                </div>
+
+                <ng-include src="'scripts/templates/classroom/_MyQuizzroom.html'"></ng-include>
+            </div>
+
+            <div class="enrolled-classrooms">
+                <div class="qz-title">
+                    Quizzrooms Enrolled In
+                </div>
+
+                <div class="qz-page-action">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="findQuizzroom.open()" ng-disabled="findQuizzroom.vars.isOpen || findQuizzroom.vars.isJoinOpen || user.isGuest">
+                        Find Quizzrooms
+                    </button>
+
+                    <div class="find-quizzroom qz-page-action-slide ng-anim-slide-down" ng-show="findQuizzroom.vars.isOpen">
+                        <div class="form-group">
+                            <input class="form-control" ng-model="findQuizzroom.vars.searchString" ng-change="findQuizzroom.search()" placeholder="Quizzroom name or Teacher name..." />
+                        </div>
+                        <div class="search-result-container">
+                            <div ng-if="findQuizzroom.classes.length === 0" class="qz-no-item">
+                                No Quizzrooms found.
+                            </div>
+                            <div ng-repeat="item in findQuizzroom.classes" class="qz-item-container ng-anim-fade" ng-if="findQuizzroom.classes.length !== 0">
+                                <div class="item-action-right">
+                                    <button class="btn btn-danger btn-xs" ng-click="findQuizzroom.selectItem(item)">
+                                        Request to Join
+                                    </button>
+                                </div>
+                                <div>
+                                    <div class="avatar-image">
+                                        <img ng-src="{{item.imageUrl}}" />
+                                    </div>
+                                    <div class="main-info">
+                                        <a ui-sref="si.quizzClass({ qcId: item.quizzClassId, view: 0})" class="classroom-name">
+                                            {{item.className}}
+                                        </a>
+                                        <div class="classroom-description">
+                                            {{item.description}}
+                                        </div>
+                                        <div class="main-info-item">
+                                            <span class="quizzcher">Teacher</span>
+                                            <a ui-sref="si.quizzer({quizzerId: item.teacherId, view: 0})" class="quizzer info-content">
+                                                {{item.teacherName}}
+                                                <child-icon age="{{item.age}}"></child-icon>
+                                            </a>
+                                        </div>
+                                        <div class="classroom-stats">
+                                            <div class="classroom-stat">
+                                                Tags: {{item.qcTags}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="qz-item-actions">
+                            <button type="button" class="btn btn-default btn-xs" ng-click="findQuizzroom.close()">Close</button>
+                        </div>
+                    </div>
+
+                    <div class="find-quizzroom qz-page-action-slide ng-anim-slide-down " ng-show="findQuizzroom.vars.isJoinOpen">
+                        <div class="qz-item-container">
+                            <div class="avatar-image">
+                                <img ng-src="{{findQuizzroom.selected.imageUrl}}" />
+                            </div>
+                            <div class="main-info">
+                                <div class="classroom-name">
+                                    {{findQuizzroom.selected.className}}
+                                </div>
+                                <div class="classroom-description">
+                                    {{findQuizzroom.selected.description}}
+                                </div>
+                                <div class="main-info-item">
+                                    <span class="quizzcher">Teacher</span>
+                                    <a ui-sref="si.quizzer({quizzerId: findQuizzroom.selected.teacherId, view: 0})" class="quizzer info-content">
+                                        {{findQuizzroom.selected.teacherName}}
+                                    </a>
+                                </div>
+                                <div class="classroom-stats">
+                                    <div class="classroom-stat">
+                                        Tags: {{findQuizzroom.selected.qcTags}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Message: </label>
+                            <textarea class="form-control" ng-disabled="item.disabled" ng-change="classesControl.changed()" ng-model="findQuizzroom.vars.message" maxlength="512" />
+                        </div>
+                        <div class="qz-item-actions">
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="findQuizzroom.submitRequest(item)" ng-disabled="!findQuizzroom.vars.isSaveEnabled">
+                                Send Request
+                                <save-wait item="findQuizzroom.vars">
+                                </save-wait>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs" ng-click="findQuizzroom.cancelJoinRequest()">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qz-no-item" ng-if="enrolledQuizzClasses.length === 0">
+                    You are not enrolled to any Quizzrooms.
+                </div>
+
+                <ng-include src="'scripts/templates/classroom/_EnrolledQuizzroom.html'"></ng-include>
+            </div>
+        </div>
+    </div>
+</div>

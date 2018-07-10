@@ -1,0 +1,137 @@
+﻿<item-load-wait item="depSettings"></item-load-wait>
+<form name="form" ng-hide="depSettings.isReady == false">
+    <div class="settings">
+        <!--<div class="dep-permissions" ng-show="depInfo.isCurrentUserPrimary == true">
+            <div class="heading-title">
+                Permissions:
+            </div>
+            <ul>
+                <li>
+                    <label for="canAcceptQuizzmateRequests">
+                        <input id="canAcceptQuizzmateRequests" type="checkbox" ng-model="depInfo.permissions.canAcceptQuizzmateRequests" ng-change="depSettings.changed(depInfo.permissions)" />
+                        Can Accept Quizzmate requests
+                    </label>
+                </li>
+                <li>
+                    <label for="canUseMessaging">
+                        <input id="canUseMessaging" type="checkbox" ng-model="depInfo.permissions.canUseMessaging" ng-change="depSettings.changed(depInfo.permissions)" />
+                        Can Use Messaging
+                    </label>
+                </li>
+            </ul>
+        </div>-->
+        <div class="dep-notifications-subs">
+            <div class="heading-title">
+                Subscription Notifications:
+            </div>
+            <div class="heading-sub-title">
+                You will be notified when:
+            </div>
+            <div class="group">
+                <div class="group-item">
+                    <div class="group-name">
+                        Quizz
+                    </div>
+                    <ul>
+                        <li>
+                            <label for="nwQuizzSubmit">
+                                <input id="nwQuizzSubmit" type="checkbox" ng-model="depInfo.notificationsSubscription.nwQuizzSubmit" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling creates a new Quizz
+                            </label>
+                        </li>
+                        <li>
+                            <label for="nwQuizzLive">
+                                <input id="nwQuizzLive" type="checkbox" ng-model="depInfo.notificationsSubscription.nwQuizzLive" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling makes a quizz available to the public
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="group">
+                    <div class="group-name">
+                        Comment
+                    </div>
+                    <ul>
+                        <li>
+                            <label for="nwQuizzReceiveComment">
+                                <input id="nwQuizzReceiveComment" type="checkbox" ng-model="depInfo.notificationsSubscription.nwQuizzReceiveComment" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                A Quizz created by the Quizzling receives a comment
+                            </label>
+                        </li>
+                        <li>
+                            <label for="nwPostComment">
+                                <input id="nwPostComment" type="checkbox" ng-model="depInfo.notificationsSubscription.nwPostComment" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling posts a comment
+                            </label>
+                        </li>
+                        <li>
+                            <label for="nwPostedCommentFlagged">
+                                <input id="nwPostedCommentFlagged" type="checkbox" ng-model="depInfo.notificationsSubscription.nwPostedCommentFlagged" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling's posted comment is flagged as inappropriate
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <!--<div class="group">
+                    <div class="group-name">
+                        Question
+                    </div>
+                    <ul>
+                        <li>
+                            <label for="nwQuestionFlagged">
+                                <input id="nwQuestionFlagged" type="checkbox" ng-model="depInfo.notificationsSubscription.nwQuestionFlagged" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling's question is flagged ( incorrect answer, inappropriate, etc)
+                            </label>
+                        </li>
+                    </ul>
+                </div>-->
+                <!--<div class="group">
+                    <div class="group-name">
+                        Message
+                    </div>
+                    <ul>
+                        <li>
+                            <label for="nwMessageSent">
+                                <input id="nwMessageSent" type="checkbox" ng-model="depInfo.notificationsSubscription.nwMessageSent" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling sends a message
+                            </label>
+                        </li>
+                        <li>
+                            <label for="nwMessageReceived">
+                                <input id="nwMessageReceived" type="checkbox" ng-model="depInfo.notificationsSubscription.nwMessageReceived" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling receives a message
+                            </label>
+                        </li>
+                    </ul>
+                </div>-->
+                <div class="group">
+                    <div class="group-name">
+                        Quizzmate
+                    </div>
+                    <ul>
+                        <li>
+                            <label for="nwQuizzmateRequest">
+                                <input id="nwQuizzmateRequest" type="checkbox" ng-model="depInfo.notificationsSubscription.nwQuizzmateRequest" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling receives a Quizzmate request
+                            </label>
+                        </li>
+                        <li>
+                            <label for="nwQuizzmateRequestAccept">
+                                <input id="nwQuizzmateRequestAccept" type="checkbox" ng-model="depInfo.notificationsSubscription.nwQuizzmateRequestAccept" ng-change="depSettings.changed(depInfo.notificationsSubscription)" />
+                                Quizzling accepts a Quizzmate request
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="dep-settings-action">
+            <button class="btn btn-danger btn-xs ignore-remove-disable" ng-click="depSettings.saveBtn.click()" ng-disabled="depSettings.saveBtn.disabled == true">
+                Save <item-load-wait item="depSettings.saveBtn"></item-load-wait>
+            </button>
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+</form>

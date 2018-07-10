@@ -1,0 +1,90 @@
+﻿<div ng-show="page.isReady" class="qz-comments">
+    <div>
+        <div class="comment-info">
+            <div class="comment-count">
+                {{lessonComments.length}} of {{quizzClassLesson.numComments}}
+            </div>
+            <div class="load-more" ng-click="lessonCommentCtrl.loadMore()" ng-hide="lessonComments.length >= quizzClassLesson.numComments">
+                load more <i class="fa fa-spin fa-spinner" ng-show="lessonCommentCtrl.isLoading"></i>
+            </div>
+        </div>
+        <div class="comments-list">
+            <div ng-repeat="item in lessonComments track by $index" class="comment ng-anim-fade" ng-class="{'new-item' : item.isNew}">
+                <div class="btn-group item-action-right qz-modify-item-ellipsis comment-item-ellipsis" ng-if="lessonCommentCtrl.vars.canEditAll || item.isAuthor" ng-hide="lessonCommentCtrl.vars.disableAll">
+                    <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li ng-if="item.isAuthor">
+                            <a ng-click="lessonCommentCtrl.edit(item)">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit</span>
+                            </a>
+                        </li>
+                        <li class="delete-menu-item">
+                            <a ng-click="lessonCommentCtrl.remove($index, item)">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-show="!item.isOpen" class="ng-anim-slide-down">
+                    <a ui-sref="si.quizzer({quizzerId: item.authorId, view: 0})" class="avatar-container">
+                        <img ng-src="{{item.authorProfilePixUrl}}" class="avatar" />
+                    </a>
+                    <div class="comment-text">
+                        <span class="quizzer">
+                            <a ui-sref="si.quizzer({quizzerId: item.authorId, view: 0})">
+                                {{item.authorName}}
+                                <child-icon age="{{item.age}}"></child-icon>
+                            </a>
+                        </span>
+                        <span class="posted-date">
+                            {{item.postedDate | formatDate}}
+                        </span>
+                        <div class="actual-comment">
+                            {{item.comment}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ng-anim-slide-down edit-comment" ng-show="item.isOpen">
+                    <a ui-sref="si.quizzer({quizzerId: item.authorId, view: 0})" class="avatar-container">
+                        <img ng-src="{{item.authorProfilePixUrl}}" class="avatar" />
+                    </a>
+                    <div class="comment-text">
+                        <textarea ng-disabled="lessonCommentCtrl.vars.disabled" ng-change="lessonCommentCtrl.changed()" ng-model="lessonCommentCtrl.vars.message" />
+                    </div>
+                    <div class="comment-submit-button">
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="lessonCommentCtrl.editSave(item)" ng-disabled="lessonCommentCtrl.vars.disabled || !lessonCommentCtrl.vars.isSaveEnabled">
+                            Save
+                            <save-wait item="lessonCommentCtrl.vars">
+                            </save-wait>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="lessonCommentCtrl.editCancel(item)" ng-disabled="lessonCommentCtrl.vars.disabled">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-hide="lessonCommentCtrl.vars.disableAll" class="ng-anim-slide-down new-comment" ng-if="!isReadyOnly">
+        <div class="comment">
+            <img ng-src="{{user.profile.profileImageUrl}}" class="avatar" />
+            <div class="comment-text">
+                <textarea ng-disabled="lessonCommentCtrl.vars.disabled || clasCommentCtrl.vars.disableAll" ng-change="lessonCommentCtrl.changed()" ng-model="lessonCommentCtrl.vars.message" />
+            </div>
+            <div class="comment-submit-button">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="lessonCommentCtrl.create()" ng-disabled="lessonCommentCtrl.vars.disabled || !lessonCommentCtrl.vars.isSaveEnabled || clasCommentCtrl.vars.disableAll">
+                    Post
+                    <save-wait item="lessonCommentCtrl.vars">
+                    </save-wait>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

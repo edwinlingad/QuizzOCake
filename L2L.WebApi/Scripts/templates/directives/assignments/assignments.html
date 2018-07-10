@@ -1,0 +1,94 @@
+﻿<div>
+    <load-wait page="page"></load-wait>
+    <div class="assignment-container" ng-hide="!page.isReady">
+        <div class="assignment-page-action">
+            <div class="views">
+                <button ng-if="!isSingle" type="button" class="btn btn-danger btn-xs" ng-click="showCompletedBtn.click()">
+                    {{showCompletedBtn.name}}
+                </button>
+                <button type="button" class="btn btn-danger btn-xs" ng-click="toggleDetailedViewBtn.click()">
+                    {{toggleDetailedViewBtn.name}}
+                </button>
+            </div>
+        </div>
+        <div ng-repeat="item in assignments" class="assignment-item qz-item-container" ng-class="{'past-due': item.numDaysDue < 0, 'due-today': item.numDaysDue == 0}">
+            <div class="asssignment-action" ng-if="!item.isCompleted">
+                <a ui-sref="si.quizzDetail({quizzId: item.assignmentGroup.quizzId, view: 3, assId: item.id})" class="btn btn-danger btn-xs">
+                    Do Assignment
+                </a>
+            </div>
+            <div class="quizz-header">
+                <add-category-icon-dyn category="item.assignmentGroup.quizz.category" add-class="quizz-category-icon"></add-category-icon-dyn>
+                <div class="quizz-title-desc">
+                    <div class="quizz-title">
+                        {{item.assignmentGroup.quizz.title}}
+                    </div>
+                    <div class="quizz-desc ng-anim-slide-down" ng-show="toggleDetailedViewBtn.value">
+                        {{item.assignmentGroup.quizz.description}}
+                    </div>
+                    <div class="assignment-detail-item">
+                        by: <span class="quizzer as-link" ng-click="goToQuizzer(item.assignmentGroup.quizz.ownerId)">{{item.assignmentGroup.quizz.ownerName}}</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="assignment-detail row">
+                <div class="col-sm-6">
+                    <div class="assignment-detail-item">
+                        <span class="title">
+                            Assigned by:
+                        </span>
+                        <span class="quizzer as-link" ng-click="goToQuizzer(item.assignmentGroup.assignedById)">{{item.assignmentGroup.assignedByFullName}}</span>
+                    </div>
+
+                    <div class="assignment-detail-item" ng-if="!item.isCompleted && !item.assignmentGroup.noDueDate" ng-class="{'date-past-due': item.numDaysDue < 0, 'date-due-today': item.numDaysDue == 0}">
+                        <span class="title">Due :</span>
+                        <span class="detail">
+                            {{item.assignmentGroup.targetDate | dueDate}}
+                        </span>
+                    </div>
+
+                    <div ng-if="item.isCompleted" class="assignment-detail-item">
+                        <span class="title">
+                            Completed Date:
+                        </span>
+                        <span class="detail">
+                            <span ng-click="goToTestLog(item)" class="as-link">{{item.completedDate | formatDate}} - {{item.completedScore}}%</span>
+                        </span>
+                    </div>
+
+                    <div class="ng-anim-slide-down" ng-show="toggleDetailedViewBtn.value">
+                        <div class="assignment-detail-item">
+                            <span class="title">Assigned Date : </span>
+                            <span class="detail">
+                                {{item.assignmentGroup.dateAssigned | formatDate}}
+                            </span>
+                        </div>
+                        <div class="assignment-detail-item">
+                            <span class="title">Target Score : </span>
+                            <span class="detail">
+                                {{item.assignmentGroup.targetScore}} %
+                            </span>
+                            <span class="target-score-value">( {{((item.assignmentGroup.targetScore/100)*item.assignmentGroup.numQuestions) | ceiling}}/{{item.assignmentGroup.numQuestions}} )</span>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="assignment-detail-item ng-anim-slide-down" ng-show="toggleDetailedViewBtn.value">
+                        <test-setting-summary settings="item.assignmentGroup.testSetting" total-qs="item.assignmentGroup.quizz.numQuestions"></test-setting-summary>
+                    </div>
+                </div>
+
+                <div class="assignment-detail-item col-sm-12">
+                    <span class="title">Message: </span>
+                    <span class="detail" ng-if="item.assignmentGroup.message.length > 0">{{item.assignmentGroup.message}}</span>
+                    <span class="detail" ng-if="item.assignmentGroup.message.length == 0">Good Luck!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

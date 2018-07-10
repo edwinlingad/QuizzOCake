@@ -1,0 +1,54 @@
+﻿<div class="modal-body qz-modal edit-test-setting-html">
+    <add-guest-message msg="Modify Test Setting is only available to registered users." is-guest="user.isGuest"></add-guest-message>
+
+    <form name="form" ng-submit="submit(form)">
+        <div class="qz-modal-header">
+            <div class="qz-modal-title">
+                Test Settings
+            </div>
+        </div>
+
+        <div class="qz-modal-body">
+            <div class="group" ng-if="!modalSetting.isBuiltIn">
+                <div class="group-title">
+                    Question Order
+                </div>
+                <div class="group-body">
+                    <label class="group-options" ng-class="{'is-selected': setting.isOrdered == true}">
+                        <input type="radio" name="order" ng-model="setting.isOrdered" ng-value="true" />
+                        <span class="group-label-title">Ordered</span>
+                    </label>
+
+                    <label class="group-options" ng-class="{'is-selected': setting.isOrdered == false}">
+                        <input type="radio" name="order" ng-model="setting.isOrdered" ng-value="false" />
+                        <span class="group-label-title">Shuffled</span>
+                    </label>
+                </div>
+            </div>
+            <div class="group">
+                <div class="group-title">
+                    Number of Questions
+                </div>
+                <div class="group-body">
+                    <label class="group-options" ng-repeat="item in numQCtrl.numQList" ng-class="{'is-selected': numQCtrl.selected == item.value}" ng-if="item.value != 'custom'">
+                        <input type="radio" name="num-questions" ng-model="numQCtrl.selected" ng-value="item.value" />
+                        <span class="group-label-title">{{item.name}}</span>
+                    </label>
+
+                    <div>
+                        <label class="group-options" ng-class="{'is-selected': numQCtrl.selected == 'custom'}">
+                            <input type="radio" name="num-questions" ng-model="numQCtrl.selected" value="custom" />
+                            <span class="group-label-title">Custom</span>
+                        </label>
+                        <input type="number" class="form-control" ng-model="numQCtrl.customValue" ng-show="!numQCtrl.hideCustomValueInput()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-modal-actions">
+            <input type="submit" class="btn btn-danger btn-sm" value="submit" ng-disabled="page.disabled" />
+            <button type="button" class="btn btn-default btn-sm" ng-click="cancel()" ng-disabled="page.disabled">cancel</button>
+        </div>
+    </form>
+</div>

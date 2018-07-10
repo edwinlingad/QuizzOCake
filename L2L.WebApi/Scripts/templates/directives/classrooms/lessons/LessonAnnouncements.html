@@ -1,0 +1,81 @@
+﻿<div ng-show="page.isReady">
+    <div class="qz-page-action" ng-if="quizzClassLesson.isTeacher">
+        <button type="button" class="btn btn-danger btn-xs" ng-click="addEditAnnouncement.open()" ng-disabled="addEditAnnouncement.vars.disableAll">
+            New Content
+        </button>
+        <div class="qz-page-action-slide ng-anim-slide-down" ng-show="addEditAnnouncement.vars.isOpen">
+            <div ng-if="addEditAnnouncement.vars.isOpenIf">
+                <qz-editor id="create-new" editor-control="editorControl"></qz-editor>
+            </div>
+        </div>
+    </div>
+
+    <div z-infinite-scroll="addEditAnnouncement.loadMore" body-scroll="true" class="topics">
+        <div ng-repeat="item in announcements" class="qz-item-container topic" ng-class="{'new-item' : item.isNew}">
+
+            <div class="btn-group item-action-right qz-modify-item-ellipsis ng-anim-fade" ng-if="quizzClassLesson.isTeacher" ng-hide="addEditAnnouncement.vars.disableAll">
+                <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    <i class="fa fa-ellipsis-h"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a ng-click="addEditAnnouncement.edit(item)">
+                            <i class="fa fa-edit"></i>
+                            <span>Edit Topic</span>
+                        </a>
+                    </li>
+                    <li class="delete-menu-item">
+                        <a ng-click="addEditAnnouncement.remove($index, item)">
+                            <i class="fa fa-trash"></i>
+                            <span>Delete Topic</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="item-action-right ng-anim-fade" ng-hide="item.isOpen || item.isViewOpen || addEditAnnouncement.vars.disableAll">
+                <button type="button" class="btn btn-default btn-sm view-icon" ng-click="viewControl.open(item)">
+                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-search-plus"></i>
+                </button>
+            </div>
+
+            <div ng-hide="item.isOpen || item.isViewOpen" class="ng-anim-slide-down qz-item-content">
+                <div class="avatar-image">
+                    <div ng-if="item.addContentType === 0">
+                        <i class="fa fa-font"></i>
+                    </div>
+                    <div ng-if="item.addContentType === 1">
+                        <i class="fa fa-picture-o"></i>
+                    </div>
+                    <div ng-if="item.addContentType === 2">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                    <div ng-if="item.addContentType === 4">
+                        <i class="fa fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="main-info">
+                    <div class="announcement-message">
+                        {{item.title}}
+                    </div>
+                    <div class="posted-date">
+                        {{item.postedDate | formatDate}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="ng-anim-slide-down qz-item-edit" ng-show="item.isOpen">
+                <div ng-if="item.isOpenIf">
+                    <qz-editor id="edit-{{$index}}" editor-control="editorControl" item="item"></qz-editor>
+                </div>
+            </div>
+
+            <div class="ng-anim-slide-down" ng-show="item.isViewOpen">
+                <div ng-if="item.isViewOpenIf">
+                    <qz-editor-view id="view-{{$index}}" editor-control="editorControl" item="item"></qz-editor-view>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

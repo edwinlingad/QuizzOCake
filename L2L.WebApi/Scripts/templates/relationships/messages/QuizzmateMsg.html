@@ -1,0 +1,104 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<page-not-found page="page"></page-not-found>
+<div id="quizzmate-msg-html" class="qz-page-container ng-anim-fade" ng-hide="!page.isReady || page.isNotFoundOrAuthorized">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <!--<button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>{{page.title}}</h1>
+            <div class="qz-page-sub-title quizzer" ng-if="page.subTitle !== undefined && page.subTitle.length !== 0">
+                ( {{page.subTitle}})
+            </div>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body qz-connect-message-page">
+            <div class="qz-connect-top-action" ng-if="msgThread.isGroupMsg">
+                <div class="button-actions">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="msgThreadGroupCtrl.open()">
+                        Add Quizzmate
+                    </button>
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="msgThreadGroupCtrl.leaveGroup()">
+                        Leave Group
+                        <save-wait item="msgThreadGroupCtrl.vars">
+                        </save-wait>
+                    </button>
+                </div>
+                <div class="available-quizzmates ng-anim-slide-down" ng-show="msgThreadGroupCtrl.vars.isOpen">
+                    <input type="text" class="form-control" ng-model="search.userName" placeholder="Search..." ng-disabled="msgThreadGroupCtrl.vars.disabled">
+                    <div class="available-quizzmates-list">
+                        <div ng-repeat="item in quizzmates | filter:search" class="quizzmate form-group">
+                            <label for="quizzmate-{{item.id}}" ng-class="{'is-selected': item.id == msgThreadGroupCtrl.vars.selectedUserId}">
+                                <input type="radio" name="quizzmate" id="quizzmate-{{item.id}}" ng-model="msgThreadGroupCtrl.vars.selectedUserId" ng-change="msgThreadGroupCtrl.selectedChanged()" value="{{item.id}}" ng-disabled="msgThreadGroupCtrl.vars.disabled" />
+                                <span class="avatar">
+                                    <img ng-src="{{item.profile.profileImageUrl}}" />
+                                </span>
+                                <span class="user-name">
+                                    {{item.userName}}
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="available-quizzmates-action">
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="msgThreadGroupCtrl.addMember()" ng-disabled="msgThreadGroupCtrl.vars.disabled || !msgThreadGroupCtrl.vars.isAddEnabled">
+                            Add
+                            <save-wait item="msgThreadGroupCtrl.vars">
+                            </save-wait>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="msgThreadGroupCtrl.close()" ng-disabled="msgThreadGroupCtrl.vars.disabled">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="members" ng-if="!msgThread.isViewerOnly">
+                You<span ng-repeat="item in msgMembers" ng-if="item.userId !== user.id && $index <= 3">, {{item.userFullName}}</span>
+            </div>
+
+            <div class="members" ng-if="msgThread.isViewerOnly">
+                <span ng-repeat="item in msgMembers" ng-if="item.userId !== user.id && $index <= 3">
+                    <span ng-if="$index !== 0">, </span>{{item.userFullName}}
+                </span>
+            </div>
+
+            <div class="qz-connect-messages">
+                <div ng-repeat="item in messages" class="message-item ng-anim-fade">
+                    <div ng-if="!item.isSelf">
+                        <div class="avatar" ng-if="!item.isSameAsLastSender">
+                            <img ng-src="{{item.profileImageUrl}}" />
+                        </div>
+                        <div class="message-others">
+                            <div class="user quizzer" ng-if="!item.isSameAsLastSender">
+                                {{item.userName}}
+                            </div>
+                            <div class="actual-message">
+                                {{item.message}}
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="item.isSelf">
+                        <div class="message-self">
+                            <div class="actual-message">
+                                {{item.message}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="message-end">
+                </div>
+            </div>
+            <div class="qz-connect-actions" ng-if="!msgThread.isViewerOnly">
+                <div class="new-message-container">
+                    <textarea type="text" ng-model="message.content" id="new-message" />
+                </div>
+                <div class="send-button-container">
+                    <button id="send-button" type="button" class="btn btn-danger btn-xs" ng-click="send()">send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

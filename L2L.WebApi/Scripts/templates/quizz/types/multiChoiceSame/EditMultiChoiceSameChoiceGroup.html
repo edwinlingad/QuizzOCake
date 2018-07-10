@@ -1,0 +1,98 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="edit-mcs-cg-html" class="qz-page-container quizz-common-header ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <!--<div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>-->
+        <div class="qz-page-title">
+            <h1>{{page.title}} Choice Group</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+
+            </div>
+            <div class="quizz-name-icon">
+                <div class="avatar-image">
+                    <add-category-icon-dyn category="quizz.category" add-class="quizz-category-icon category-icon-big" control="categoryIconControl"></add-category-icon-dyn>
+                </div>
+
+                <div class="main-info">
+                    <div class="quizz-title qz-title">
+                        {{quizz.title}}
+                    </div>
+                    <div class="qz-description">
+                        {{quizz.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body edit-q-container">
+            <form name="form" ng-submit="submit(form)">
+                <div class="form-group">
+                    <label for="name" class="control-label">Choice Group Name</label>
+                    <input id="name" name="name" type="text" class="form-control" ng-model="choiceGroup.name" ng-change="changed(choiceGroup)" required />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Available Choices</label>
+                    <ul>
+                        <li ng-repeat="item in choiceGroup.choices">
+                            <div class="col-letter">
+                                {{$index | letter}}
+                            </div>
+                            <div class="col-question">
+                                <input id="choice_{{$index}}" type="text" class="form-control" ng-model="item.value" ng-change="changed(item)" />
+                            </div>
+                            <div class="col-action">
+                                <button type="button" class="btn btn-default btn-sm" ng-click="deleteChoiceInput($index)" ng-disabled="choiceGroup.choices.length <= 2 || item.noDelete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="add-input">
+                        <button type="button" class="btn btn-primary btn-xs" ng-click="addChoiceInput()">
+                            Add Additional Choice
+                        </button>
+                    </div>
+                </div>
+
+                <div class="answer-options">
+                    <div class="form-group">
+                        <label class="control-label">Choice Options:</label>
+                    </div>
+
+                    <div class="answer-options-details row">
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Choice Order</label>
+                            <div class="input-radio-group">
+                                <inp-radio-bool name="shuffleChoices" label-true="Shuffle" label-false="Don't Shuffle" model="choiceGroup.shuffleChoices" changed="changed(choiceGroup)">
+                                </inp-radio-bool>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Scoring</label>
+                            <div class="input-radio-group">
+                                <inp-radio-bool name="isMultiplePoints" label-true="Multiple Answers" label-false="Single Answer" model="choiceGroup.isMultiplePoints" changed="changed(choiceGroup)">
+                                </inp-radio-bool>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-action">
+                        <button type="submit" class="btn btn-danger btn-xs">
+                            {{saveButton.name}}
+                            <save-wait item="page"></save-wait>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="goBack()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -3,3 +3,11 @@
 ################################################################################
 
 /.vs
+/L2L.Constants/obj/Debug
+/L2L.Data/obj/Debug
+/L2L.Model/obj/Debug
+/packages
+/L2L.WebApi/bin
+/L2L.WebApi/obj/Debug
+/L2L.WebApi/Properties/PublishProfiles
+/L2L.MobileApp

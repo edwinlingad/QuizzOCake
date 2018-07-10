@@ -1,0 +1,117 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<page-not-found page="page"></page-not-found>
+<div id="dep-activities-html" class="qz-page-container quizzer-in-header ng-anim-fade" ng-hide="!page.isReady || page.isNotFoundOrAuthorized">
+    <div class="qz-content-container">
+        <div class="qz-header">
+
+            <div class="quizzer-info">
+                <div class="avatar-container">
+                    <img ng-src="{{quizzer.profile.profileImageUrl}}" class="avatar" ng-show="!quizzerTmp.isProfilePixModified" />
+                    <canvas id="profile-image-canvas" class="avatar" ng-show="quizzerTmp.isProfilePixModified"></canvas>
+                    <div ng-show="isEditBtn.value" class="avatar-edit">
+                        <button type="button" class="btn btn-default btn-xs clear-btn" ng-click="editProfilePixBtn.click()">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <input name="edit-profile-pix" id="edit-profile-pix" type="file" class="profile-change-btn btn btn-default" ng-model="profilePix" onchange="angular.element(this).scope().profilePixChanged()" />
+                    </div>
+                </div>
+                <div class="quizzer-info-action" ng-show="!isEditBtn.value && !user.isGuest">
+                    <button class="btn btn-default btn-xs clear-btn" ng-click="isEditBtn.click()">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                </div>
+                <div class="quizzer-details ng-anim-slide-down" ng-hide="isEditBtn.value">
+                    <div class="name quizzer-detail quizzer">
+                        {{quizzer.userName}}
+                    </div>
+                    <div class="quizzer-detail">
+                        {{quizzer.profile.firstName}} {{quizzer.profile.lastName}}
+                    </div>
+                    <div class="quizzer-detail">
+                        {{quizzer.profile.birthDate | toBirthDate}}
+                    </div>
+                    <div class="quizzer-detail quizzer-detail-brag">
+                        {{quizzer.numQuizzes}} Quizzes
+                    </div>
+                </div>
+                <div class="quizzer-details-edit ng-anim-slide-down" ng-show="isEditBtn.value">
+                    <form name="form" ng-submit="saveBtn.click(form)">
+                        <div class="form-group">
+                            <label class="control-label">Username:</label>
+                            <input type="text" class="form-control" ng-model="quizzerTmp.userName" ng-change="changed(quizzerTmp)" />
+                            <span ng-if="userNameMessage.length != 0" class="user-name-message">{{userNameMessage}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">First Name</label>
+                            <input type="text" class="form-control" ng-model="quizzerTmp.profile.firstName" ng-change="changed(quizzerTmp.profile)" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Last Name:</label>
+                            <input type="text" class="form-control" ng-model="quizzerTmp.profile.lastName" ng-change="changed(quizzerTmp.profile)" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Birth Date:</label>
+                            <input type="date" class="form-control" ng-model="quizzerTmp.profile.birthDate" ng-change="changed(quizzerTmp.profile)" />
+                        </div>
+                        <div class="form-group quizzer-details-edit-action">
+                            <button type="submit" class="btn btn-danger btn-xs" ng-disabled="!saveIsEnabled()">
+                                Save <save-wait item="editProfilePage"></save-wait>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs" ng-click="cancelBtn.click()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div class="qz-button-as-tabs">
+                <a ui-sref="si.depActivities({depId: depId, view: 0})" class="btn btn-default btn-xs" ng-class="{'active': view == 0}">
+                    Recent Activities
+                </a>
+                <a ui-sref="si.depActivities({depId: depId, view: 1})" class="btn btn-default btn-xs" ng-class="{'active': view == 1}">
+                    Quizzes
+                </a>
+                <a ui-sref="si.depActivities({depId: depId, view: 2})" class="btn btn-default btn-xs" ng-class="{'active': view == 2}">
+                    Tests Taken
+                </a>
+                <a ui-sref="si.depActivities({depId: depId, view: 3})" class="btn btn-default btn-xs" ng-class="{'active': view == 3}">
+                    Quizzrooms
+                </a>
+                <a ui-sref="si.depActivities({depId: depId, view: 4})" class="btn btn-default btn-xs" ng-class="{'active': view == 4}">
+                    Quizzmates
+                </a>
+                <a ui-sref="si.depActivities({depId: depId, view: 5})" class="btn btn-default btn-xs" ng-class="{'active': view == 5}">
+                    Messages
+                </a>
+                <a ui-sref="si.depActivities({depId: depId, view: 6})" class="btn btn-default btn-xs" ng-class="{'active': view == 6}">
+                    Settings
+                </a>
+            </div>
+
+            <div class="qz-tabs">
+                <div ng-if="view === 0">
+                    <activity-list is-dependent="true" list-type="user" user-id="{{searchParams.userId}}"></activity-list>
+                </div>
+                <div ng-if="view === 1">
+                    <quizz-overviews search-params="searchParams"></quizz-overviews>
+                </div>
+                <div ng-if="view === 2">
+                    <test-log-grouped user-id="{{searchParams.userId}}"></test-log-grouped>
+                </div>
+                <div ng-if="view === 3">
+                    <dependent-quizzroom dep-id="{{depId}}" dep-name="{{quizzer.profile.firstName}} {{quizzer.profile.lastName}}"></dependent-quizzroom>
+                </div>
+                <div ng-if="view === 4">
+                    <quizzmates quizzer-id="{{depId}}" title="Quizzmates" self="0"></quizzmates>
+                </div>
+                <div ng-if="view === 5" class="message-common-html">
+                    <messages dep-id="{{depId}}"></messages>
+                </div>
+                <div ng-if="view === 6">
+                    <ng-include src="'scripts/templates/dependent/_DepSettings.html'"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,221 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.test-result-common .score {
+  font-weight: 700;
+}
+.test-result-common .score-high {
+  color: green;
+}
+.test-result-common .score-mid {
+  color: #f07a18;
+}
+.test-result-common .score-low {
+  color: red;
+}
+.test-result-common .days-ago {
+  font-weight: 700;
+  color: gray;
+}
+.test-log-grouped-html .qz-item-container {
+  overflow: hidden;
+  padding-bottom: 5px !important;
+}
+.test-log-grouped-html .tlog-head-right {
+  float: right;
+}
+.test-log-grouped-html .tlog-head-right .times {
+  font-size: 0.75em;
+  text-align: center;
+  font-weight: 600;
+}
+.test-log-grouped-html .tlog-head-bottom {
+  float: right;
+}
+.test-log-grouped-html .tlog-results {
+  margin-left: 15px;
+}
+.test-log-grouped-html .tlog-results .tlog-result {
+  background-color: white;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+.test-log-grouped-html .tlog-results .tlog-result button.btn {
+  float: right;
+}
+.test-log-grouped-html .tlog-results .tlog-result .tlog-result-head {
+  font-size: 0.85em;
+}
+.test-log-grouped-html .tlog-results .tlog-result .tlog-result-head .score {
+  font-size: 1em;
+}
+#view-result-html .qz-content-container .qz-header .ongoing-test {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 15px;
+  color: red;
+}
+#view-result-html .qz-content-container .qz-header .test-score {
+  float: right;
+}
+#view-result-html .qz-content-container .qz-header .test-score .score {
+  font-size: 1.2em;
+}
+#view-result-html .qz-content-container .qz-header .test-score .points {
+  font-size: 0.75em;
+  text-align: left;
+  font-weight: 700;
+}
+#view-result-html .qz-content-container .qz-header .quizz-name-icon {
+  min-height: 40px;
+}
+#view-result-html .qz-content-container .qz-header .share-retake-controls {
+  float: right;
+}
+#view-result-html .qz-content-container .qz-header .share-retake-controls .btn-group {
+  position: relative;
+  top: 8px;
+}
+#view-result-html .qz-content-container .qz-header .share-retake-controls .retake-quizz {
+  margin-top: 15px;
+}
+#view-result-html .qz-content-container .qz-header .result-details {
+  margin-left: 55px;
+  margin-top: 5px;
+  font-size: 0.85em;
+}
+#view-result-html .qz-content-container .qz-header .result-details .posted-date {
+  font-size: 1em;
+}
+#view-result-html .qz-content-container .qz-header .result-details .num-questions {
+  font-weight: 700;
+  color: #e53d0e;
+}
+#view-result-html .qz-content-container .qz-header .rate-quizz {
+  font-weight: 700;
+  color: #e53d0e;
+  padding: 10px 10px 0 10px;
+  text-align: right;
+  /*background-color: #aaaaaa;*/
+}
+#view-result-html .qz-content-container .qz-body {
+  margin-top: 10px;
+}
+#view-result-html .qz-content-container .qz-body .result-action {
+  background-color: orange;
+  padding: 10px;
+  overflow: hidden;
+}
+#view-result-html .qz-content-container .qz-body .result-action button {
+  float: right;
+}
+#view-result-html .qz-content-container .qz-body .is-incorrect {
+  border: 2px dashed red;
+}
+#view-result-html .qz-content-container .qz-body .result-item {
+  background-color: white;
+  margin: 10px 0;
+  padding: 15px 0 15px 10px;
+}
+#view-result-html .qz-content-container .qz-body .result-item i.fa-check {
+  color: green;
+}
+#view-result-html .qz-content-container .qz-body .result-item i.fa-times {
+  color: red;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-number {
+  float: left;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-number .numbering {
+  font-weight: 700;
+  color: gray;
+  font-size: 0.75em;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-score {
+  float: right;
+  position: relative;
+  top: -10px;
+  right: -5px;
+  margin-right: 15px;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-score span {
+  font-size: 1em;
+  font-weight: 700;
+  color: gray;
+}
+#view-result-html .qz-content-container .qz-body .result-item .result-flag {
+  float: right;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details {
+  margin-left: 25px;
+  margin-right: 15px;
+  min-height: 75px;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .q-answer-title {
+  font-weight: 700;
+  font-size: 0.8em;
+  color: #aaaaaa;
+  margin-bottom: 5px;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .tinymce-formatted {
+  margin: 10px 0;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .correct-answers {
+  font-weight: 700;
+  margin-left: 10px;
+  color: green;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .choices-answers {
+  padding: 5px 10px;
+  margin-bottom: 2px;
+  min-height: 30px;
+  border: 1px solid gray;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .result-icon {
+  float: right;
+  margin-right: 10px;
+  position: relative;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .result-icon i {
+  position: absolute;
+  color: white;
+  top: 3px;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .is-correct {
+  color: white;
+  background-color: green;
+  border: none;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .is-incorrect {
+  color: white;
+  background-color: red;
+  border: none;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .is-answer {
+  border: 1px dashed green;
+  color: green;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .is-answer .result-icon i {
+  color: green;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .legend {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 0.85em;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details .no-answer {
+  margin-top: 45px;
+  font-weight: 700;
+  color: red;
+  text-align: center;
+}
+#view-result-html .qz-content-container .qz-body .result-item .col-question-details hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#view-result-html .qz-content-container .qz-body .result-action-end {
+  float: right;
+}

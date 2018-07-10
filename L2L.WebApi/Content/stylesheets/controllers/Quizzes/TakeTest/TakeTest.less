@@ -1,0 +1,196 @@
+﻿.take-test-html {
+    .qz-body {
+
+        .quizz-area {
+            margin-right: 120px;
+            min-height: 300px;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: white;
+
+            .clock-container {
+                text-align: center;
+            }
+
+            /*.clock-canvas {
+                
+               height: 200px;
+            }*/
+
+            .question-label, .answer-label {
+                font-size: 0.9em;
+                color: #aaaaaa;
+                margin-bottom: 10px;
+            }
+
+            .mark-question {
+                float: right;
+                position: relative;
+                top: -10px;
+                right: -10px;
+
+                .is-marked {
+                    color: white;
+                    background-color: #008000;
+                }
+            }
+
+            .question {
+                font-size: 1.2em;
+                //font-weight: 600;
+                margin-left: 20px;
+            }
+
+            .col-letter {
+                float: left;
+                font-weight: 600;
+                margin-top: 5px;
+            }
+
+            .form-group {
+                margin-left: 20px;
+
+                .choice-selected {
+                    color: white;
+                    background-color: #5fa3c7;
+                }
+
+                label {
+                    display: inline-block;
+                    width: 100%;
+                    background-color: #eaeaea;
+                    padding: 10px;
+                    margin: -5px 0;
+
+                    input {
+                        display: block;
+                        float: left;
+                    }
+
+                    .choice-text {
+                        display: block;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+
+        .quizz-info-area {
+            background-color: white;
+            /*height: 200px;*/
+            //float: right;
+            padding: 20px 10px;
+            font-weight: 700;
+            font-size: 0.85em;
+            margin-top: 10px;
+
+            .questions {
+                .questions-count {
+                }
+            }
+        }
+
+        .submit-btn {
+            float: right;
+        }
+
+        .unfinished-questions {
+            margin: 50px 15px;
+            .title {
+                font-weight: 700;
+                font-size: 0.9em;
+                color: gray;
+            }
+
+            .button-container {
+                margin: 7px;
+                min-height: 25px;
+
+                .buttons {
+                    display: inline-block;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        .finish-test {
+            float: right;
+        }
+    }
+
+    .quizz-action {
+        margin-top: 15px;
+        background-color: orange;
+        padding: 10px;
+        overflow: hidden;
+
+        .marked-questions {
+            .marked-question-title {
+                font-weight: 700;
+                font-size: 0.9em;
+                color: gray;
+            }
+
+            .furthest-question {
+                float: right;
+            }
+
+            .marked-questions-container {
+                margin: 7px;
+                min-height: 25px;
+
+                .marked-question-btn {
+                    display: inline-block;
+                    margin-left: 5px;
+                }
+
+                .qz-no-item {
+                    margin: 0 15px;
+                }
+            }
+        }
+
+        .test-action {
+            float: right;
+        }
+    }
+
+    .quizz-navigation {
+        margin-top: 15px;
+        background-color: orange;
+        padding: 10px;
+
+        .navigation {
+            font-size: 2.1em;
+            margin-top: -5px;
+        }
+
+        .go-to-prev {
+            .navigation;
+            float: left;
+        }
+
+        .go-to-next {
+            .navigation;
+            float: right;
+        }
+
+        .question-counter {
+            text-align: center;
+
+            .counter {
+                cursor: default;
+                font-weight: 700;
+            }
+
+            .go-to-question {
+                input[type='text'] {
+                    width: 35px;
+                    height: 20px;
+                    text-align: right;
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}

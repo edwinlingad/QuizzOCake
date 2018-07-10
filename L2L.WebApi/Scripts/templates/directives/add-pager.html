@@ -1,0 +1,17 @@
+﻿<nav ng-hide="pager.lastPage <= 1">
+    <ul class="pagination">
+        <li ng-class="{disabled: pager.currentPage == 1}">
+            <a ng-click="goToPage(pager.currentPage-1)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li ng-repeat="item in pager.pageNums" ng-class="{active: item == pager.currentPage}">
+            <a ng-click="goToPage(item)">{{item}}</a>
+        </li>
+        <li ng-class="{disabled: pager.currentPage == pager.lastPage}">
+            <a ng-click="goToPage(pager.currentPage+1)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

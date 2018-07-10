@@ -1,0 +1,244 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<meta view-head property="og:title" content="{{quizzOverview.title}}">
+<meta view-head property="og:description" content="{{quizzOverview.description}}">
+<div id="quizz-detail-html" class="qz-page-container quizz-o-container quizz-common-header ng-anim-fade" ng-hide="!page.isReady" ng-cloak>
+    <div class="qz-page-title-action">
+        <div class="qz-info">
+            <span ng-if="isAssignment" class="qz-page-title-extra">assignment</span>
+            <span ng-if="!quizzOverview.dailyReward.isTaken" class="daily-reward-icon">
+                <span class="daily-reward-possible-points">+{{quizzOverview.dailyReward.availablePoints}}</span>
+                <img class="point-image" src="/Content/images/Icons/points-1.0.png" />
+            </span>
+        </div>
+        <div class="qz-page-title">
+            <h1>Quizz Detail</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header quizzroom-head-container">
+            <div class="qz-header-action" ng-hide="quizzControl.vars.isOpen">
+                <span class="qz-title-right">Quizz</span>
+                <div class="btn-group qz-modify-item-ellipsis" ng-if="quizzOverview.isOwner">
+                    <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="lessonsCtrl.vars.disableAll">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a ng-click="quizzControl.edit()">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit Quizz</span>
+                            </a>
+                        </li>
+                        <li class="delete-menu-item">
+                            <a ng-click="quizzControl.remove()">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete Quizz</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div ng-show="!quizzControl.vars.isOpen" class="ng-anim-slide-down">
+                <div class="avatar-image">
+                    <add-category-icon-dyn category="quizzOverview.category" add-class="quizz-category-icon category-icon-big" control="categoryIconControl"></add-category-icon-dyn>
+                </div>
+
+                <div class="main-info">
+                    <div class="quizz-title qz-title">
+                        {{quizzOverview.title}}
+                    </div>
+                    <div class="qz-description">
+                        {{quizzOverview.description}}
+                    </div>
+                    <div class="quizz-owner">
+                        by: <a ui-sref="si.quizzer({quizzerId: quizzOverview.ownerId })" class="quizzer">{{quizzOverview.ownerName}}</a>
+                        <child-icon age="{{quizzOverview.age}}"></child-icon>
+                        <a class="quizz-owner-points" ui-sref="si.quizzer({quizzerId: model.ownerId, view: 2})">
+                            ( {{quizzOverview.ownerPoints}} <img class="point-image" src="/Content/images/Icons/points-1.0.png" alt="points" />
+                            {{quizzOverview.totalBadge}} <img class="badge-image" src="/Content/images/Icons/achievement-1.0.png" /> )
+                        </a>
+                    </div>
+                    <div>
+                        <span class="grade-level">{{quizzOverview.gradeLevelMin | gradeLevelEnumToString}}</span>
+                        <span class="grade-level" ng-hide="quizzOverview.gradeLevelMin == quizz.gradeLevelMax">
+                            to {{quizzOverview.gradeLevelMax | gradeLevelEnumToString}}
+                        </span>
+                    </div>
+                    <!--<div class="rating">
+                        Rating: <uib-rating ng-model="ratingControl.vars.uiValue" max="5" readonly="true" aria-labelledby="default-rating"></uib-rating>
+                        <span> ({{ratingControl.vars.numRatings}})</span>
+                        <item-load-wait item="ratingControl.vars" class="inline-block"></item-load-wait>
+                    </div>-->
+
+                    <div class="tags">
+                        Tags: {{quizzOverview.quizzTags}}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="qz-page-action-slide ng-anim-slide-down" ng-show="quizzControl.vars.isOpen">
+
+                <form name="form" ng-submit="quizzControl.editSave(form)">
+                    <div class="form-group">
+                        <label for="title" class="control-label">Title</label>
+                        <input id="title" name="title" type="text" class="form-control" ng-model="quizz.title" ng-change="quizzControl.changed(quizz)" required maxlength="64" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="control-label">Description</label>
+                        <textarea id="description" name="description" type="text" class="form-control" ng-model="quizz.description" ng-change="quizzControl.changed(quizz)" maxlength="128" />
+                    </div>
+
+                    <div class="row" ng-if="user.isAdmin">
+                        <div class="form-group col-sm-6">
+
+                            <label class="control-label">Is BuiltIn</label>
+                            <inp-radio-bool name="isBuiltIn" label-true="Yes" label-false="No" model="quizz.isBuiltIn" changed="changed(quizz)"> </inp-radio-bool>
+
+                            <label class="control-label">Built In Type</label>
+                            <input type="number" class="form-control" ng-model="quizz.builtInType" ng-change="quizzControl.changed(quizz)" />
+
+                            <label class="control-label">Main Type</label>
+                            <input type="number" class="form-control" ng-model="quizz.mainType" ng-change="quizzControl.changed(quizz)" />
+
+                            <label class="control-label">Sub Type</label>
+                            <input type="number" class="form-control" ng-model="quizz.subType" ng-change="quizzControl.changed(quizz)" />
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Sub Type 2</label>
+                            <input type="number" class="form-control" ng-model="quizz.subType2" ng-change="quizzControl.changed(quizz)" />
+
+                            <label class="control-label">Sub Type 3</label>
+                            <input type="number" class="form-control" ng-model="quizz.subType3" ng-change="quizzControl.changed(quizz)" />
+
+                            <label class="control-label">Sub Type 4</label>
+                            <input type="number" class="form-control" ng-model="quizz.subType4" ng-change="quizzControl.changed(quizz)" />
+
+                            <label class="control-label">Sub Type 5</label>
+                            <input type="number" class="form-control" ng-model="quizz.subType5" ng-change="quizzControl.changed(quizz)" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Category</label>
+                            <input type="text" class="form-control" ng-model="search.title" placeholder="Search...">
+                            <div class="category-input-container">
+                                <label ng-repeat="item in categories | filter:search" for="{{item.title}}" class="category-item" ng-class="{'is-selected': item.quizzCategoryType == quizz.category}">
+                                    <input name="category" type="radio" id="{{item.title}}" value="{{item.quizzCategoryType}}" ng-model="quizz.category" ng-checked="{{quizz.category == item.quizzCategoryType}}" ng-change="quizzControl.changed(quizz)" />
+                                    <span class="input-radio-main-text">{{item.title}}</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <div>
+                                <label class="control-label">Minimum Grade Level</label>
+                                <select name="gradeLevelMin" ng-model="quizz.gradeLevelMin" ng-change='quizzControl.gradeLevelChanged("min")' class="form-control" ng-options="option.gradeLevel as option.name for option in quizzGradeLevelList"></select>
+                            </div>
+                            <div>
+                                <label class="control-label">Maximum Grade Level</label>
+                                <select name="gradeLevelMax" ng-model="quizz.gradeLevelMax" ng-change='quizzControl.gradeLevelChanged("max")' class="form-control" ng-options="option.gradeLevel as option.name for option in quizzGradeLevelList"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Tags</label>
+                        <input type="text" class="form-control" ng-model="quizz.quizzTags" ng-change="quizzControl.changed(quizz)" placeholder="">
+                    </div>
+
+                    <div class="qz-header-action-align">
+                        <button type="submit" ng-disabled="quizz.isModified == false || quizz.title.length === 0 " class="btn btn-danger btn-xs">
+                            Save
+                            <save-wait item="page"></save-wait>
+                        </button>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="quizzControl.editCancel()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="qz-header-action-align" ng-hide="quizzControl.vars.isOpen">
+                <span class="questions-available action-align-bottom qz-header-action-item">
+                    <span ng-if="!quizzOverview.isBuiltIn">{{quizzOverview.numQuestions}}</span>
+                    <span ng-if="quizzOverview.isBuiltIn" class="infinity">&infin;</span>
+                    questions
+                </span>
+                <span class="questions-available action-align-bottom qz-header-action-item">
+                    <span>{{quizzOverview.numTaken}}x taken</span>
+                </span>
+                <!--<button type="button" class="btn btn-default btn-xs clear-btn like-btn action-align-bottom" ng-class="{'is-liked': quizzOverview.isLiked}" ng-disabled="!upvoteControl.vars.isReady || quizzOverview.isOwner || user.id === 0" ng-click="upvoteControl.upvote()">
+                    {{quizzOverview.numLikes}} likes
+                    <i class="fa fa-thumbs-up"></i>
+                    <item-load-wait item="upvoteControl.vars"></item-load-wait>
+                </button>-->
+                <div class="btn-group action-align-bottom share-btn">
+                    <button type="button" class="btn btn-xs dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        share <i class="fa fa-share-alt"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a ng-click="shareControl.share('facebook')">
+                                <i class="fa fa-facebook-official"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a ui-sref="si.editAssignmentGroup({assGId: -1, quizzId: quizzOverview.id})" class="btn btn-danger btn-xs" ng-if="user.asUserDependents.length != 0 && quizzOverview.isLive">
+                    Set As Assignment
+                </a>
+                <div class="live-control" >
+                    <i class="fa fa-question-circle hint" uib-tooltip="10 questions or more to publish" tooltip-placement="left" ng-if="!quizzOverview.isLive"></i>
+                    <button type="button" class="btn btn-danger btn-xs" ng-disabled="!liveControl.vars.isReady || quizzOverview.numQuestions < 10" ng-click="liveControl.toggle()" ng-if="quizzOverview.canEdit && !quizzOverview.isBuiltIn">
+                        {{liveControl.vars.title}}
+                        <item-load-wait item="liveControl.vars" class="inline-block"></item-load-wait>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-xs" ng-disabled="!liveControl.vars.isReady" ng-click="liveControl.toggle()" ng-if="quizzOverview.isOwner && quizzOverview.isBuiltIn">
+                        {{liveControl.vars.title}}
+                        <item-load-wait item="liveControl.vars" class="inline-block"></item-load-wait>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body" ng-hide="quizzControl.vars.isOpen">
+            <div class="qz-button-as-tabs">
+                <a ui-sref="si.quizzDetail({qcId: quizzOverview.id, view: 0})" class="btn btn-default btn-xs" ng-class="{'active': view == 0}">
+                    Comments
+                </a>
+                <a ui-sref="si.quizzDetail({qcId: quizzOverview.id, view: 1})" class="btn btn-default btn-xs" ng-class="{'active': view == 1}">
+                    Reviewer Notes
+                </a>
+                <a ui-sref="si.quizzDetail({qcId: quizzOverview.id, view: 2})" class="btn btn-default btn-xs" ng-class="{'active': view == 2}">
+                    Flash Cards
+                </a>
+                <a ui-sref="si.quizzDetail({qcId: quizzOverview.id, view: 3})" class="btn btn-default btn-xs" ng-class="{'active': view == 3}">
+                    Test
+                </a>
+            </div>
+
+            <div class="qz-tabs">
+                <!--comments-->
+                <div ng-if="view === 0 && page.isReady">
+                    <quizz-comments quizz="quizz" quizz-overview="quizzOverview"></quizz-comments>
+                </div>
+                <!--Notes-->
+                <div ng-if="view === 1 && page.isReady">
+                    <quizz-quick-notes quizz="quizz" quizz-overview="quizzOverview"></quizz-quick-notes>
+                </div>
+                <!--Flash Cards-->
+                <div ng-if="view === 2 && page.isReady">
+                    <quizz-flash-cards quizz="quizz" quizz-overview="quizzOverview"></quizz-flash-cards>
+                </div>
+                <!--Test-->
+                <div ng-if="view === 3 && page.isReady">
+                    <quizz-test quizz="quizz" quizz-overview="quizzOverview" ass-id="{{assId}}"></quizz-test>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

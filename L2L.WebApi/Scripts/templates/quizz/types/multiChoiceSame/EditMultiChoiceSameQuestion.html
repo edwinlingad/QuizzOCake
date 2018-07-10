@@ -1,0 +1,68 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="edit-mcs-html" class="qz-page-container quizz-common-header ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <!--<div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>-->
+        <div class="qz-page-title">
+            <h1>{{page.title}}</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+
+            </div>
+            <div class="quizz-name-icon">
+                <div class="avatar-image">
+                    <add-category-icon-dyn category="quizz.category" add-class="quizz-category-icon category-icon-big" control="categoryIconControl"></add-category-icon-dyn>
+                </div>
+
+                <div class="main-info">
+                    <div class="quizz-title qz-title">
+                        {{quizz.title}}
+                    </div>
+                    <div class="qz-description">
+                        {{quizz.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body edit-q-container">
+            <form name="form" ng-submit="submit(form)">
+                <div class="question-container" ng-if="page.isReady">
+                    <qz-editor id="create-new" editor-control="editorControl" no-title="1" no-actions="1" no-video="1" text-label="Question"></qz-editor>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Choices</label>
+                    <ul>
+                        <li ng-repeat="item in choices">
+                            <div class="col-letter">
+                                {{$index | letter}}
+                            </div>
+                            <div class="col-question-correct-choice">
+                                
+                                <input id="checkBox_{{$index}}" type="checkbox" ng-model="item.isSelected" ng-change="changed(question)" />
+                                <label for="checkBox_{{$index}}" class="control-label">
+                                    <i class="fa fa-check" ng-if="item.isSelected"></i>
+                                    {{item.value}}
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr />
+                <div class="form-action">
+                    <button type="submit" class="btn btn-danger btn-xs" ng-disabled="!canSave()">
+                        {{saveButton.name}}
+                        <save-wait item="page"></save-wait>
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="goBack()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

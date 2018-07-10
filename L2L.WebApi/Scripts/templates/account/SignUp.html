@@ -1,0 +1,51 @@
+﻿<div class="modal-body qz-account-modal sign-up-html" ng-cloak>
+    <button type="button" class="close qz-account-modal-extra-action" data-dismiss="alert" aria-label="Close" ng-click="close()" ng-disabled="page.disabled">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="qz-account-modal-title">
+        New <ng-include src="'scripts/templates/common/_CompanyName.html'"></ng-include> Account
+    </div>
+
+    <button id="parent-account" class="new-account" ng-click="signUpStandard()">
+        <div class="account-name">
+            <span class="company-quizz">Quizz</span><span class="company-o">O</span><span class="company-cake">Cake</span> Account
+        </div>
+        <div class="account-desc">
+            For learners, parents or educators who are 16 years old and above<br />
+            <ul>
+                <li>
+                    Can create
+                    <span class="user-type">
+                        <span class="quizz">Quizz</span>ling
+                    </span>
+                    accounts, give out assignments and monitor <span class="quizz">Quizz</span>ling's activities and progress.
+                </li>
+            </ul>
+            A valid email address is required for verification.
+        </div>
+    </button>
+
+    <button id="child-account" class="new-account">
+        <div class="child-account-normal">
+            <div class="account-name">
+                <i class="fa fa-child"></i>
+                <span class="quizz">Quizz</span>ling Account
+            </div>
+            <div class="account-desc">
+                For users below 16 years of age. <br />
+                <ul>
+                    <li>
+                        Activities and progress can be monitored by parent.
+                    </li>
+                </ul>
+                Can only be created by an existing <span class="company-quizz">Quizz</span><span class="company-o">O</span><span class="company-cake">Cake</span> Account
+            </div>
+        </div>
+
+        <div class="child-account-on-hover company-quizz">
+            Can only be created by an existing <span class="company-quizz">Quizz</span><span class="company-o">O</span><span class="company-cake">Cake</span> Account
+        </div>
+    </button>
+
+</div>

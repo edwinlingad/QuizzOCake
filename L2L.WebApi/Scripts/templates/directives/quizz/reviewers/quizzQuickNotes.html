@@ -1,0 +1,89 @@
+﻿<div ng-show="page.isReady" class="quick-note-html classroom-page">
+    <div class="qz-page-action">
+        <a ui-sref="si.viewQuickNote.quickNoteItem({quizzId: quizz.id, revId: quizz.id, idx: 0})" class="btn btn-danger btn-xs" ng-if="quickNotes.length !== 0" ng-disabled="quickNoteControl.vars.disableAll">
+            Flip Through Notes
+        </a>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="quickNoteControl.open()" ng-disabled="quickNoteControl.vars.disableAll" ng-if="quizzOverview.isOwner">
+            New Note
+        </button>
+
+        <div class="qz-page-action-slide ng-anim-slide-down" ng-show="quickNoteControl.vars.isOpen">
+            <div ng-if="quickNoteControl.vars.isOpenIf">
+                <qz-editor id="create-new" editor-control="editorControl"></qz-editor>
+            </div>
+        </div>
+    </div>
+
+    <div class="topics">
+        <div class="qz-no-item" ng-if="quickNotes.length === 0">
+            No Notes.
+        </div>
+        <div ng-repeat="item in quickNotes" class="qz-item-container topic">
+            <div class="qz-item-container-summary" ng-hide="item.isOpen || item.isViewOpen">
+                <div class="btn-group item-action-right qz-modify-item-ellipsis ng-anim-fade" ng-if="quizzOverview.isOwner" ng-hide="quickNoteControl.vars.disableAll">
+                    <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a ng-click="quickNoteControl.edit(item)">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit Note</span>
+                            </a>
+                        </li>
+                        <li class="delete-menu-item">
+                            <a ng-click="quickNoteControl.remove($index, item)">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete Note</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="item-action-right ng-anim-fade view-icon-container" ng-hide="item.isOpen || item.isViewOpen || quickNoteControl.vars.disableAll">
+                    <button type="button" class="btn btn-default btn-sm view-icon" ng-click="viewControl.open(item)">
+                        <i class="fa fa-file-text-o"></i>
+                        <i class="fa fa-search-plus"></i>
+                    </button>
+                </div>
+
+                <div class="ng-anim-slide-down qz-item-content">
+                    <div class="qz-item-number">
+                        {{$index + 1}} .
+                    </div>
+                    <div class="avatar-image">
+                        <div ng-if="item.addContentType === 0">
+                            <i class="fa fa-font"></i>
+                        </div>
+                        <div ng-if="item.addContentType === 1">
+                            <i class="fa fa-picture-o"></i>
+                        </div>
+                        <div ng-if="item.addContentType === 2">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <div ng-if="item.addContentType === 4">
+                            <i class="fa fa-youtube"></i>
+                        </div>
+                    </div>
+                    <div class="main-info">
+                        <div class="announcement-message">
+                            {{item.title}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ng-anim-slide-down qz-item-edit" ng-show="item.isOpen">
+                <div ng-if="item.isOpenIf">
+                    <qz-editor id="edit-{{$index}}" editor-control="editorControl" item="item"></qz-editor>
+                </div>
+            </div>
+
+            <div class="ng-anim-slide-down" ng-show="item.isViewOpen">
+                <div ng-if="item.isViewOpenIf">
+                    <qz-editor-view id="view-{{$index}}" editor-control="editorControl" item="item"></qz-editor-view>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

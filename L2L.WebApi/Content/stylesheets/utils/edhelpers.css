@@ -1,0 +1,59 @@
+﻿.ed-center-container {
+    position: relative;
+}
+
+.ed-block-centerX {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ed-block-centerY {
+    position: absolute;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.ed-block-center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.ed-text-centerX {
+    text-align: center;
+}
+
+.ed-center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.ed-flex-center-both-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ed-img-fill-screen {
+    background-position: center;
+    background-size: cover;
+}
+
+.ed-img-fixed-attachment {
+    background-attachment: fixed;
+}

@@ -1,0 +1,329 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.qz-modal {
+  background-color: white;
+  padding: 30px;
+  overflow: hidden;
+}
+.qz-modal .qz-modal-header {
+  padding: 15px;
+  background-color: #f1f1f1;
+}
+.qz-modal .qz-modal-header .qz-modal-title {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.qz-modal .qz-modal-body {
+  margin-top: 10px;
+  background-color: #f1f1f1;
+  padding: 15px;
+}
+.qz-modal .qz-modal-actions {
+  float: right;
+  margin-top: 10px;
+}
+.modal-sm {
+  width: 300px;
+  margin: 20px auto;
+}
+.qz-account-modal {
+  padding: 30px 25px;
+}
+.qz-account-modal .modal-info {
+  margin: 10px -10px;
+  padding: 10px 10px 10px 10px;
+  background-color: gray;
+}
+.qz-account-modal .modal-info p,
+.qz-account-modal .modal-info span {
+  font-size: 0.85em;
+  color: white;
+}
+.qz-account-modal .modal-info p a,
+.qz-account-modal .modal-info span a {
+  color: #f1bb11;
+}
+.qz-account-modal .modal-info .quizzling {
+  font-size: 1em;
+  color: orange;
+}
+.qz-account-modal .qz-account-modal-extra-action {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  overflow: hidden;
+}
+.qz-account-modal .qz-account-modal-extra-action .cancel-button {
+  float: right;
+}
+.qz-account-modal .qz-account-modal-title {
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  cursor: context-menu;
+}
+.qz-account-modal .qz-account-modal-sub-title {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.qz-account-modal .qz-account-modal-more-info {
+  font-size: smaller;
+  color: dimgray;
+}
+.qz-account-modal form .company-logo {
+  width: 100%;
+  text-align: center;
+}
+.qz-account-modal form .message {
+  padding: 10px;
+  background-color: #ff0000;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.qz-account-modal form .qz-account-modal-more-info {
+  font-size: smaller !important;
+  color: dimgray !important;
+}
+.qz-account-modal form .form-group {
+  margin-bottom: 5px;
+}
+.qz-account-modal form .form-group .control-label {
+  margin-bottom: 2px;
+  text-transform: capitalize;
+  font-size: 0.85em;
+}
+.qz-account-modal form .qz-account-form-modal-action {
+  text-align: center;
+  margin-top: 20px;
+}
+.qz-account-modal form .qz-account-form-modal-action button {
+  width: 100px;
+}
+.qz-account-modal .as-link {
+  font-weight: 700;
+  font-size: 0.85em;
+  color: #3c3939;
+}
+.sign-in-html {
+  position: relative;
+  padding-bottom: 5px;
+}
+.sign-in-html .external-login {
+  text-align: center;
+}
+.sign-in-html .external-login button {
+  position: relative;
+  color: white;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+.sign-in-html .external-login button i.fa {
+  font-size: 1.8em;
+  position: absolute;
+  left: 10px;
+  top: 4px;
+}
+.sign-in-html .external-login button div.text {
+  margin-left: 25px;
+  font-size: 1em;
+}
+.sign-in-html .external-login .facebook-login {
+  background-color: #3b5998;
+}
+.sign-in-html .external-login .google-login {
+  background-color: #dd4b39;
+}
+.sign-in-html .or-divider {
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  margin: 20px 0;
+  background-color: rgba(255, 0, 0, 0.2);
+  height: 1px;
+}
+.sign-in-html .or-divider span {
+  background-color: white;
+  padding: 1px 10px;
+  position: absolute;
+  top: -10px;
+  left: 40%;
+}
+.sign-in-html .qz-account-modal-title {
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  cursor: context-menu;
+}
+.sign-in-html form .forgot-password {
+  text-align: right !important;
+}
+.sign-in-html form .forgot-password span {
+  font-weight: 500;
+  color: green !important;
+}
+.sign-in-html form .sign-in-or-sign-up {
+  margin: 20px 0;
+}
+.sign-in-html form .sign-in-or-sign-up button {
+  width: 100%;
+}
+.sign-in-html hr {
+  background-color: rgba(255, 0, 0, 0.2);
+  height: 1px;
+  margin: 20px -20px;
+}
+.sign-in-html .sign-up {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.sign-in-html .sign-up .create-account {
+  color: #f07a18;
+  font-size: 1em;
+}
+.sign-in-html .sign-up .sign-up-btn {
+  margin-top: 15px;
+}
+.sign-in-html .sign-up .sign-up-btn button {
+  width: 100px;
+}
+.sign-up-dependent-html .company-logo {
+  font-size: 1.2em;
+  height: auto;
+  line-height: normal;
+}
+.sign-up-dependent-html .qz-account-modal-title .fa-child {
+  font-size: 1.3em;
+  margin-right: 7px;
+}
+.sign-up-dependent-html form {
+  margin-bottom: -10px;
+}
+.sign-up-standard-html {
+  /*.standard-user-info {
+        margin: 10px -10px;
+        padding: 10px;
+        background-color: gray;
+
+        p, span {
+            font-size: 0.85em;
+            color: white;
+
+            a {
+                color: @company-theme-color4;
+            }
+        }
+
+        .quizzling {
+            font-size: 1em;
+            color: orange;
+        }
+    }*/
+}
+.sign-up-standard-html form {
+  margin-top: 10px;
+  border: 1px solid black;
+  padding: 20px 10px;
+}
+.sign-up-standard-html form .form-group input {
+  margin-left: 15px;
+  width: 95%;
+}
+.sign-up-html {
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.sign-up-html .qz-account-modal-extra-action {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.sign-up-html .new-account {
+  margin: 20px 0;
+  background-color: #e1e1e1;
+  padding: 20px 15px 25px 15px;
+  width: 100%;
+}
+.sign-up-html .new-account .account-name {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1em;
+}
+.sign-up-html .new-account .account-desc {
+  margin-top: 15px;
+  font-size: 1em;
+  font-weight: 500;
+  text-align: justify;
+}
+.sign-up-html .new-account .account-desc .user-type {
+  font-weight: 600;
+}
+.sign-up-html #parent-account {
+  cursor: pointer;
+}
+.sign-up-html #child-account {
+  cursor: no-drop;
+  position: relative;
+}
+.sign-up-html #child-account .child-account-normal {
+  -moz-transition: all linear 0.4s;
+  -o-transition: all linear 0.4s;
+  -webkit-transition: all linear 0.4s;
+  transition: all linear 0.4s;
+}
+.sign-up-html #child-account .child-account-on-hover {
+  position: absolute;
+  top: 30%;
+  font-size: 1.2em;
+  font-weight: 700;
+  opacity: 0;
+  color: green;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.sign-up-html #child-account:hover .child-account-normal {
+  opacity: 0.10;
+}
+.sign-up-html #child-account:hover .child-account-on-hover {
+  opacity: 1;
+}
+.sign-up-html .btn.btn-default {
+  float: right;
+}
+.reset-password-html {
+  position: relative;
+}
+.reset-password-html .container {
+  z-index: -200;
+}
+.reset-password-html .ed-img-fill-screen nsi-page-background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.reset-password-html .qz-account-modal {
+  padding: 20px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.reset-password-html .qz-account-modal .reset-password-modal {
+  background-color: white;
+  padding: 30px;
+  margin: 20px auto;
+  width: 300px;
+  z-index: 100;
+}

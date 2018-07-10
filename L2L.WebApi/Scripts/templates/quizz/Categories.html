@@ -1,0 +1,47 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="quizz-overviews-html" class="qz-page-container categories-html ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <!--<button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>Categories</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <div class="qz-page-action">
+                <input type="text" class="form-control" ng-model="search.title" placeholder="Search Quizz...">
+            </div>
+
+            <div class="quizz-categories">
+                <div ng-repeat="item in categories | filter:search" class="quizz-category qz-item-container link-container">
+                    <a ui-sref="si.quizzCategory({category: item.quizzCategoryType})" class="link-elem"></a>
+                    <div>
+                        <div class="category-icon-container">
+                            <add-category-icon-dyn add-class="category-icon-big" category="item.quizzCategoryType" />
+                        </div>
+
+                        <div class="category-right-info">
+                            {{item.quizzCount}} Q<span class="uizze">uiz</span>z
+                        </div>
+
+                        <div class="category-item-body category-icon-big-right-container">
+                            <div class="category-item-name qz-title">
+                                {{item.title}}
+                            </div>
+                            <div class="category-item-description qz-description">
+                                {{item.description}}
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

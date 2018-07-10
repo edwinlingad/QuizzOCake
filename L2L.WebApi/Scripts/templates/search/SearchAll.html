@@ -1,0 +1,104 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="search-all-html" class="qz-page-container ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>Search</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <div ng-if="searchList.length == 0" class="nothing-found">
+                No Items found
+            </div>
+
+            <div ng-repeat="item in searchList" ng-if="searchList.length > 0">
+                <div ng-if="item.searchType == 0" class="search-item">
+                    <div class="search-item-left">
+                        <img ng-src="{{item.profileImageUrl}}" class="avatar"/>
+                    </div>
+                    <div class="search-item-middle">
+                        <a ui-sref="si.quizzer({quizzerId: item.userId, view: 0})" class="quizzer">
+                            {{item.userName}}
+                            <child-icon age="{{item.age}}"></child-icon>
+                        </a>
+                        <div ng-if="item.isQuizzmate">
+                            {{item.userFullName}}
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="item.searchType == 1" class="search-item">
+                    
+                    <div class="search-item-left">
+                        <add-category-icon-dyn category="item.quizzCategory" add-class="quizz-category-icon category-icon-big"></add-category-icon-dyn>
+                    </div>
+                    <div class="search-item-middle">
+                        <a ui-sref="si.quizzDetail({quizzId: item.quizzId, view: 3})" class="quizz-title qz-title">
+                            {{item.quizzName}}
+                        </a>
+                        <div class="quizz-desc">
+                            {{item.quizzDescription}}
+                        </div>
+                        by: 
+                        <a ui-sref="si.quizzer({quizzerId: item.teacherId, view: 0})" class="quizzer">
+                            {{item.quizzAuthor}}
+                            <child-icon age="{{item.age}}"></child-icon>
+                        </a>
+                        <div class="tags">
+                            Tags: {{item.quizzTags}}
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="item.searchType == 2" class="search-item">
+                    <div class="search-item-left">
+                        <img ng-src="{{item.imageUrl}}" class="avatar"/>
+                    </div>
+                    <div class="search-item-right">
+                        <span class="info-text" ng-if="item.isTeacher">
+                            teacher
+                        </span>
+                        <span class="info-text" ng-if="item.isMember && !item.isTeacher">
+                            learner
+                        </span>
+                        <span class="info-text" ng-if="item.isRequestSent && !item.isMember">
+                            requested
+                        </span>
+                        <span class="info-text" ng-if="item.isInviteSent && !item.isMember">
+                            invited
+                        </span>
+                    </div>
+
+                    <div class="main-info search-item-middle">
+                        <a ui-sref="si.quizzClass({ qcId: item.quizzClassId, view: 0})" class="classroom-name" ng-if="!item.isMember">
+                            {{item.className}}
+                        </a>
+                        <a ui-sref="si.enrolledQuizzClass({ qcId: item.quizzClassId, view: 1})" class="classroom-name" ng-if="item.isMember && !item.isTeacher">
+                            {{item.className}}
+                        </a>
+                        <a ui-sref="si.myQuizzClass({ qcId: item.quizzClassId, view: 1})" class="classroom-name" ng-if="item.isTeacher">
+                            {{item.className}}
+                        </a>
+                        <div class="classroom-description">
+                            {{item.description}}
+                        </div>
+                        <div class="main-info-item">
+                            <span class="quizzcher">Teacher</span>
+                            <a ui-sref="si.quizzer({quizzerId: item.teacherId, view: 0})" class="quizzer info-content">
+                                {{item.teacherName}}
+                                <child-icon age="{{item.age}}"></child-icon>
+                            </a>
+                        </div>
+                        <div class="classroom-stats">
+                            <div class="classroom-stat">
+                                Tags: {{item.qcTags}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

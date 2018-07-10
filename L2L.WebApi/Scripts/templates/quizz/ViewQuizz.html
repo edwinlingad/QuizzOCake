@@ -1,0 +1,21 @@
+﻿<div id="view-quizz-html" class="qz-page-container" ng-hide="page.isReady == false">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-default clear-btn btn-xs" ng-click="tipControl.showAll()">
+                <i class="fa fa-question-circle"></i>
+            </button>
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>View Quizz</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <add-guest-message msg="Edit Quizz and Commenting is only available to registered users." is-guest="user.isGuest"></add-guest-message>
+
+            <quizz-overview quizz-id="{{quizzId}}" detailed="true" help="{{help}}" tip-control="tipControl"></quizz-overview>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container assignment-html edit-assignment-group-html  ng-anim-fade" ng-hide="!page.isReady">
+    <add-guest-message msg="Assignment Creation or Modification is only available to registered users." is-guest="user.isGuest"></add-guest-message>
+
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>{{page.title}}</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+
+            <div class="quizz-header">
+                <add-category-icon-dyn category="quizz.category" add-class="quizz-category-icon"></add-category-icon-dyn>
+                <div class="quizz-title-desc">
+                    <div class="quizz-title">
+                        <span ng-click="goToQuizz(item)" class="as-link">{{quizz.title}}</span>
+                    </div>
+                    <div class="quizz-desc ng-anim-slide-down" ng-show="toggleDetailedViewBtn.value">{{quizz.description}}</div>
+                    <div>
+                        by: <span class="quizzer as-link" ng-click="goToQuizzer(item.quizz.ownerId)">{{quizz.ownerName}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <form ng-submit="saveBtn.click()">
+                <div class="form-group dependents">
+                    <label class="control-label">Assign to:</label>
+                    <div ng-repeat="item in dependents" class="dependent-choice">
+                        <label>
+                            <input type="checkbox" ng-model="item.isChosen" ng-change="changed(item)" ng-disabled="item.isCompleted"/>
+                            {{item.dependentFullName}}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group target-score">
+                    <label class="control-label">Target Score: </label>
+                    <input type="number" class="form-control" ng-model="assignmentGroup.targetScore" ng-change="changed(assignmentGroup)" max="100" min="0" required autocomplete="off"/>
+                    <span>%</span>
+                    <span>( {{((assignmentGroup.targetScore/100)*assignmentGroup.numQuestions) | ceiling}}/{{assignmentGroup.numQuestions}} )</span>
+                </div>
+
+                <div class="form-group" >
+                    <label class="control-label">Target Due Date:</label>
+                    <input type="date" ng-model="assignmentGroup.targetDate" ng-change="changed(assignmentGroup)" ng-disabled="assignmentGroup.noDueDate" ng-class="{'blank-date': assignmentGroup.noDueDate}" />
+                    <label class="control-label no-due-date">
+                        <input type="checkbox" ng-model="assignmentGroup.noDueDate" ng-change="changed(assignmentGroup)" />
+                        No Due Date
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Message:</label>
+                    <textarea class="message" ng-model="assignmentGroup.message" ng-change="changed(assignmentGroup)" maxlength="512" placeholder="e.g. 'You will get a treat if you finish this' or 'Good Luck!' or 'No desserts until you finish this assignment."></textarea>
+                </div>
+
+                <div class="prep-test-details">
+                    <test-setting-summary settings="assignmentGroup.testSetting"></test-setting-summary>
+                    <button type="button" class="btn btn-primary btn-xs" ng-click="editTestSetting()">
+                        Modify
+                    </button>
+                </div>
+
+                <hr />
+
+                <div class="form-action">
+                    <button type="submit" class="btn btn-danger btn-sm" ng-disabled="saveBtn.disabled">
+                        {{saveBtn.name}}
+                        <save-wait-is-ready item="saveBtn"></save-wait-is-ready>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="qz-body">
+
+        </div>
+    </div>
+</div>

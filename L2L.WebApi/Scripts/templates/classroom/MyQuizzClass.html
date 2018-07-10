@@ -1,0 +1,163 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="my-quizz-class-html" class="qz-page-container classroom-page ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <a ui-sref="si.quizzClassAll" class="btn btn-danger btn-xs">
+                <i class="fa fa-chevron-circle-left"></i>
+                Quizzroom list
+            </a>
+        </div>
+        <div class="qz-page-title">
+            <h1>My Quizzroom</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header quizzroom-head-container">
+            <div class="qz-header-action" ng-hide="quizzClassControl.vars.isOpen">
+                <span class="qz-title-right">Quizzroom</span>
+                <div class="btn-group qz-modify-item-ellipsis">
+                    <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="lessonsCtrl.vars.disableAll">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a ng-click="quizzClassControl.edit()">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit Quizzroom</span>
+                            </a>
+                        </li>
+                        <li class="delete-menu-item">
+                            <a ng-click="quizzClassControl.remove()">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete Quizzroom</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div ng-show="!quizzClassControl.vars.isOpen" class="ng-anim-slide-down">
+                <div class="avatar-image">
+                    <img ng-src="{{quizzClass.imageUrl}}" />
+                </div>
+
+                <div class="main-info">
+                    <div class="classroom-name">
+                        {{quizzClass.className}}
+                    </div>
+                    <div class="classroom-description">
+                        {{quizzClass.description}}
+                    </div>
+                    <div class="classroom-stats">
+                        <div class="classroom-stat">
+                            Tags: {{quizzClass.tags}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="edit-quizz-room qz-page-action-slide ng-anim-slide-down" ng-show="quizzClassControl.vars.isOpen">
+                <div class="class-image">
+                    <qz-image-editor id="edit-quizz-class-editor" size="100" image-control="imageControl"></qz-image-editor>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Quizzroom Name: </label>
+                    <input type="text" class="form-control" ng-disabled="quizzClassControl.vars.disabled" ng-change="quizzClassControl.changed()" ng-model="quizzClassControl.vars.className" maxlength="64" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Description: </label>
+                    <textarea class="form-control" ng-disabled="quizzClassControl.vars.disabled" ng-change="quizzClassControl.changed()" ng-model="quizzClassControl.vars.description" maxlength="128" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tags: </label>
+                    <input type="text" class="form-control" ng-disabled="quizzClassControl.vars.disabled" ng-change="quizzClassControl.changed()" ng-model="quizzClassControl.vars.tags" />
+                </div>
+                <div class="qz-header-action-align">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="quizzClassControl.editSave()" ng-disabled="quizzClassControl.vars.disabled || !quizzClassControl.vars.isSaveEnabled">
+                        Save
+                        <save-wait item="quizzClassControl.vars">
+                        </save-wait>
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="quizzClassControl.editCancel()" ng-disabled="quizzClassControl.vars.disabled">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div class="qz-button-as-tabs">
+                <!--<a ui-sref="si.myQuizzClass({qcId: quizzClass.id, view: 0})" class="btn btn-default btn-xs" ng-class="{'active': view == 0}">
+                    Summary
+                </a>-->
+                <a ui-sref="si.myQuizzClass({qcId: quizzClass.id, depId: depId, view: 1})" class="btn btn-default btn-xs" ng-class="{'active': view == 1}">
+                    Announcements
+                    <span class="badge" ng-if="quizzClass.member.newAnnouncementCount !== 0">
+                        {{quizzClass.member.newAnnouncementCount}}
+                    </span>
+                </a>
+                <!--<a ui-sref="si.myQuizzClass({qcId: quizzClass.id, view: 2})" class="btn btn-default btn-xs" ng-class="{'active': view == 2}">
+                    Materials
+                </a>-->
+                <a ui-sref="si.myQuizzClass({qcId: quizzClass.id, depId: depId, view: 3})" class="btn btn-default btn-xs" ng-class="{'active': view == 3}">
+                    Lessons
+                    <span class="badge" ng-if="quizzClass.numNewLessonItemCount !== 0">
+                        {{quizzClass.numNewLessonItemCount}}
+                    </span>
+                </a>
+                <a ui-sref="si.myQuizzClass({qcId: quizzClass.id, depId: depId, view: 4})" class="btn btn-default btn-xs" ng-class="{'active': view == 4}">
+                    Discussions
+                    <span class="badge" ng-if="quizzClass.member.newClassCommentCount !== 0">
+                        {{quizzClass.member.newClassCommentCount}}
+                    </span>
+                </a>
+                <a ui-sref="si.myQuizzClass({qcId: quizzClass.id, depId: depId, view: 6})" class="btn btn-default btn-xs" ng-class="{'active': view == 6}">
+                    Suggested Quizzes
+                    <span class="badge" ng-if="quizzClass.member.newClassQuizzCount !== 0">
+                        {{quizzClass.member.newClassQuizzCount}}
+                    </span>
+                </a>
+                <a ui-sref="si.myQuizzClass({qcId: quizzClass.id, depId: depId, view: 5})" class="btn btn-default btn-xs" ng-class="{'active': view == 5}">
+                    Learners
+                    <span class="badge" ng-if="quizzClass.numStudentJoinRequests !== 0 || quizzClass.numNewInviteAccepts !== 0">
+                        {{quizzClass.numStudentJoinRequests + quizzClass.numNewInviteAccepts}}
+                    </span>
+                </a>
+            </div>
+
+            <div class="qz-tabs">
+                <div ng-if="view === 0">
+
+                </div>
+
+                <!--Announcements-->
+                <div ng-if="view === 1 && page.isReady">
+                    <quizz-class-announcements qc-id="{{quizzClass.id}}" is-teacher="1"></quizz-class-announcements>
+                </div>
+
+                <div ng-if="view === 3 && page.isReady">
+                    <quizz-class-lessons qc-id="{{quizzClass.id}}" is-teacher="1"></quizz-class-lessons>
+                </div>
+
+                <!--Discussions-->
+                <div ng-if="view === 4 && page.isReady">
+                    <quizz-class-discussions quizz-class="quizzClass"></quizz-class-discussions>
+                </div>
+
+                <!--Quizzes-->
+                <div ng-if="view === 6 && page.isReady">
+                    <quizz-class-quizzes quizz-class="quizzClass"></quizz-class-quizzes>
+                </div>
+
+                <!--Students-->
+                <div ng-if="view === 5 && page.isReady">
+                    <quizz-class-students quizz-class="quizzClass" is-teacher="1"></quizz-class-students>
+                </div>
+            </div>
+
+            <div class="bottom-pad">
+            </div>
+        </div>
+    </div>
+</div>

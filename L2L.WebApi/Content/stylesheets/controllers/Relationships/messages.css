@@ -1,0 +1,184 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+#quizzmate-msg-html .qz-page-title h1 {
+  display: inline-block;
+}
+#quizzmate-msg-html .qz-page-title .qz-page-sub-title {
+  display: inline-block;
+}
+.qz-connect-message-page {
+  margin: 0 10px;
+}
+.qz-connect-message-page .qz-connect-top-action {
+  padding: 10px;
+  background-color: orange;
+}
+.qz-connect-message-page .qz-connect-top-action .button-actions {
+  text-align: right;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates {
+  margin-top: 5px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-list {
+  background-color: white;
+  padding: 5px;
+  height: 150px;
+  overflow: auto;
+  margin-top: 5px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-list .quizzmate {
+  margin-bottom: 2px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-list .quizzmate label {
+  background-color: #c4c9b3;
+  display: block;
+  padding: 5px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-list .quizzmate .avatar {
+  float: none;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-list .quizzmate .avatar img {
+  width: 25px;
+  height: 25px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-list .quizzmate .user-name {
+  margin-left: 5px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-action {
+  text-align: right;
+  margin-top: 10px;
+}
+.qz-connect-message-page .qz-connect-top-action .available-quizzmates .available-quizzmates-action button {
+  width: 60px;
+  margin-left: 5px;
+}
+.qz-connect-message-page .members {
+  margin: 10px;
+  color: #e53d0e;
+}
+.qz-connect-message-page .qz-connect-messages {
+  background-color: white;
+  min-height: 100px;
+  margin-bottom: 15px;
+  padding: 10px;
+  max-height: 600px;
+  overflow: auto;
+}
+.qz-connect-message-page .qz-connect-messages .message-item {
+  margin-bottom: 5px;
+}
+.qz-connect-message-page .qz-connect-messages .message-item .avatar {
+  float: left;
+  width: 30px;
+  height: 30px;
+}
+.qz-connect-message-page .qz-connect-messages .message-item .avatar img {
+  width: 30px;
+  height: 30px;
+}
+.qz-connect-message-page .qz-connect-messages .message-item .message-common {
+  padding: 5px 10px;
+  font-size: 0.85em;
+  /*-ms-word-break: break-all;
+                word-break: break-all;*/
+}
+.qz-connect-message-page .qz-connect-messages .message-item .message-others {
+  margin-left: 40px;
+}
+.qz-connect-message-page .qz-connect-messages .message-item .message-others .actual-message {
+  padding: 5px 10px;
+  font-size: 0.85em;
+  /*-ms-word-break: break-all;
+                word-break: break-all;*/
+  background-color: #dbdbdb;
+  margin-right: 50px;
+}
+.qz-connect-message-page .qz-connect-messages .message-item .message-self .actual-message {
+  padding: 5px 10px;
+  font-size: 0.85em;
+  /*-ms-word-break: break-all;
+                word-break: break-all;*/
+  color: #ffffff;
+  background-color: #f07a18;
+  margin-left: 100px;
+  margin-right: 10px;
+}
+.qz-connect-message-page .qz-connect-messages #message-end {
+  background-color: red;
+}
+.qz-connect-message-page .qz-connect-actions {
+  background-color: white;
+  padding: 10px;
+}
+.qz-connect-message-page .qz-connect-actions .new-message-container {
+  font-size: 0.85em;
+}
+.qz-connect-message-page .qz-connect-actions .new-message-container textarea {
+  padding: 10px;
+}
+.qz-connect-message-page .qz-connect-actions .send-button-container {
+  margin-top: 5px;
+  text-align: right;
+}
+.qz-connect-message-page .qz-connect-actions .send-button-container button {
+  width: 75px;
+}
+.message-common-html .qz-page-action {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: orange;
+}
+.message-common-html .qz-page-action .new-group {
+  background-color: white;
+  padding: 10px;
+  margin-top: 5px;
+}
+.message-common-html .qz-page-action .new-group .form-group {
+  text-align: left;
+}
+.message-common-html .qz-page-action .new-group .form-group label {
+  font-size: 0.85em;
+}
+.message-common-html .qz-page-action .new-group button {
+  margin-left: 5px;
+  width: 60px;
+}
+.message-common-html .msg-threads .msg-thread-item {
+  background-color: white;
+  overflow: hidden;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.message-common-html .msg-threads .msg-thread-item .group-name {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #f07a18;
+  text-align: right;
+}
+.message-common-html .msg-threads .msg-thread-item .last-msg-container .avatar {
+  width: 50px;
+  height: 50px;
+}
+.message-common-html .msg-threads .msg-thread-item .last-msg-container .avatar img {
+  width: 50px;
+  height: 50px;
+}
+.message-common-html .msg-threads .msg-thread-item .last-msg-container .message-container {
+  margin-left: 60px;
+}
+.message-common-html .msg-threads .msg-thread-item .last-msg-container .message-container .actual-message {
+  font-size: 0.85em;
+  /*-ms-word-break: break-all;
+                        word-break: break-all;*/
+}
+.message-common-html .msg-threads .msg-thread-item .no-message {
+  text-align: center;
+  color: #e53d0e;
+}

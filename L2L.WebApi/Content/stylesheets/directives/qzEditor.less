@@ -1,0 +1,133 @@
+﻿@import "../common/common";
+
+.qz-editor-html {
+    .content-type {
+        border: 1px solid @company-theme-color2;
+        padding: 5px;
+    }
+
+    .editor-action {
+        text-align: right;
+        margin: 10px 0;
+
+        button {
+            min-width: 60px;
+        }
+    }
+
+    .editor-mod-content {
+        margin-bottom: 10px;
+    }
+
+    .image {
+        min-height: 100px;
+        text-align: center;
+        /*display: inline-block;*/
+        position: relative;
+
+        .editor-action {
+            input {
+                display: none;
+            }
+        }
+
+        button.btn {
+            position: absolute;
+            font-size: 2.5em;
+            right: 0;
+            top: 5px;
+            width: 40px !important;
+        }
+    }
+
+    .image-container {
+        img {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .image-canvas-container {
+
+        canvas.editor-image {
+            border: 5px solid lightgray;
+            /*max-width: 500px;*/
+            margin: 0 auto;
+        }
+    }
+
+    .video-container {
+        /*text-align: center;
+
+        iframe.youtube-embed {
+            width: 100%;
+            height: 50%;
+        }*/
+
+        div.form-group {
+            margin-top: 10px;
+            text-align: left;
+        }
+    }
+
+    .title {
+        font-size: 1em;
+        font-weight: 700;
+    }
+
+    .view-add-content {
+        margin: 10px 0;
+    }
+
+    .active, .active:focus, .active:hover {
+        background-color: #f07a18;
+        color: white;
+        border: 1px solid #f07a18;
+    }
+}
+
+.qz-editor-view-html {
+    .border-common {
+        border: 2px solid @company-theme-color5;
+    }
+
+    .literally-view {
+        .border-common;
+        /*overflow: auto;*/
+        height: auto;
+        width: auto;
+        margin-left: 15px;
+        margin-right: 15px;
+        min-height: 150px;
+
+        canvas {
+            width: 100%;
+        }
+    }
+
+    .image-container img {
+        .border-common;
+    }
+}
+
+.qz-image-editor-html {
+    display: inline-block;
+
+    .editor-action {
+        input {
+            display: none;
+        }
+    }
+
+    .image {
+        position: relative;
+
+        button.btn {
+            position: absolute;
+            font-size: 2.5em;
+            right: 0;
+            top: 5px;
+            width: 40px !important;
+        }
+    }
+}

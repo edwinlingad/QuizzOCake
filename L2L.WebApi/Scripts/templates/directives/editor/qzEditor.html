@@ -1,0 +1,55 @@
+﻿<div ng-show="page.isReady" class="qz-editor-html">
+    <div class="form-group" ng-if="!noTitleControl">
+        <label class="control-label">Title:</label>
+        <input type="text" class="form-control" ng-model="editorControl.title" ng-change="changed()"/>
+    </div>
+    <div>
+        <div class="editor-action content-type">
+            <button type="button" class="btn btn-default btn-xs" ng-click="changeAddType(0)" ng-class="{'active': addType == 0}">
+                Text Only
+            </button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="changeAddType(1)" ng-class="{'active': addType == 1}">
+                Image
+            </button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="changeAddType(2)" ng-class="{'active': addType == 2}">
+                Drawing
+            </button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="changeAddType(4)" ng-class="{'active': addType == 4}" ng-if="!noVideoControl">
+                YouTube
+            </button>
+        </div>
+        <div class="image editor-mod-content" ng-if="addType == 1">
+            <button type="button" class="btn btn-default btn-xs clear-btn" ng-click="imageClick()">
+                <i class="fa fa-edit"></i>
+            </button>
+            <div class="image-container" ng-if="!editorControl.isImageChanged">
+                <img ng-src="{{editorControl.imageUrl}}" class="img-responsive"/>
+            </div>
+            <div class="image-canvas-container" ng-show="editorControl.isImageChanged">
+                <canvas class="editor-image img-responsive"></canvas>
+            </div>
+            <div class="editor-action">
+                <input type="file" class="editor-image btn btn-default" ng-model="editorControl.imageContent" onchange="angular.element(this).scope().imageChanged()" />
+            </div>
+        </div>
+        <div class="literally editor-mod-content" ng-if="addType === 2">
+        </div>
+        <div class="editor-mod-content" ng-if="addType === 4">
+            <div class="video-container" >
+                <iframe class="youtube-embed" ng-src="{{editorControl.externalUrl}}" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"> </iframe>
+            </div>
+            <div class="form-group">
+                <label class="control-label">YouTube Url:</label>
+                <input type="url" class="form-control" ng-model="vars.externalUrl" ng-change="changed()"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">{{textLabel}}</label>
+        <textarea class="tinymce" ui-tinymce="tinymceOptions" ng-model="editorControl.textContent" ng-change="changed()" required />
+    </div>
+    <div class="editor-action" ng-if="!noActionControls">
+        <button type="button" class="btn btn-danger btn-xs" ng-click="save()" ng-disabled="!(editorControl.isModified && editorControl.title.trim().length !== 0)">Save</button>
+        <button type="button" class="btn btn-default btn-xs" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

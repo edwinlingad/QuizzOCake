@@ -1,0 +1,141 @@
+﻿<div class="quizz-test-html">
+    <div class="qz-page-action change-setting">
+        <div class="change-actions">
+            <button type="button" ng-click="takeTestControl.previewTest()" class="btn btn-danger btn-xs" ng-if="quizzOverview.canEdit" ng-disabled="test.questions.length === 0 || !takeTestControl.takeTestPreviewBtn.isReady || !takeTestControl.vars.isReady">
+                Preview Test
+                <item-load-wait item="takeTestControl.takeTestPreviewBtn" class="inline-block"></item-load-wait>
+            </button>
+            <button type="button" ng-click="takeTestControl.takeTest()" class="btn btn-danger btn-xs" ng-if="quizz.isLive" ng-disabled="!takeTestControl.takeTestBtn.isReady || !takeTestControl.vars.isReady">
+                Take Test
+                <item-load-wait item="takeTestControl.takeTestBtn" class="inline-block"></item-load-wait>
+            </button>
+        </div>
+
+        <div class="test-setting" ng-if="user.id !== 0">
+            <label class="control-label">Test Settings</label>
+            <div class="test-setting-summary tab-container">
+                <div class="test-setting-item">
+                    <span class="setting-title">Question Order: </span>
+                    <span class="setting-value">
+                        {{takeTestControl.settings.isOrdered | settingsOrder}}
+                    </span>
+                </div>
+                <div class="test-setting-item">
+                    <span class="setting-title">Number of Questions: </span>
+                    <span class="setting-value">
+                        {{takeTestControl.settings.numberOfQuestions | settingsNumQ}}
+                    </span>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-xs" ng-click="takeTestControl.editTestSetting()" ng-if="!(takeTestControl.vars.isAssignment)">
+                Modify
+            </button>
+        </div>
+    </div>
+
+    <div class="change-setting qz-page-action" ng-if="quizzOverview.canEdit">
+        <div class="change-actions">
+            <button type="button" ng-click="editTestSetting()" class="btn btn-danger btn-xs change">Change</button>
+        </div>
+        <div class="test-setting">
+            <label class="control-label">Default Test Settings</label>
+            <div class="test-setting-summary tab-container">
+                <div class="test-setting-item">
+                    <span class="setting-title">Question Order: </span>
+                    <span class="setting-value">
+                        {{test.defaultSetting.isOrdered | settingsOrder}}
+                    </span>
+                </div>
+                <div class="test-setting-item">
+                    <span class="setting-title">Number of Questions: </span>
+                    <span class="setting-value">
+                        {{test.defaultSetting.numberOfQuestions | settingsNumQ}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="qz-page-action add-question" ng-if="quizzOverview.canEdit">
+        <div class="add-question-header">Add Questions</div>
+        <button type="button" class="btn btn-danger btn-xs add-choice-group" ng-click="questionControl.editMultiChoiceSameChoiceGroup(-1)">Add Choice Group</button>
+        <div class="question-types">
+            <button type="button" class="btn btn-default btn-sm" ng-click="questionControl.createNewQuestion('QandA', { qId: -1, testId: test.id, quizzId: quizz.id })">
+                <add-q-icon question-type="1" add-class="q-icon"></add-q-icon>
+                <span class="button-name">Q and A</span>
+            </button>
+            <button type="button" class="btn btn-default btn-sm" ng-click="questionControl.createNewQuestion('MultipleChoice', { qId: -1, testId: test.id, quizzId: quizz.id })">
+                <add-q-icon question-type="2" add-class="q-icon"></add-q-icon>
+                <span class="button-name">Multiple Choice</span>
+            </button>
+            <div class="btn-group" ng-repeat="item in test.multiChoiceSameChoiceGroups">
+                <button type="button" class="btn btn-default btn-sm" ng-click="questionControl.createNewQuestion('MultiChoiceSame', { qId: -1, cgId: item.id, testId: test.id, quizzId: quizz.id })">
+                    <add-q-icon question-type="3" add-class="q-icon"></add-q-icon>
+                    <span class="button-name">{{item.name}}</span>
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle btn-sm caret-container" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="edit-menu-item">
+                        <a ng-click="questionControl.editMultiChoiceSameChoiceGroup(item.id)">
+                            <i class="fa fa-edit"></i>
+                            <span>Edit</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="quizzOverview.canEdit">
+        <div class="question-label">
+            Questions: {{test.questions.length}} total
+        </div>
+
+        <div class="qz-no-item" ng-if="test.questions.length === 0">
+            No Questions.
+        </div>
+        <div ng-repeat="item in test.questions" class="question qz-item-container">
+            <div class="col-number">
+                {{$index + 1}}.
+            </div>
+
+            <div class="col-action">
+                <div class="btn btn-default clear-btn" ng-click="flashCardControl.toggle(item)" uib-tooltip="{{flashCardControl.toolTipString(item)}}" tooltip-placement="left">
+                    <i class="fa fa-clone" ng-class="{'is-active': item.isFlashCard}"></i>
+                    <item-load-wait item="item" add-class="inline-block"></item-load-wait>
+                </div>
+
+                <div class="btn-group qz-modify-item-ellipsis">
+                    <button type="button" class="btn btn-default clear-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="edit-menu-item">
+                            <a ng-click="questionControl.editQuestion(item)">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit</span>
+                            </a>
+                        </li>
+                        <li class="delete-menu-item">
+                            <a ng-click="questionControl.deleteQuestion($index, item)">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-icon-question">
+                <add-q-icon question="item" add-class="q-icon"></add-q-icon>
+                <div class="col-question tinymce-formatted" ng-bind-html="item.question">
+                </div>
+            </div>
+
+        </div>
+        <div class="bottom-pad">
+        </div>
+    </div>
+</div>

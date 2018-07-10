@@ -1,0 +1,153 @@
+﻿<div ng-show="page.isReady" class="students-html">
+    <div class="pending-requests" ng-if="isOwner && pendingRequests.length !== 0">
+        <div class="qz-title">
+            Pending Requests
+        </div>
+        <div class="qz-no-item" ng-if="pendingRequests.length === 0">
+            No Pending Requests.
+        </div>
+        <div ng-repeat="item in pendingRequests" class="qz-item-container new-item" ng-if="pendingRequests.length !== 0">
+            <a ui-sref="si.quizzer({quizzerId: item.userId, view: 0})" class="quizzer avatar-container">
+                <img ng-src="{{item.userProfilePixUrl}}" class="avatar" />
+            </a>
+            <div class="main-info">
+                <a ui-sref="si.quizzer({quizzerId: item.userId, view: 0})" class="quizzer">
+                    {{item.userName}}
+                    <child-icon age="{{item.age}}"></child-icon>
+                </a>
+                <div class="request-message">
+                    "{{item.message}}"
+                </div>
+            </div>
+            <div class="qz-item-actions">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="pendingRequestControl.accept($index, item)" ng-disabled="item.disabled">
+                    Accept
+                    <save-wait-is-ready item="item.acceptRequestItem"></save-wait-is-ready>
+                </button>
+                <button type="button" class="btn btn-default btn-xs" ng-click="pendingRequestControl.reject($index, item)" ng-disabled="item.disabled">
+                    Reject
+                    <save-wait-is-ready item="item.rejectRequestItem"></save-wait-is-ready>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="pending-invites" ng-if="isOwner && pendingInvites.length !== 0">
+        <div class="qz-title">
+            Pending Invites
+        </div>
+        <div class="qz-no-item" ng-if="pendingInvites.length === 0">
+            No Pending Invites.
+        </div>
+        <div ng-repeat="item in pendingInvites" class="qz-item-container ng-anim-fade">
+            <div class="item-action-right">
+                <button class="btn btn-default btn-xs" ng-click="pendingInviteControl.cancelRequest($index, item)" ng-disabled="pendingInviteControl.vars.disableAll || item.disabled">
+                    Cancel Invite
+                    <save-wait item="item">
+                    </save-wait>
+                </button>
+            </div>
+
+            <div>
+                <div class="avatar-image">
+                    <img ng-src="{{item.userProfilePixUrl}}" />
+                </div>
+                <div class="main-info">
+                    <div class="quizzer">
+                        {{item.userName}}
+                        <child-icon age="{{item.userAge}}"></child-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="qz-title">
+            Learners
+        </div>
+        <div class="qz-page-action" ng-if="isOwner">
+            <button type="button" class="btn btn-danger btn-xs" ng-click="findLearnersControl.open()" ng-disabled="findLearnersControl.vars.isOpen || findLearnersControl.vars.isJoinOpen">
+                Invite Learners
+            </button>
+
+            <div class="find-items qz-page-action-slide ng-anim-slide-down" ng-show="findLearnersControl.vars.isOpen">
+                <div class="form-group">
+                    <input class="form-control" ng-model="findLearnersControl.vars.searchString" ng-change="findLearnersControl.search()" placeholder="Search Learner..." />
+                </div>
+                <div class="search-result-container">
+                    <div ng-if="findLearnersControl.learners.length === 0" class="qz-no-item">
+                        No Learners Found.
+                    </div>
+                    <div ng-repeat="item in findLearnersControl.learners" class="qz-item-container ng-anim-fade" ng-if="findLearnersControl.learners.length !== 0">
+                        <div class="item-action-right">
+                            <button class="btn btn-danger btn-xs" ng-click="findLearnersControl.selectItem(item)">
+                                Invite
+                            </button>
+                        </div>
+                        <div>
+                            <div class="avatar-image">
+                                <img ng-src="{{item.profileImageUrl}}" />
+                            </div>
+                            <div class="main-info">
+                                <div class="quizzer">
+                                    {{item.userDisplayName}}
+                                    <child-icon age="{{item.age}}"></child-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qz-item-actions">
+                    <button type="button" class="btn btn-default btn-xs" ng-click="findLearnersControl.close()">Close</button>
+                </div>
+            </div>
+
+            <div class="find-quizzroom qz-page-action-slide ng-anim-slide-down " ng-show="findLearnersControl.vars.isJoinOpen">
+                <div class="qz-item-container">
+                    <div class="avatar-image">
+                        <img ng-src="{{findLearnersControl.selected.profileImageUrl}}" />
+                    </div>
+                    <div class="main-info">
+                        <div class="quizzer">
+                            {{findLearnersControl.selected.userDisplayName}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Message: </label>
+                    <textarea class="form-control" ng-disabled="item.disabled" ng-change="classesControl.changed()" ng-model="findLearnersControl.vars.message" maxlength="512" />
+                </div>
+                <div class="qz-item-actions">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="findLearnersControl.submitRequest()" ng-disabled="!findLearnersControl.vars.isSaveEnabled">
+                        Send Invite
+                        <save-wait item="findLearnersControl.vars">
+                        </save-wait>
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="findLearnersControl.cancelJoinRequest()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="qz-no-item" ng-if="students.length === 0">
+            No learners enrolled.
+        </div>
+        <div ng-repeat="item in students" class="qz-item-container qz-item-with-avatar-container" ng-class="{'new-item': item.isNewInviteAccepted}">
+            <a ui-sref="si.quizzer({quizzerId: item.studentId, view: 0})" class="quizzer avatar-container">
+                <img ng-src="{{item.studentProfilePixUrl}}" class="avatar" />
+            </a>
+            <div class="item-action-right" ng-if="isOwner">
+                <button type="button" class="btn btn-default btn-xs" ng-click="studentControl.dropStudent($index, item)" ng-disabled="item.disabled || studentControl.vars.disableAll">
+                    Drop Learner
+                    <save-wait-is-ready item="item.dropStudentItem"></save-wait-is-ready>
+                </button>
+            </div>
+            <div class="main-info">
+                <a ui-sref="si.quizzer({quizzerId: item.studentId, view: 0})" class="quizzer">
+                    {{item.studentName}}
+                    <child-icon age="{{item.age}}"></child-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿<div class="quizz-header">
+    <!--<div add-category-bg no-hover=true category="quizz.category" class="quizz-category-icon">-->
+    <add-category-icon-dyn category="quizz.category" add-class="quizz-category-icon"></add-category-icon-dyn>
+    <!--</div>-->
+    <div class="quizz-title-desc">
+        <div class="quizz-title">
+            <a ui-sref="si.quizzDetail({quizzId: quizz.id, view: 3 })">
+                {{quizz.title}}
+            </a>
+        </div>
+        <div class="quizz-desc">{{quizz.description}}</div>
+    </div>
+</div>

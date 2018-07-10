@@ -1,0 +1,20 @@
+﻿<div class="test-setting">
+    <label class="control-label">Test Settings</label>
+    <div class="test-setting-summary tab-container">
+        <div class="test-setting-item">
+            <span class="setting-title">Question Order: </span>
+            <span class="setting-value">
+                {{settings.isOrdered | settingsOrder}}
+            </span>
+        </div>
+        <div class="test-setting-item">
+            <span class="setting-title">Number of Questions: </span>
+            <span class="setting-value">
+                {{settings.numberOfQuestions | settingsNumQ}}
+            </span>
+            <span ng-if="settings.numberOfQuestions == 0 && totalQs !== undefined">
+                ({{totalQs}})
+            </span>
+        </div>
+    </div>
+</div>

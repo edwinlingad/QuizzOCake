@@ -1,0 +1,34 @@
+﻿<div>
+    <div class="ng-anim-slide-down quick-note-content" ng-if="page.isReady">
+        <qz-editor-view id="view-{{quickNote.id}}" editor-control="editorControl" item="quickNote" no-actions="1"></qz-editor-view>
+    </div>
+
+    <div class="reviewer-actions">
+        <div type="button" class="go-to-prev btn btn-default clear-btn" ng-click="prevBtn.click()" ng-disabled="prevBtn.disabled">
+            <i class="fa fa-chevron-circle-left"></i>
+        </div>
+
+        <div type="button" class="go-to-next btn btn-default clear-btn" ng-click="nextBtn.click()" ng-show="nextBtn.visible">
+            <i class="fa fa-chevron-circle-right"></i>
+        </div>
+
+        <a ui-sref="si.quizzDetail({quizzId: quizz.id, view: 1})" class="finish btn btn-danger btn-xs" ng-show="finishBtn.visible">
+            Done
+        </a>
+
+        <div class="reviewer-counter">
+            <div class="counter" ng-show="counterBtn.visible" ng-click="counterBtn.click()">
+                {{counter.current + 1}}/{{counter.total}}
+            </div>
+            <div class="go-to-reviewer" ng-show="!counterBtn.visible">
+                <input id="go-to-input" type="text" ng-model="idx" autocomplete="off"/> / {{counter.total}}
+                <button class="btn btn-default btn-xs" ng-click="goToReviewerIdxBtn.click()">
+                    go
+                </button>
+                <button type="button" class="btn btn-default btn-xs" ng-click="cancelGoTo()">
+                    cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

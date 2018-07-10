@@ -1,0 +1,76 @@
+﻿<div>
+    <div class="qz-page-action" ng-if="isOwner">
+        <button type="button" class="btn btn-danger btn-xs" ng-click="addEditAnnouncement.open()" ng-disabled="addEditAnnouncement.vars.disableAll">
+            New Announcement
+        </button>
+        <div class="qz-page-action-slide ng-anim-slide-down" ng-show="addEditAnnouncement.vars.isOpen">
+            <div class="form-group">
+                <label class="control-label">Announcement: </label>
+                <textarea id="new-announcement-text" class="form-control" ng-disabled="addEditAnnouncement.vars.disabled" ng-change="addEditAnnouncement.changed()" ng-model="addEditAnnouncement.vars.message" maxlength="2048" />
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger btn-xs" ng-click="addEditAnnouncement.create()" ng-disabled="addEditAnnouncement.vars.disabled || !addEditAnnouncement.vars.isSaveEnabled">
+                    Create
+                    <save-wait item="addEditAnnouncement.vars">
+                    </save-wait>
+                </button>
+                <button type="button" class="btn btn-default btn-xs" ng-click="addEditAnnouncement.close()" ng-disabled="addEditAnnouncement.vars.disabled">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div z-infinite-scroll="addEditAnnouncement.loadMore" body-scroll="true">
+        <div class="qz-no-item" ng-if="announcements.length === 0">
+            No announcements.
+        </div>
+        <div ng-repeat="item in announcements" class="qz-item-container" ng-class="{'new-item' : item.isNew}">
+            <div class="btn-group item-action-right qz-modify-item-ellipsis ng-anim-fade" ng-if="isOwner" ng-hide="addEditAnnouncement.vars.disableAll">
+                <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    <i class="fa fa-ellipsis-h"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a ng-click="addEditAnnouncement.edit(item)">
+                            <i class="fa fa-edit"></i>
+                            <span>Edit Announcement</span>
+                        </a>
+                    </li>
+                    <li class="delete-menu-item">
+                        <a ng-click="addEditAnnouncement.remove($index, item)">
+                            <i class="fa fa-trash"></i>
+                            <span>Delete Announcement</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div ng-show="!item.isOpen" class="ng-anim-slide-down qz-item-content">
+                <div class="announcement-message classroom-announcement">
+                    {{item.announcement}}
+                </div>
+                <div class="posted-date">
+                    {{item.postedDate | formatDate}}
+                </div>
+            </div>
+
+            <div class="ng-anim-slide-down qz-item-edit" ng-show="item.isOpen">
+                <div class="form-group">
+                    <label class="control-label">Announcement: </label>
+                    <textarea class="form-control" ng-disabled="addEditAnnouncement.vars.disabled" ng-change="addEditAnnouncement.changed()" ng-model="addEditAnnouncement.vars.message" maxlength="2048" />
+                </div>
+                <div class="qz-item-edit-action">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="addEditAnnouncement.editSave(item)" ng-disabled="addEditAnnouncement.vars.disabled || !addEditAnnouncement.vars.isSaveEnabled">
+                        Save
+                        <save-wait item="addEditAnnouncement.vars">
+                        </save-wait>
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="addEditAnnouncement.editCancel(item)" ng-disabled="addEditAnnouncement.vars.disabled">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

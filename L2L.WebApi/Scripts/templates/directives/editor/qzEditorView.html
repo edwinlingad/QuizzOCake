@@ -1,0 +1,25 @@
+﻿<div ng-show="page.isReady" class="qz-editor-html qz-editor-view-html">
+    <div class="title" ng-if="!noTitleControl">
+        {{editorControl.title}}
+    </div>
+    <div class="view-add-content">
+        <div ng-if="editorControl.addContentType === 1" class="image-container">
+            <img ng-src="{{editorControl.imageUrl}}" class="img-responsive">
+        </div>
+
+        <div ng-if="editorControl.addContentType === 2">
+            <div class="literally-view">
+            </div>
+        </div>
+
+        <div ng-if="editorControl.addContentType === 4" class="video-container">
+            <iframe class="youtube-embed" ng-src="{{editorControl.externalUrl}}" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"> </iframe>
+        </div>
+
+    </div>
+    <div class="tinymce-formatted" ng-bind-html="editorControl.textContent | trustAsHtml">
+    </div>
+    <div class="editor-action" ng-if="!noActionControls">
+        <button type="button" class="btn btn-danger btn-xs" ng-click="close()">Close</button>
+    </div>
+</div>

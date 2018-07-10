@@ -1,0 +1,54 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container view-reviewer-html ng-anim-fade" ng-hide="page.isReady == false">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>Edit Text Flash Cards</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+
+            </div>
+            <div class="quizz-name-icon">
+                <ng-include src="'scripts/templates/quizz/common/_QuizzHeader.html'"></ng-include>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div class="reviewer-item-action">
+                <button type="button" class="btn btn-default btn-xs" ng-click="createNew()">create new</button>
+            </div>
+
+            <div class="reviewer-item" ng-repeat="item in textFlashCards">
+                <div class="reviewer-title">
+                    <div class="col-number">
+                        {{$index + 1}}.
+                    </div>
+
+                    <div class="reviewer-title-action">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a ng-click="openEdit(item)">Edit</a></li>
+                                <li><a ng-click="deleteItem($index,item)">Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="reviewer-title-text">
+                        {{item.title}}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

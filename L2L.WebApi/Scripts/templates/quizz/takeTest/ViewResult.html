@@ -1,0 +1,167 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="view-result-html" class="qz-page-container quizz-common-header test-result-common ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-page-title">
+            <h1>Test Result</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header" ng-if="isOngoingTest">
+            <div class="ongoing-test">
+                Unable to view previous results of currently ongoing test
+            </div>
+        </div>
+
+        <div class="qz-header" ng-if="!isOngoingTest">
+            <div class="qz-header-action">
+
+            </div>
+            <div class="quizz-name-icon">
+                <div class="avatar-image">
+                    <add-category-icon-dyn category="quizz.category" add-class="quizz-category-icon category-icon-big" control="categoryIconControl"></add-category-icon-dyn>
+                </div>
+
+                <div class="test-score">
+
+                    <div class="score" ng-class="{ 'score-high': testLog.average >= 90, 'score-mid': testLog.average >= 60 && testLog.average < 90, 'score-low': testLog.average < 60}">
+                        {{(testResultScore.numCorrectAnswers / testResultScore.totalQuestions) | toPercent}}
+                    </div>
+                    <div class="points">
+                        {{testResultScore.numCorrectAnswers}}/{{testResultScore.totalQuestions}}
+                    </div>
+                </div>
+
+                <div class="main-info">
+                    <a ui-sref="si.quizzDetail({quizzId: testLog.quizzId, view: 3})" class="quizz-title qz-title">
+                        {{quizz.title}}
+                    </a>
+                    <div class="qz-description">
+                        {{quizz.description}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="share-retake-controls">
+                <div class="btn-group share-btn" ng-if="user.id !== 0">
+                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        share score <i class="fa fa-share-alt"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a ng-click="shareControl.share('facebook')">
+                                <i class="fa fa-facebook-official"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a ui-sref="si.quizzDetail({quizzId: testLog.quizzId, view: 3, assId: retakeControl.vars.assId})" class="btn btn-danger btn-xs retake-quizz">
+                    {{retakeControl.vars.name}}
+                </a>
+            </div>
+
+            <div class="result-details">
+                <div>
+                    Taken <span class="posted-date">{{testLog.dateTaken | formatDate }}</span>
+                </div>
+                <div>
+                    <span class="num-questions">{{testResultScore.numCorrectAnswers}}</span> out of <span class="num-questions">{{testResultScore.totalQuestions}}</span> questions correct
+                </div>
+            </div>
+
+            <!--<div class="rate-quizz ng-anim-slide-down" ng-if="!quizz.isOwner && quizz.id !== 0 && user.id !== 0" ng-show="rating.isReady">
+                <span class="result-title">Rate this Quizz: </span>
+                <uib-rating ng-model="rating.uiValue" max="5" on-leave="rating.onLeave()" readonly="!rating.isReady" aria-labelledby="default-rating"></uib-rating>
+                <save-wait item="rating"></save-wait>
+            </div>-->
+        </div>
+
+        <div class="qz-body" ng-if="!isOngoingTest">
+            <div class="qz-page-action">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="showOnlyErrorsBtn.click()">{{showOnlyErrorsBtn.name}}</button>
+            </div>
+
+            <div ng-repeat="item in testResult track by $index" ng-show="filter(item)" class="result-item" ng-class="{'is-incorrect': !item.isCorrect}">
+
+                <div class="col-number">
+                    <div class="numbering">
+                        {{$index + 1}}.
+                    </div>
+                </div>
+
+                <div class="col-score" uib-tooltip="item score" tooltip-placement="left">
+
+                    <span class="is-correct">
+                        <span ng-if="item.isCorrect">
+                            <i class="fa fa-check"></i>
+                        </span>
+                        <span ng-if="!item.isCorrect">
+                            <i class="fa fa-times"></i>
+                        </span>
+                    </span>
+                    <span>
+                        {{item.score}}/{{item.totalAvailableScore}}
+                    </span>
+                </div>
+
+                <div class="col-question-details" ng-if="item.question === undefined">
+                    <div class="no-answer">Question not answered</div>
+                </div>
+
+                <div class="col-question-details" ng-if="item.question !== undefined">
+                    <div class="q-answer-title">Question:</div>
+
+                    <div class="flag">
+
+                    </div>
+
+                    <div ng-if="item.question.questionViewType == 0">
+                        <qz-editor-view id="view-result-{{$index}}" editor-control="item.question.actualQuestion" no-actions="1" no-title="1"></qz-editor-view>
+                    </div>
+
+                    <div ng-if="item.question.questionViewType == 1">
+                        <div class="clock-container">
+                            <clock-render time="{{item.question.actualQuestion.textContent}}" c-id="clock-canvas_{{$index}}" add-class="clock-canvas"></clock-render>
+                        </div>
+                    </div>
+
+                    <div ng-if="item.question.questionType == 1">
+                        <div class="q-answer-title">Correct Answer:</div>
+                        <div class="correct-answers" ng-repeat="answer in item.question.actualQuestion.answers track by $index">
+                            {{answer.answer}}
+                        </div>
+
+                        <hr />
+
+                        <div class="q-answer-title">Your Answer:</div>
+                        <div class="choices-answers" ng-repeat="yourAnswer in item.answer track by $index" ng-class="{'is-correct': yourAnswer.isCorrect, 'is-incorrect': !yourAnswer.isCorrect }">
+                            <div class="result-icon">
+                                <i class="fa fa-check" ng-if="yourAnswer.isCorrect" uib-tooltip="you answered correctly" tooltip-placement="left"></i>
+                                <i class="fa fa-times" ng-if="!yourAnswer.isCorrect" uib-tooltip="incorrect answer" tooltip-placement="left"></i>
+                            </div>
+                            <span>{{yourAnswer.value}}</span>
+                        </div>
+                    </div>
+
+                    <div ng-if="item.question.questionType == 2 || item.question.questionType == 3">
+
+                        <div class="q-answer-title">Choices:</div>
+                        <div class="choices-answers" ng-repeat="choice in item.answer track by $index" ng-class="{'is-correct': choice.isCorrect, 'is-incorrect': choice.isSelected && !choice.isCorrect , 'is-answer': choice.isAnswer && !choice.isCorrect}">
+                            <i class="fa fa-dot-circle-o" ng-if="choice.isSelected"></i>
+                            <i class="fa fa-circle-o" ng-if="!choice.isSelected"></i>
+                            {{choice.value}}
+                            <div class="result-icon">
+                                <i class="fa fa-check" ng-if="choice.isCorrect" uib-tooltip="you answered correctly" tooltip-placement="left"></i>
+                                <i class="fa fa-times" ng-if="choice.isSelected && !choice.isCorrect" uib-tooltip="incorrect answer" tooltip-placement="left"></i>
+                                <i class="fa fa-check" ng-if="choice.isAnswer && !choice.isCorrect" uib-tooltip="the correct answer" tooltip-placement="left"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

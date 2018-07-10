@@ -1,0 +1,58 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="quizzmates-html" class="qz-page-container qz-page-no-header ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-page-title">
+            <h1>My Quizzmates</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <div class="nothing-found" ng-if="quizzmates.length == 0">
+                No Quizzmates Found
+            </div>
+
+            <div ng-repeat="item in quizzmates" class="quizzmate-info">
+                <div class="quizzmate-detail-top">
+                    <a ui-sref="si.quizzer({quizzerId: {{item.id}}, view: 0})">
+                        <img ng-src="{{item.profile.profileImageUrl}}" class="avatar" />
+                    </a>
+                    <div class="quizzmate-detail-right">
+                        <a ui-sref="si.quizzmateMsg({userId: {{item.id}}})" class="btn btn-default clear-btn" uib-tooltip="Send Message" tooltip-placement="left">
+                            <i class="fa fa-envelope-o"></i>
+                        </a>
+                    </div>
+                    <div class="quizzmate-detail-mid">
+                        <div class="name quizzmate-detail quizzer">
+                            <a ui-sref="si.quizzer({quizzerId: {{item.id}}, view: 0})">
+                                {{item.userName}}
+                            </a>
+                        </div>
+                        <div class="full-name quizzmate-detail">
+                            <a ui-sref="si.quizzer({quizzerId: {{item.id}}, view: 0})">
+                                {{item.userFullName}}
+                            </a>
+                        </div>
+                        <div class="quizzer-detail quizzmate-detail-brag">
+                            <a ui-sref="si.quizzer({quizzerId: {{item.id}}, view: 2})">
+                                {{item.numQuizzes}} Quizzes,
+                                <span class="quizzer-total-points" uib-tooltip="Total cake points earned" tooltip-placement="bottom">
+                                    {{item.points}} <img class="point-image" src="/Content/images/Icons/points-1.0.png" />
+                                </span>
+                                <span class="badge-total-points" uib-tooltip="Total cake badges earned" tooltip-placement="bottom">
+                                    &nbsp;{{item.totalBadge}} <img class="badge-image" src="/Content/images/Icons/achievement-1.0.png" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="quizzmate-view-action">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

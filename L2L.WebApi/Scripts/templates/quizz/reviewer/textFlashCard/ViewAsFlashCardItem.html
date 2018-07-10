@@ -1,0 +1,67 @@
+﻿<div class="reviewer-actions">
+    <div class="mark-flash-card ">
+        <button type="button" class="btn btn-default btn-xs" ng-click="markBtn.click()" ng-class="{'marked': reviewer.isMarked}">
+            {{markBtn.name}}
+        </button>
+    </div>
+</div>
+
+<!--<div ng-if="reviewer.questionViewType == 0" class="flash-card-question tinymce-formatted" ng-bind-html="reviewer.question">
+</div>-->
+<div ng-if="reviewer.questionViewType == 0" class="flash-card-question">
+    <qz-editor-view id="view-{{reviewer.questionId}}" editor-control="reviewer" no-title="1" no-actions="1"></qz-editor-view>
+</div>
+
+<div ng-if="reviewer.questionViewType == 1" class="flash-card-question clock-question">
+    <div class="clock-container">
+        <clock-render time="{{reviewer.textContent}}" c-id="clock-canvas_{{reviewer.questionId}}" add-class="clock-canvas"></clock-render>
+    </div>
+</div>
+
+<div class="flash-card-answer link-container">
+    <a class="container" ng-click="showAnswerBtn.click()"></a>
+    <div class="answer-text" ng-class="{'visible': showAnswerBtn.visible, 'invisible': !showAnswerBtn.visible}">
+        <div ng-repeat="answer in reviewer.answers">
+            <span class="col-letter" ng-show="reviewer.answers.length > 1">
+                {{$index | letter}}
+            </span>
+            <span class="answer">
+                {{answer.answer}}
+            </span>
+        </div>
+    </div>
+    <div class="answer-not-shown-placeholder" ng-class="{'visible': !showAnswerBtn.visible, 'invisible': showAnswerBtn.visible}">
+        Click Here To Reveal Answer
+    </div>
+</div>
+
+<div class="reviewer-actions">
+    <div type="button" class="go-to-prev btn btn-default clear-btn" ng-click="prevBtn.click()" ng-disabled="prevBtn.disabled">
+        <i class="fa fa-chevron-circle-left"></i>
+    </div>
+
+    <div type="button" class="go-to-next btn btn-default clear-btn" ng-click="nextBtn.click()" ng-show="nextBtn.visible">
+        <i class="fa fa-chevron-circle-right"></i>
+    </div>
+
+    <div class="finish btn btn-danger btn-xs" ng-click="finishBtn.click()" ng-show="finishBtn.visible">
+        Finish
+    </div>
+
+    <div class="reviewer-counter">
+        <div class="counter" ng-show="counterBtn.visible" ng-click="counterBtn.click()">
+            {{counter.current + 1}}/{{counter.total}}
+        </div>
+        <div class="go-to-reviewer" ng-show="!counterBtn.visible">
+            <input id="go-to-input" type="text" ng-model="idx" autocomplete="off" /> / {{counter.total}}
+            <button class="btn btn-default btn-xs" ng-click="goToReviewerIdxBtn.click()">
+                go
+            </button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="cancelGoTo()">
+                cancel
+            </button>
+        </div>
+    </div>
+
+
+</div>

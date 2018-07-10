@@ -1,0 +1,12 @@
+﻿<div class="input-radio-choice" >
+    <input name="{{groupName}}" type="radio"
+           id="{{name}}"
+           value="{{value}}"
+           ng-checked="{{checked}}"
+           ng-change="changed()"
+           ng-model="model" />
+    <label for="{{name}}" style="position:relative">
+        <!--<i class="fa fa-plus input-radio-icon"></i>-->
+        <span class="input-radio-main-text">{{label}}</span>
+    </label>
+</div>

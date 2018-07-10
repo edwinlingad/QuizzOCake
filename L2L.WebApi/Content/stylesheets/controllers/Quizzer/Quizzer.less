@@ -1,0 +1,301 @@
+﻿@import "../../common/common";
+
+.quizzer-in-header {
+    .qz-content-container {
+        .qz-header {
+            .quizzer-info {
+                overflow: hidden;
+
+                .avatar-container {
+                    float: left;
+                    overflow: hidden;
+                    position: relative;
+                    width: 75px;
+                    height: 75px;
+
+                    .avatar {
+                        background-color: black;
+                        float: none;
+                        width: 75px;
+                        height: 75px;
+                        /*-moz-transition: all linear 0.5s;
+                        -o-transition: all linear 0.5s;
+                        -webkit-transition: all linear 0.5s;
+                        transition: all linear 0.5s;*/
+                    }
+
+                    .avatar-edit {
+                        position: absolute;
+                        margin: 5px;
+                        top: 0;
+                        right: 0;
+                        /*padding: 5px 5px 0 5px;*/
+                        button {
+                            cursor: pointer;
+                            display: inline-block;
+                            font-size: 1.5em;
+                            padding: 2px 2px 2px 2px;
+                            margin-bottom: 0;
+                            background-color: rgba(255, 255, 255, 0.6);
+                        }
+                    }
+
+                    .avatar-edit:hover {
+                        background-color: rgba(255, 255, 255, 1);
+                    }
+
+                    #edit-profile-pix {
+                        display: none;
+                    }
+                }
+
+                .quizzer-info-action {
+                    float: right;
+                }
+
+                .quizzer-details {
+                    margin-left: 90px;
+                    padding-top: 10px;
+
+                    .quizzer-detail.name {
+                        font-size: 2em;
+
+                        i.fa.fa-bug {
+                            position: relative;
+                            top: -3px;
+                            font-size: 0.5em !important;
+                        }
+                    }
+
+                    .quizzer-detail.full-name {
+                        font-size: 1em;
+                        color: @company-theme-color2;
+                        font-weight: 600;
+                    }
+
+                    .quizzer-detail {
+                        font-size: 0.8em;
+                    }
+
+                    .quizzer-detail-brag {
+                        color: @company-theme-color;
+                        font-weight: 700;
+
+                        .quizzer-total-points {
+                        }
+                    }
+                }
+
+                .quizzer-details-edit {
+                    margin-left: 90px;
+                    margin-right: 10px;
+
+                    .form-group {
+                        margin-bottom: 5px;
+
+                        label {
+                            font-size: 0.80em;
+                        }
+
+                        .user-name-message {
+                            color: white;
+                            background-color: red;
+                            padding: 5px;
+                            width: 100%;
+                            margin-left: 10px;
+                        }
+                    }
+
+                    .quizzer-details-edit-action {
+                        float: right;
+                        margin-top: 5px;
+                        margin-bottom: 0;
+
+                        button {
+                            min-width: 60px;
+                        }
+                    }
+                }
+            }
+
+            .quizzer-view-action {
+                margin-top: 10px;
+            }
+
+            .quizzer-view-action-message {
+                overflow: hidden;
+
+                .quizzer-view-action-message-warning {
+                    font-size: 0.85em;
+                    margin-top: 5px;
+                    color: red;
+                }
+
+                .form-action-group {
+                    float: right;
+                    margin-top: 5px;
+
+                    button {
+                        min-width: 60px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: @mobile-mid-max-width) {
+        .qz-content-container {
+            .qz-header {
+                .quizzer-info {
+
+                    .avatar-container {
+                        .avatar {
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
+
+                    .quizzer-details {
+                        padding-top: 10px;
+                        margin-left: 70px;
+
+                        .quizzer-detail.name {
+                            font-size: 1.2em;
+                        }
+
+                        .quizzer-detail {
+                        }
+                    }
+
+                    .quizzer-details-edit {
+                        margin-left: 70px;
+                        margin-right: 20px;
+                    }
+                }
+
+                .quizzer-view-action {
+                }
+            }
+        }
+    }
+}
+
+#view-quizzer-html {
+    .qz-header {
+        .avatar-container {
+            width: 75px;
+            height: 75px;
+        }
+    }
+
+    .qz-body {
+        .quizzer-view-control {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        .quizzer-view {
+            .quizzer-detail {
+                .quizzer-rewards {
+                    background-color: white;
+                    padding: 15px;
+
+                    .reward-group {
+                        .reward-group-title {
+                            color: @company-theme-color2;
+                            border-bottom: 1px solid @company-theme-color3;
+                            margin-bottom: 5px;
+                        }
+
+                        .reward-item {
+                            display: flex;
+
+                            .reward-title {
+                                -ms-flex: 3;
+                                -webkit-flex: 3;
+                                flex: 3;
+                                font-size: 0.9em;
+                            }
+
+                            .reward-value {
+                                -ms-flex: 1;
+                                -webkit-flex: 1;
+                                flex: 1;
+                                font-size: 0.9em;
+                                text-align: right;
+
+                                .reward-extra {
+                                }
+                            }
+                        }
+
+                        .badge-item {
+                            //background-color: #e0e0e0;
+                            border: 1px solid #aaaaaa;
+                            margin-bottom: 5px;
+                            padding: 5px;
+
+                            .reward-title {
+                                font-size: 0.85em;
+                                font-weight: 700;
+                            }
+
+                            .badge-image {
+                                margin-top: 0;
+                                width: 20px;
+                            }
+                        }
+
+                        .badge-item.achieved {
+                            background-color: @company-theme-color2;
+
+                            .reward-title {
+                                color: white;
+                                font-size: 0.85em;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: @mobile-mid-max-width) {
+        .qz-body {
+            .quizzer-view {
+                .quizzer-detail {
+                    .quizzer-rewards {
+                        padding: 5px;
+
+                        .reward-group {
+
+                            .reward-item {
+                                .reward-title {
+                                    font-size: 0.75em;
+                                }
+
+                                .reward-value {
+                                    font-size: 0.75em;
+
+                                    .reward-extra {
+                                    }
+                                }
+                            }
+
+                            .badge-item {
+
+                                .reward-title {
+                                    font-size: 0.75em;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+﻿<div ng-show="page.isReady">
+    <div class="qz-page-action" ng-if="isOwner">
+        <button type="button" class="btn btn-danger btn-xs" ng-click="lessonsCtrl.open()" ng-disabled="lessonsCtrl.vars.disableAll">
+            New Lesson
+        </button>
+        <div class="qz-page-action-slide ng-anim-slide-down" ng-show="lessonsCtrl.vars.isOpen">
+            <div class="form-group">
+                <label class="control-label">Title: </label>
+                <input type="text" class="form-control" ng-disabled="lessonsCtrl.vars.disabled" ng-change="lessonsCtrl.changed()" ng-model="lessonsCtrl.vars.title" maxlength="64" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Description: </label>
+                <textarea class="form-control" ng-disabled="lessonsCtrl.vars.disabled" ng-change="lessonsCtrl.changed()" ng-model="lessonsCtrl.vars.description" maxlength="128" />
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger btn-xs" ng-click="lessonsCtrl.create()" ng-disabled="lessonsCtrl.vars.disabled || !lessonsCtrl.vars.isSaveEnabled">
+                    Create
+                    <save-wait item="lessonsCtrl.vars">
+                    </save-wait>
+                </button>
+                <button type="button" class="btn btn-default btn-xs" ng-click="lessonsCtrl.close()" ng-disabled="lessonsCtrl.vars.disabled">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div z-infinite-scroll="lessonsCtrl.loadMore" body-scroll="true">
+        <div ng-if="lessons.length === 0" class="qz-no-item">
+            No lessons.
+        </div>
+        <div ng-repeat="item in lessons" class="qz-item-container" ng-class="{'new-item' : item.isNew}">
+            <div ng-show="!item.isOpen" class="ng-anim-slide-down qz-item-content">
+                <div class="icon-info" ng-if="!isViewOnly">
+                    <div class="icon-info-row">
+                        <a ui-sref="si.quizzClassLesson({qclId: item.id, depId: depId, depName: depName, view: 0})" class="icon-item" uib-tooltip="contents" tooltip-placement="left">
+                            <i class="fa fa-list-ul"></i>
+                            <span class="badge" ng-if="item.newMessageCount != 0">{{item.newMessageCount}}</span>
+                        </a>
+                        <a ui-sref="si.quizzClassLesson({qclId: item.id, depId: depId, depName: depName, view: 2})" class="icon-item" uib-tooltip="discussions" tooltip-placement="left">
+                            <i class="fa fa-comments"></i>
+                            <span class="badge" ng-if="item.newCommentCount != 0">{{item.newCommentCount}}</span>
+                        </a>
+                        <a ui-sref="si.quizzClassLesson({qclId: item.id, depId: depId, depName: depName, view: 3})" class="icon-item" uib-tooltip="quizzes" tooltip-placement="left">
+                            <i class="fa fa-file-text-o"></i>
+                            <span class="badge" ng-if="item.newQuizzCount != 0">{{item.newQuizzCount}}</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="main-info-no-indent">
+                    <div class="classroom-lesson-name">
+                        <a ui-sref="si.quizzClassLesson({qclId: item.id, depId: depId, depName: depName, view:0})"  ng-if="!isViewOnly">
+                            {{item.title}}
+                        </a>
+                        <span ng-if="isViewOnly">{{item.title}}</span>
+                    </div>
+                    <div class="classroom-class-description">
+                        {{item.description}}
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

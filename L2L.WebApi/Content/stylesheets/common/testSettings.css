@@ -1,0 +1,20 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.test-setting label.control-label {
+  font-size: 0.9em;
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: #e53d0e;
+}
+.test-setting .test-setting-summary {
+  font-size: 0.85em;
+  margin-top: 0;
+}
+.test-setting .test-setting-summary .test-setting-item .setting-value {
+  font-weight: bold;
+  color: green;
+}

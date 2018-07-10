@@ -1,0 +1,64 @@
+﻿<footer id="footer">
+    <div class="main-container">
+        <div class="col-sm-6 footer-col">
+            <div class="company-logo">
+                <ng-include src="'scripts/templates/common/_CompanyName.html'"></ng-include>
+            </div>
+            <div class="company-description">
+                An online learning tool and knowledge-sharing site for learners, parents, and educators.
+            </div>
+            <div class="total-questions-taken">
+                <span class="actual-count">{{promoInfoControl.vars.totalQuestions | formatNumber}}</span>
+                <span class="questions-taken"> questions answered to date</span>
+            </div>
+            <div class="company-share like-page">
+                <i class="fa fa-share-alt share-icon"></i>
+                <a class="facebook-icon" href="https://www.facebook.com/quizzocake" target="_blank">
+                    <span class="share-icon-bg">
+                    </span>
+                    <i class="fa fa-facebook-square fa-2x"></i>
+                </a>
+                <a class="twitter-icon" href="https://twitter.com/home?status=An%20online%20learning%20tool%20and%20knowledge-sharing%20site%20for%20students,%20parents,%20and%20educators.-%20http://quizzocake.com" target="_blank" >
+                    <span class="share-icon-bg">
+                    </span>
+                    <i class="fa fa-twitter-square fa-2x"></i>
+                </a>
+                <a class="gplus-icon" href="https://plus.google.com/share?url=http%3A%2F%2Fquizzocake.com" target="_blank">
+                    <span class="share-icon-bg">
+                    </span>
+                    <i class="fa fa-google-plus-square fa-2x"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6 footer-col footer-col-mid">
+            <div class="legal">
+                <a ui-sref="privacyNotice" target="_blank">
+                    Privacy Notice
+                </a>
+            </div>
+            <div class="legal">
+                <a ui-sref="termsAndConditions" target="_blank">
+                    Terms and Conditions
+                </a>
+            </div>
+            <div class="legal">
+                <a ui-sref="helpAndSupport" target="_blank">
+                    Help and Support
+                </a>
+            </div>
+            <div class="feedback">
+                <a href="mailto:support@quizzocake.com?Subject=Feedback" target="_top">
+                    Contact us or send us a feedback&nbsp;
+                    <i class="fa fa-envelope"></i>
+                </a>
+            </div>
+         
+            <div class="external-thanks">
+                <!--<div>
+                    Cake icon courtesy of <a href="http://www.icons-land.com" target="_blank">Icon-Lands</a>
+                </div>-->
+               
+            </div>
+        </div>
+    </div>
+</footer>

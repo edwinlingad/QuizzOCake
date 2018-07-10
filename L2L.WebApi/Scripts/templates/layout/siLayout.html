@@ -1,0 +1,30 @@
+﻿<div id="si-layout" ng-if="user.isReady">
+
+    <div id="lsb-menu-container" class="lsb-common ng-anim-slide-right" ng-show="mainMenuControl.vars.isOpen" ng-click="mainMenuControl.close()">
+        <ng-include src="'scripts/templates/layout/_LeftSideBar.html'"></ng-include>
+    </div>
+
+    <div class="lsb-shroud" ng-show="mainMenuControl.vars.isOpen" ng-click="mainMenuControl.close()">
+
+    </div>
+
+    <ng-include src="'scripts/templates/layout/_TopPanel.html'"></ng-include>
+
+    <div id="desktop-content-container" class="main-container">
+        <div id="left-side-bar" class="lsb-common">
+            <ng-include src="'scripts/templates/layout/_LeftSideBar.html'"></ng-include>
+        </div>
+
+        <section id="right-side-bar"></section>
+
+        <section class="main-content">
+            <div ui-view class="ng-anim-fade">
+            </div>
+        </section>
+    </div>
+    <ng-include src="'scripts/templates/layout/_Footer.html'"></ng-include>
+</div>
+
+
+
+

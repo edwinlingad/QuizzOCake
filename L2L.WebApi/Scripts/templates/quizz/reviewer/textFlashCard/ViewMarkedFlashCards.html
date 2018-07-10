@@ -1,0 +1,36 @@
+﻿<div class="view-marked-cards-html">
+    <div class="marked-reviewer-title">
+        Marked Flash Cards for Final Review
+    </div>
+
+    <div class="reviewer-item" ng-repeat="reviewer in reviewers">
+        <div class="reviewer-question">
+            <div class="col-number">
+                {{$index + 1}}.
+            </div>
+            <div>
+                <qz-editor-view id="view-{{$index}}" editor-control="reviewer" no-title="1" no-actions="1"></qz-editor-view>
+            </div>
+        </div>
+
+        <div class="flash-card-answer link-container">
+            <a class="container" ng-click="showAnswer(reviewer)"></a>
+            <div class="answer-text" ng-class="{'visible': reviewer.isAnswerShown, 'invisible': !reviewer.isAnswerShown}">
+                <div ng-repeat="answer in reviewer.answers">
+                    <span class="col-letter" ng-show="reviewer.answers.length > 1">
+                        {{$index | letter}}
+                    </span>
+                    <span class="reviewer-answer-text">
+                        {{answer.answer}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="answer-not-shown-placeholder" ng-class="{'visible': !reviewer.isAnswerShown, 'invisible': reviewer.isAnswerShown}">
+                Click Here To Reveal Answer
+            </div>
+        </div>
+
+    </div>
+</div>
+

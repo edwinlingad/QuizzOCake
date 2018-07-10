@@ -1,0 +1,29 @@
+﻿#search-all-html .search-item {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+#search-all-html .search-item .search-item-left {
+  float: left;
+}
+#search-all-html .search-item .search-item-left .avatar {
+  width: 40px;
+  height: 40px;
+}
+#search-all-html .search-item .search-item-middle {
+  margin-left: 50px;
+}
+#search-all-html .search-item .search-item-middle .classroom-stats .classroom-stat {
+  color: green;
+  font-weight: 600;
+  font-size: 0.85em;
+}
+#search-all-html .search-item .search-item-right {
+  float: right;
+}
+#search-all-html .search-item .search-item-right .info-text {
+  font-size: 0.7em;
+  color: gray;
+  font-weight: 700;
+}

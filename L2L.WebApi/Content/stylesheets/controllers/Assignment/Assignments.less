@@ -1,0 +1,206 @@
+﻿@import "../../common/common";
+.assignment-html {
+    .qz-content-container {
+        .qz-header {
+            overflow: hidden;
+            padding-right: 15px;
+
+            .quizz-name-icon {
+                min-height: 50px;
+            }
+
+            form {
+                .form-action {
+                    float: right;
+                }
+
+                .form-group {
+                    .message {
+                        min-height: 75px;
+                        padding: 10px;
+                    }
+
+                    .no-due-date {
+                        font-weight: 500;
+                    }
+
+                    .blank-date {
+                        color: #ebebe4;
+                        background-color: #ebebe4;
+                    }
+                }
+            }
+            /*.views {
+                float: right;
+            }*/
+        }
+    }
+}
+
+.assignment-container {
+
+    .assignment-page-action {
+        background-color: orange;
+        padding: 10px;
+        min-height: unset;
+        overflow: hidden;
+
+        .views {
+            float: right;
+        }
+    }
+
+    .row {
+        overflow: hidden;
+
+        .col-sm-6, .col-sm-12 {
+            padding-left: 0;
+        }
+    }
+
+    .assignment-item {
+        padding: 15px;
+        background-color: white;
+        margin: 10px 0;
+
+        .asssignment-action {
+            float: right;
+        }
+
+        .quizz-header {
+            min-height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .assignment-detail {
+            margin-left: 60px;
+
+            .assignment-detail-item {
+                .title {
+                    font-weight: 600;
+                    font-size: 0.85em;
+                    color: #808080;
+                }
+
+                .detail {
+                    font-weight: 700;
+                    font-size: 0.85em;
+                    color: green;
+                }
+
+                .target-score-value {
+                    font-size: 0.75em;
+                }
+
+                .dependents {
+                    padding-left: 10px;
+
+                    .completed {
+                        padding-left: 10px;
+                        color: @company-theme-color;
+                        font-size: 0.85em;
+                        font-weight: 700;
+
+                        .fa-check-square-o {
+                            color: green;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+
+                .test-setting {
+                    .control-label {
+                        color: #808080;
+                        font-weight: 700;
+                        font-size: 0.9em;
+                    }
+
+                    .test-setting-summary {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .past-due {
+        border: 2px dashed red;
+    }
+
+    .due-today {
+        border: 2px dashed orange;
+    }
+
+    .date-past-due {
+        span {
+            color: red !important;
+        }
+    }
+
+    .date-due-today {
+        span {
+            color: darkorange !important;
+        }
+    }
+}
+
+#given-assignment-html {
+    .qz-content-container {
+        .qz-header {
+            background-color: orange;
+            padding: 0;
+            min-height: unset;
+        }
+    }
+
+    .message {
+        margin-top: 5px;
+    }
+}
+
+.my-assignment-html {
+    .qz-content-container {
+        .qz-header {
+            .quizz-name-icon {
+            }
+        }
+
+        .qa-body {
+        }
+    }
+}
+
+.edit-assignment-group-html {
+    .qz-content-container {
+        .qz-header {
+
+            .quizz-header {
+                min-height: 60px;
+            }
+
+            form {
+                margin-left: 60px;
+
+                .dependents {
+                    .dependent-choice {
+                        label {
+                            background-color: #f1f1f1;
+                            width: 100%;
+                            padding: 10px;
+                            font-size: 0.9em;
+                        }
+                    }
+                }
+
+                .target-score {
+                    input[type=number] {
+                        margin-left: 20px;
+                        width: 80px;
+                        text-align: right;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}

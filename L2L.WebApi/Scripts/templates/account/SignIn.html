@@ -1,0 +1,88 @@
+﻿<div class="modal-body qz-account-modal sign-in-html" ng-cloak>
+    <button type="button" class="close qz-account-modal-extra-action" data-dismiss="alert" aria-label="Close" ng-click="close()" ng-disabled="page.disabled">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="modal-info">
+        <span>
+            By signing up or signing in, you agree with the site's <a ui-sref="termsAndConditions" target="_blank">Terms and Conditions.</a>
+        </span>
+    </div>
+
+    <div class="qz-account-modal-title">
+        Sign in or Sign up using
+    </div>
+    <div class="external-login">
+        <button type="button" class="btn btn-default btn-sm facebook-login" ng-click="fbLogin()" ng-disabled="page.disabled">
+            <i class="fa fa-facebook-official"></i>
+            <div class="text">
+                facebook
+            </div>
+        </button>
+        <button type="button" class="btn btn-default btn-sm google-login" ng-click="googleLogin()" ng-disabled="page.disabled">
+            <i class="fa fa-google-plus-square"></i>
+            <div class="text">
+                Google
+            </div>
+        </button>
+    </div>
+
+
+    <div class="or-divider">
+        <span>OR</span>
+        <!--<hr />-->
+    </div>
+
+    <div class="alert alert-danger" ng-hide="{{!showNeedSignInMsg}}">
+        You need to be signed in with a QuizzOCake account to continue.
+    </div>
+
+    <div class="qz-account-modal-title">
+        Sign in with
+        <ng-include src="'scripts/templates/common/_CompanyName.html'" class="quizz-o-cake"></ng-include>
+        Account
+    </div>
+
+    <form name="form" ng-submit="signIn()">
+        <div class="message ng-anim-fade" ng-if="message.length != 0">{{message}}</div>
+
+        <div class="form-group">
+            <label for="user.userName" class="control-label">Username</label>
+            <input id="user.userName" name="user.userName" type="text" class="form-control" ng-model="user.userName" ng-disabled="page.signingIn" focus="true" ng-change="changed()" required />
+        </div>
+
+        <div class="form-group">
+            <label for="user.password" class="control-label">Password</label>
+            <input id="user.password" name="user.password" type="password" class="form-control" ng-model="user.password" ng-disabled="page.signingIn" ng-change="changed()" required />
+        </div>
+
+        <div class="forgot-password">
+            <span ng-click="forgotUserNameOrPassword()" class="as-link hover-underline">Forgot username or password?</span>
+        </div>
+
+        <div class="form-group sign-in-or-sign-up">
+            <button type="submit" class="btn btn-danger btn-sm" ng-disabled="loginBtn.isDisabledFn()">
+                SIGN IN
+                <save-wait item="page"></save-wait>
+            </button>
+        </div>
+    </form>
+
+    <hr />
+
+    <div class="sign-up">
+        <div>Don't have an account?</div>
+        <div>
+            <button ng-click="signUp()" class="as-link create-account" ng-disabled="page.disabled">
+                Create a <ng-include src="'scripts/templates/common/_CompanyName.html'" class="quizz-o-cake"></ng-include> Account
+            </button>
+            <br />
+            It's free!
+        </div>
+        <div class="sign-up-btn">
+            <button ng-click="signUp()" class="btn btn-primary btn-sm" ng-disabled="page.disabled">
+                SIGN UP
+            </button>
+        </div>
+    </div>
+</div>

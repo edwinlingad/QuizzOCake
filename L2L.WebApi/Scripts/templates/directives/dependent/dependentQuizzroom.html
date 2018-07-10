@@ -1,0 +1,29 @@
+﻿<div class="classroom-page" >
+    <page-load-wait page="page"></page-load-wait>
+    <page-not-found page="page"></page-not-found>
+    <div ng-if="page.isReady">
+        <div class="my-classrooms">
+            <div class="qz-title">
+                Quizzrooms Owned
+            </div>
+
+            <div class="qz-no-item" ng-if="myQuizClasses.length === 0">
+                No Quizzrooms created.
+            </div>
+
+            <ng-include src="'scripts/templates/classroom/_DependentQuizzroom.html'"></ng-include>
+        </div>
+
+        <div class="enrolled-classrooms">
+            <div class="qz-title">
+                Quizzrooms Enrolled In
+            </div>
+
+            <div class="qz-no-item" ng-if="enrolledQuizzClasses.length === 0">
+                Not enrolled to any Quizzrooms.
+            </div>
+
+            <ng-include src="'scripts/templates/classroom/_EnrolledQuizzroom.html'"></ng-include>
+        </div>
+    </div>
+</div>

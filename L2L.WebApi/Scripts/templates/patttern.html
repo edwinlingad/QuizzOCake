@@ -1,0 +1,27 @@
+﻿<load-wait page="page"></load-wait>
+<div id="pattern-html" class="qz-page-container" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>Pattern</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+                
+            </div>
+            <div class="quizz-name-icon">
+                <ng-include src="'scripts/templates/quizz/common/_QuizzHeader.html'"></ng-include>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.grade-levels-html .qz-content-container .qz-body {
+  margin: 5px;
+}
+.grade-levels-html .qz-content-container .qz-body .grade-levels .grade-level-divider {
+  color: #e53d0e;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.grade-levels-html .qz-content-container .qz-body .grade-levels .grade-level {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.grade-levels-html .qz-content-container .qz-body .grade-levels .grade-level .grade-level-name {
+  color: black;
+  margin-left: 25px;
+}
+.grade-levels-html .qz-content-container .qz-body .grade-levels .grade-level .grade-level-info-right {
+  float: right;
+  font-weight: 700;
+  font-size: 0.75em;
+  color: #aaaaaa;
+}

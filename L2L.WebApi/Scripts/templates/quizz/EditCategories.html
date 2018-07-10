@@ -1,0 +1,106 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container pattern-html ng-anim-fade" ng-hide="!page.isReady" ng-if="user.isAdmin">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>Edit Quizz Categories</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+
+            </div>
+            <div class="quizz-name-icon">
+                <ng-include src="'scripts/templates/quizz/common/_QuizzHeader.html'"></ng-include>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div>
+                <div style="width: 50px; height: 50px; border: 3px solid {{quizzCategory.borderColor}}; background-color: {{quizzCategory.iconColor}}; color: {{quizzCategory.textColor}}">
+                    {{quizzCategory.iconStrValue}}
+                </div>
+                Create New:
+                <div>
+                    <label>Title</label>
+                    <input type="text" ng-model="quizzCategory.title" required />
+                </div>
+                <div>
+                    <label>Description</label>
+                    <input type="text" ng-model="quizzCategory.description" required style="width: 100%" />
+                </div>
+                <div>
+                    <label>Is Included in Daily Reward</label>
+                    <input type="checkbox" ng-model="quizzCategory.isIncludedInDailyReward" required />
+                </div>
+                <div>
+                    <label>Icon String Value:</label>
+                    <input type="text" ng-model="quizzCategory.iconStrValue" maxlength="2" />
+                </div>
+                <div>
+                    <label>Icon Text Color</label>
+                    <input type="color" ng-model="quizzCategory.textColor" required />
+                </div>
+                <div>
+                    <label>Icon Bg Color</label>
+                    <input type="color" ng-model="quizzCategory.iconColor" required />
+                </div>
+                <div>
+                    <label>Border Color</label>
+                    <input type="color" ng-model="quizzCategory.borderColor" required />
+                </div>
+
+
+                <button type="button" class="btn btn-default" ng-click="createNewBtn.click()">Create New</button>
+            </div>
+
+            <div>
+                Categories:
+                <div ng-repeat="item in quizzCategories track by $index" style="background-color: white; margin-top: 15px; padding: 10px;">
+                    <div style="width: 50px; height: 50px; border: 3px solid {{item.borderColor}}; background-color: {{item.iconColor}}; color: {{item.textColor}}">
+                        {{item.iconStrValue}}
+                    </div>
+                    <div> 
+                        <label>Title</label>
+                        <input type="text" ng-model="item.title" required />
+                    </div>
+                    <div>
+                        <label>Description</label>
+                        <input type="text" ng-model="item.description" style="width: 100%" required />
+                    </div>
+                    <div>
+                        <label>Is Included in Daily Reward</label>
+                        <input type="checkbox" ng-model="item.isIncludedInDailyReward" required />
+                    </div>
+                    <div>
+                        <label>Category Value</label>
+                        <!--<input type="number" ng-model="item.quizzCategoryType" required />-->
+                        <span>{{item.quizzCategoryType}}</span>
+                    </div>
+                    <div>
+                        <label>Icon String Value:</label>
+                        <input type="text" ng-model="item.iconStrValue" maxlength="2" />
+                    </div>
+                    <div>
+                        <label>Icon Text Color</label>
+                        <input type="color" ng-model="item.textColor" required />
+                    </div>
+                    <div>
+                        <label>Icon Bg Color</label>
+                        <input type="color" ng-model="item.iconColor" required />
+                    </div>
+                    <div>
+                        <label>Border Color</label>
+                        <input type="color" ng-model="item.borderColor" required />
+                    </div>
+                    <button type="button" class="btn btn-default" ng-click="saveEditBtn.click(item)">Save Changes</button>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

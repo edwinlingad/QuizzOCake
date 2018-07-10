@@ -1,0 +1,105 @@
+﻿.view-as-flash-card-html {
+    .qz-header {
+        .quizz-name-icon {
+            margin-right: 50px;
+        }
+    }
+
+    .qz-body {
+        .visible {
+            opacity: 1;
+            -moz-transition: all linear 1s;
+            -o-transition: all linear 1s;
+            -webkit-transition: all linear 1s;
+            transition: all linear 1s;
+        }
+
+        .invisible {
+            opacity: 0;
+        }
+
+        .marked-reviewer-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .flash-card-question {
+            margin-top: 10px;
+            background-color: white;
+            font-weight: 700;
+            padding: 30px;
+            font-size: 1.2em;
+        }
+
+        .clock-question {
+            .clock-container {
+                text-align: center;
+            }
+        }
+
+        .tinymce-formatted {
+            text-align: center;
+        }
+
+        .col-number {
+            font-weight: 700;
+            font-size: 0.75em;
+            color: gray;
+        }
+
+        .flash-card-answer {
+            position: relative;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            color: green;
+            font-weight: 700;
+            min-height: 200px;
+            border: 1px dashed #aaaaaa;
+            font-size: 1.3em;
+
+            a {
+                z-index: 10;
+            }
+
+            .answer-text {
+                position: absolute;
+                top: 45%;
+                text-align: center;
+                width: 100%;
+
+                .col-letter {
+                    /*float: left;*/
+                    font-size: 0.7em;
+                    color: gray;
+                    margin-right: 5px;
+                }
+            }
+
+            .answer-not-shown-placeholder {
+                position: absolute;
+                color: #aaaaaa;
+                text-align: center;
+                width: 100%;
+                z-index: 0;
+                top: 45%;
+            }
+        }
+
+        .reviewer-actions {
+
+            .mark-flash-card {
+                text-align: right;
+
+                .btn {
+                    width: 75px;
+                }
+
+                .marked {
+                    background-color: green;
+                    color: white;
+                }
+            }
+        }
+    }
+}

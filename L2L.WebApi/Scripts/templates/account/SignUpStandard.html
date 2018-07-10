@@ -1,0 +1,71 @@
+﻿<div class="modal-body qz-account-modal sign-up-standard-html" ng-cloak>
+
+    <button type="button" class="close qz-account-modal-extra-action" data-dismiss="alert" aria-label="Close" ng-click="close()" ng-disabled="page.disabled">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="qz-account-modal-title">
+        New <ng-include src="'scripts/templates/common/_CompanyName.html'"></ng-include> Account
+    </div>
+
+    <div class="modal-info">
+        <span>This account is for learners, parents or educators who are 16 years old and above.</span>
+        <br />
+        <span>If you are below 16 years of age, ask your parent or your guardian to sign up and create <span class="quizzling">Quizzling</span> account for you.</span>
+    </div>
+
+    <div class="row">
+        <form name="form" ng-submit="registerStandard(form)" class="col-sm-8 col-sm-offset-2">
+
+            <div class="message ng-anim-fade" ng-show="message.length != 0">{{message}}</div>
+
+            <div class="form-group">
+                <label for="firstName" class="control-label">First Name</label>
+                <input id="firstName" name="firstName" type="text" class="form-control" ng-model="standardUser.firstName" ng-change="changed()" required />
+            </div>
+
+            <div class="form-group">
+                <label for="lastName" class="control-label">Last Name</label>
+                <input id="lastName" name="lastName" type="text" class="form-control" ng-model="standardUser.lastName" ng-change="changed()" required />
+            </div>
+
+            <div class="form-group">
+                <label for="username" class="control-label">Username</label>
+                <input id="username" name="username" type="text" class="form-control" ng-model="standardUser.userName" ng-change="changed()" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="control-label">Email</label>
+                <input id="email" name="email" type="email" class="form-control" ng-model="standardUser.email" ng-change="changed()" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="control-label">Password</label>
+                <input id="password" name="password" type="password" class="form-control" ng-model="standardUser.password" ng-change="changed()" required />
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword" class="control-label">Confirm Password</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" ng-model="standardUser.confirmPassword" ng-change="changed()" required />
+            </div>
+
+            <div class="form-group">
+                <label for="birthDate" class="control-label">Birth Date</label>
+                <input id="birthDate" name="birthDate" type="date" class="form-control" ng-model="standardUser.birthDate" ng-change="changed()" required />
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="termAgree"> I have read and agreed with the <a class="term-and-conditions" ui-sref="termsAndConditions" target="_blank">Terms and Conditions.</a>
+                </label>
+            </div>
+
+            <div class="form-group qz-account-form-modal-action">
+                <button type="submit" class="btn btn-danger btn-sm" ng-disabled="!standardsaveEnabled()">
+                    Sign Up
+                    <save-wait item="page"></save-wait>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

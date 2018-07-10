@@ -1,0 +1,55 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="prep-test-html" class="qz-page-container ng-anim-fade" ng-hide="page.isReady == false">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>
+                Prepare Test
+                <span ng-if="isPreview" class="qz-page-title-extra">(Preview)</span>
+                <span ng-if="isAssignment" class="qz-page-title-extra">(Assignment)</span>
+                <span ng-if="!isPreview && isDailyReward" class="qz-page-title-icon">
+                    <span class="daily-reward-possible-points">+{{quizzOverview.dailyReward.availablePoints}}</span>
+                    <img class="point-image" src="/Content/images/Icons/points-1.0.png" />
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+                <button type="button" class="btn btn-danger btn-sm" ng-click="takeTestBtn.click()" ng-disabled="!takeTestBtn.isReady">
+                    start <item-load-wait item="takeTestBtn"></item-load-wait>
+                </button>
+            </div>
+            <div class="quizz-name-icon">
+                <ng-include src="'scripts/templates/quizz/common/_QuizzHeader.html'"></ng-include>
+            </div>
+            <div class="quizz-details">
+                <div ng-if="quizz.isBuiltIn">
+                    Auto-generated Questions
+                </div>
+                <div ng-if="!quizz.isBuiltIn">
+                    {{quizzOverview.numQuestions}} Questions Total
+                </div>
+                <div>
+                    <span class="grade-level">{{quizzOverview.gradeLevelMin | gradeLevelEnumToString}}</span>
+                    <span ng-hide="quizzOverview.gradeLevelMin == quizzOverview.gradeLevelMax">
+                        to
+                        <span class="grade-level">{{quizzOverview.gradeLevelMax | gradeLevelEnumToString}}</span>
+                    </span>
+                </div>
+            </div>
+            <hr />
+            <div class="prep-test-details">
+                <test-setting-summary settings="settings"></test-setting-summary>
+                <button type="button" class="btn btn-primary btn-xs" ng-click="editTestSetting()" ng-if="!(isAssignment)">
+                    Modify
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

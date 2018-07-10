@@ -1,0 +1,58 @@
+﻿<div ng-repeat="item in myQuizClasses" class="qz-item-container ng-anim-fade" ng-class="{'new-item' : item.member.isNew}">
+    <div class="avatar-image">
+        <img ng-src="{{item.imageUrl}}" />
+    </div>
+
+    <div class="icon-info">
+        <div class="icon-info-row">
+            <a ui-sref="si.enrolledQuizzClass({qcId: item.id, depId: depId, depName: depName, view: 1})" class="icon-item" uib-tooltip="announcements" tooltip-placement="left">
+                <i class="fa fa-bullhorn"></i>
+                <span class="badge" ng-if="item.member.newAnnouncementCount != 0">{{item.member.newAnnouncementCount}}</span>
+            </a>
+            <a ui-sref="si.enrolledQuizzClass({qcId: item.id, depId: depId, depName: depName, view: 3})" class="icon-item" uib-tooltip="lessons" tooltip-placement="left">
+                <i class="fa fa-book"></i>
+                <span class="badge" ng-if="item.numNewLessonItemCount != 0">{{item.numNewLessonItemCount}}</span>
+            </a>
+        </div>
+        <div class="icon-info-row">
+            <a ui-sref="si.enrolledQuizzClass({qcId: item.id, depId: depId, depName: depName, view: 4})" class="icon-item" uib-tooltip="discussions" tooltip-placement="left">
+                <i class="fa fa-comments"></i>
+                <span class="badge" ng-if="item.member.newClassCommentCount != 0">{{item.member.newClassCommentCount}}</span>
+            </a>
+            <a ui-sref="si.enrolledQuizzClass({qcId: item.id, depId: depId, depName: depName, view: 6})" class="icon-item" uib-tooltip="quizzes" tooltip-placement="left">
+                <i class="fa fa-file-text-o"></i>
+                <span class="badge" ng-if="item.member.newClassQuizzCount != 0">{{item.member.newClassQuizzCount}}</span>
+            </a>
+        </div>
+        <div class="icon-info-row">
+            <a ui-sref="si.enrolledQuizzClass({qcId: item.id, depId: depId, depName: depName, view: 5})" class="icon-item" uib-tooltip="learners" tooltip-placement="left">
+                <i class="fa fa-users"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-info">
+        <div class="classroom-name">
+            <a ui-sref="si.enrolledQuizzClass({qcId: item.id, depId: depId, depName: depName, view: 1})">
+                {{item.className}}
+            </a>
+        </div>
+
+        <div class="classroom-description">
+            {{item.description}}
+        </div>
+
+        <div class="main-info-item">
+            <span class="quizzcher">Teacher</span>
+            <a ui-sref="si.quizzer({quizzerId: item.teacherId, view: 0})" class="quizzer info-content">
+                {{item.teacherName}}
+                <child-icon age="{{item.age}}"></child-icon>
+            </a>
+        </div>
+
+        <div class="main-info-item" ng-if="item.latestAnnouncement !== null">
+            <span class="latest-announcement">"{{item.latestAnnouncement}}"</span> <span class="posted-date">- {{item.latestAnnouncementPosteDate | formatDate}}</span>
+        </div>
+
+    </div>
+</div>

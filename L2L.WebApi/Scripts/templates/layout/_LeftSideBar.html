@@ -1,0 +1,89 @@
+﻿<div>
+    <div class="company-logo-container">
+        <div class="company-logo">
+            <ng-include src="'scripts/templates/common/_CompanyName.html'"></ng-include>
+        </div>
+    </div>
+
+    <div class="lsb-profile" ng-if="user.id !== 0">
+        <a ui-sref="si.quizzer({quizzerId: user.id, view: 0})" ng-if="user.id !== 0">
+            <img ng-src="{{user.profile.profileImageUrl}}" class="lsb-profile-avatar" />
+        </a>
+        <div class="lsb-profile-user-data">
+            <div class="lsb-profile-user-name">
+                <a ui-sref="si.quizzer({quizzerId: user.id, view: 0})">
+                    {{user.profile.firstName}} {{user.profile.lastName}}
+                </a>
+            </div>
+            <a ui-sref="si.quizzer({quizzerId: user.id, view: 2})" class="lsb-profile-user-daily-points">
+                <span class="lsb-profile-daily-points-text">
+                    today: <span class="actual-points" uib-tooltip="QuizzOCakes earned for today" tooltip-placement="right">
+                        {{user.dailyPoints}} <img class="point-image" src="Content/images/Icons/points-1.0.png" />
+                    </span>
+                </span>
+
+            </a>
+        </div>
+    </div>
+
+    <!--Guest Profile-->
+    <div class="lsb-profile" ng-if="user.id === 0">
+        <div ng-if="user.id === 0">
+            <img ng-src="{{user.profile.profileImageUrl}}" class="lsb-profile-avatar" />
+        </div>
+        <div class="lsb-profile-user-data">
+            <div class="lsb-profile-user-name">
+                <div>
+                    {{user.profile.firstName}} {{user.profile.lastName}}
+                </div>
+            </div>
+            <div class="lsb-profile-user-daily-points">
+                <span class="lsb-profile-daily-points-text">
+                    today: <span class="actual-points" uib-tooltip="QuizzOCakes earned for today" tooltip-placement="right">
+                        {{user.dailyPoints}} <img class="point-image" src="Content/images/Icons/points-1.0.png" />
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <ul class="items">
+        <li ng-if="user.isAdmin" class="link-container item ">
+            <a ui-sref="si.editquizzCategories" class="link-elem"></a>
+            <div class="item-text">Edit Quizz Categories</div>
+        </li>
+        <li ng-repeat="item in layout.leftSideBar.testSnapshots" class="item ng-anim-slide-left ">
+            <div ng-click="goToOngoingTest(item)" class="as-link">back to ongoing test</div>
+        </li>
+        <li class="item item-divider link-container">
+            <a  ui-sref="si.quizzmates" class="link-elem" ng-click="test('quizzmates')"></a>
+            <span>My Quizzmates</span>
+            <span class="lsb-more">More</span>
+        </li>
+        <li class="item item-divider link-container">
+            <a  ui-sref="si.quizzClassAll" class="link-elem"></a>
+            <span>Quizzrooms</span>
+            <span class="lsb-more">More</span>
+        </li>
+        <li ng-if="user.userType == 0" class="lsb-group">
+            <ng-include src="'scripts/templates/layout/LeftSideBar/_Dependents.html'"></ng-include>
+        </li>
+        <li class="lsb-group">
+            <ng-include src="'scripts/templates/layout/LeftSideBar/_Assignments.html'"></ng-include>
+        </li>
+        <li class="lsb-group">
+            <ng-include src="'scripts/templates/layout/LeftSideBar/_AvailableQuizzes.html'"></ng-include>
+        </li>
+        <li class="lsb-group">
+            <ng-include src="'scripts/templates/layout/LeftSideBar/_RecentQuizzes.html'"></ng-include>
+        </li>
+        <li class="lsb-group">
+            <ng-include src="'scripts/templates/layout/LeftSideBar/_MyQuizzes.html'"></ng-include>
+        </li>
+        <li class="log-out-btn-container" ng-if="user.id !== 0">
+            <button type="button" class="btn btn-danger log-out-btn" ng-click="userControl.logOut()">
+                Log Out
+            </button>
+        </li>
+    </ul>
+</div>

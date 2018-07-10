@@ -1,0 +1,72 @@
+﻿<div class="test-log-grouped-html test-result-common">
+    <page-load-wait page="page"></page-load-wait>
+    <page-not-found page="page"></page-not-found>
+    <div ng-if="page.isReady">
+        <div ng-if="testLogGrouped.length == 0">
+            <div class="qz-no-item">
+                No Test Results Found
+            </div>
+        </div>
+
+        <div ng-if="testLogGrouped.length != 0">
+            <div ng-repeat="group in testLogGrouped">
+                <div class="qz-item-container">
+                    <div class="quizz-name-icon">
+                        <div class="avatar-image">
+                            <add-category-icon-dyn category="group.quizzSummary.category" add-class="quizz-category-icon category-icon-big"></add-category-icon-dyn>
+                        </div>
+                        <div class="tlog-head-right">
+                            <div class="score" ng-class="{ 'score-high': group.average >= 90, 'score-mid': group.average >= 60 && group.average < 90, 'score-low': group.average < 60}">
+                                {{(group.quizzSummary.scoreSum / group.quizzSummary.totalSum) | toPercent}}
+                            </div>
+                            <div class="times">
+                                {{group.testLogs.length}}x
+                            </div>
+                        </div>
+                        <div class="main-info">
+                            <a ui-sref="si.quizzDetail({quizzId: group.quizzSummary.id, view: 3})" class="quizz-title qz-title">
+                                {{group.quizzSummary.title}}
+                            </a>
+                            <div class="qz-description">
+                                {{group.quizzSummary.description}}
+                            </div>
+                            <div class="other-details">
+                                <div>
+                                    Taken {{group.testLogs.length}} times with an average score of {{(group.quizzSummary.scoreSum/ group.quizzSummary.totalSum) | toPercent}}
+                                </div>
+                                <div>
+                                    Last taken <span class="days-ago">{{group.testLogs[0].dateTaken | formatDate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tlog-head-bottom">
+                        <button class="btn btn-danger btn-xs" ng-click="group.isOpen = !group.isOpen">
+                            view details <i class="fa " ng-class="{'fa-chevron-circle-up': group.isOpen, 'fa-chevron-circle-down': !group.isOpen}"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div uib-collapse="!group.isOpen">
+                    <div class="tlog-results">
+                        <div ng-repeat="item in group.testLogs" class="tlog-result">
+                            <button class="btn btn-primary btn-xs" ng-click="goToTestLog(group.quizzSummary, item)">
+                                view results
+                            </button>
+
+                            <div class="tlog-result-head">
+
+                                <div class="score" ng-class="{ 'score-high': item.average >= 90, 'score-mid': item.average >= 60 && item.average < 90, 'score-low': item.average < 60}">
+                                    {{item.score}}/{{item.total}} ( {{(item.score/item.total) | toPercent }} )
+                                </div>
+                                <div class="tlog-result-left">
+                                    Taken <span class="days-ago">{{item.dateTaken | formatDate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

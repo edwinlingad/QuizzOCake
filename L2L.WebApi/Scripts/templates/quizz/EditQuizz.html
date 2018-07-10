@@ -1,0 +1,104 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="edit-quizz-html" class="qz-page-container qz-page-no-header ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>{{page.title}}</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <!--<add-guest-message msg="Create or Edit Quizz is only available to registered users." is-guest="user.isGuest"></add-guest-message>-->
+
+        <div class="qz-body">
+            <form name="form" ng-submit="submit(form)">
+                <div class="form-group">
+                    <label for="title" class="control-label">Title</label>
+                    <input id="title" name="title" type="text" class="form-control" ng-model="quizz.title" ng-change="changed(quizz)" required maxlength="64" />
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="control-label">Description</label>
+                    <textarea id="description" name="description" type="text" class="form-control" ng-model="quizz.description" ng-change="changed(quizz)" maxlength="256" />
+                </div>
+
+                <div class="row" ng-if="user.isAdmin">
+                    <div class="form-group col-sm-6">
+
+                        <label class="control-label">Is BuiltIn</label>
+                        <inp-radio-bool name="isBuiltIn" label-true="Yes" label-false="No" model="quizz.isBuiltIn" changed="changed(quizz)"> </inp-radio-bool>
+
+                        <label class="control-label">Built In Type</label>
+                        <input type="number" class="form-control" ng-model="quizz.builtInType" />
+
+                        <label class="control-label">Main Type</label>
+                        <input type="number" class="form-control" ng-model="quizz.mainType" />
+
+                        <label class="control-label">Sub Type</label>
+                        <input type="number" class="form-control" ng-model="quizz.subType" />
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Sub Type 2</label>
+                        <input type="number" class="form-control" ng-model="quizz.subType2" />
+
+                        <label class="control-label">Sub Type 3</label>
+                        <input type="number" class="form-control" ng-model="quizz.subType3" />
+
+                        <label class="control-label">Sub Type 4</label>
+                        <input type="number" class="form-control" ng-model="quizz.subType4" />
+
+                        <label class="control-label">Sub Type 5</label>
+                        <input type="number" class="form-control" ng-model="quizz.subType5" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Category</label>
+                        <input type="text" class="form-control" ng-model="search.title" placeholder="Search...">
+                        <div class="category-input-container">
+                            <label ng-repeat="item in categories | filter:search" for="{{item.title}}" class="category-item" ng-class="{'is-selected': item.quizzCategoryType == quizz.category}">
+                                <input name="category" type="radio" id="{{item.title}}" value="{{item.quizzCategoryType}}" ng-model="quizz.category" ng-checked="{{quizz.category == item.quizzCategoryType}}" ng-change="changed(quizz)" />
+                                <span class="input-radio-main-text">{{item.title}}</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div>
+                            <label class="control-label">Minimum Grade Level</label>
+                            <select name="gradeLevelMin" ng-model="page.gradeLevelMin" ng-change='gradeLevelChanged("min")' class="form-control">
+                                <option value={{option.quizzGradeLevelType}} ng-repeat="option in quizzGradeLevelList">
+                                    {{option.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="control-label">Maximum Grade Level</label>
+                            <select name="gradeLevelMax" ng-model="page.gradeLevelMax" ng-change='gradeLevelChanged("max")' class="form-control">
+                                <option value={{option.quizzGradeLevelType}} ng-repeat="option in quizzGradeLevelList">
+                                    {{option.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Tags</label>
+                    <input type="text" class="form-control" ng-model="quizz.quizzTags" placeholder="">
+                </div>
+
+                <div class="form-action">
+                    <button type="submit" ng-disabled="quizz.isModified == false || quizz.title.length === 0" class="btn btn-danger btn-xs">
+                        {{saveButton.name}}
+                        <save-wait item="page"></save-wait>
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="cancel()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

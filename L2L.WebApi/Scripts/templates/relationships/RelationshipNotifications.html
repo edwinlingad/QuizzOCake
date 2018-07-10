@@ -1,0 +1,115 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="relationship-notification-html" class="qz-page-container qz-page-no-header ng-anim-fade" ng-show="page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-page-title">
+            <h1>
+                Quizzmates
+                <i class="fa fa-question-circle" ng-click="helpControl.open()"></i>
+            </h1>
+        </div>
+
+        <div class="alert alert-success help-alert ng-anim-fade" role="alert" ng-if="user.isGuest || helpControl.vars.isOpen">
+            <button type="button" class="close" ng-click="helpControl.close()"><span aria-hidden="true">&times;</span></button>
+            <div class="message">
+                <strong>Quizzmates</strong> are <span class="quizzer">Quizzers</span> whom you know and trust.
+                <br />
+                Add <span class="quizzmate">Quizzmates</span> by sending or accepting invites.
+                <ul>
+                    <li>
+                        To send an invite, go to a <span class="quizzer">Quizzer</span> profile and press <strong>Request Quizzmate</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+
+            <div class="r-notification-container" ng-show="rNotificationItem.isReady" ng-if="rNotifications.length !== 0">
+                <div class="qz-page-sub-title">
+                    Requests Awaiting Your Approval
+                </div>
+                <div class="nothing-found" ng-if="rNotifications.length == 0">
+                    No Requests Found
+                </div>
+                <div ng-if="rNotifications.length != 0">
+                    <div ng-repeat="item in rNotifications" class="r-notification" ng-class="{'new-notification': item.isNew == true}">
+                        <!-- Quizzmate request  -->
+                        <div ng-if="item.rnType == 0">
+                            <div class="icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <div class="r-body">
+                                <div class="r-message">
+                                    <span class="quizzer">Quizzer</span>
+                                    <a ui-sref="si.quizzer({ quizzerId: item.fromUserId })" class="quizzer">{{item.fromUserName}} ( {{item.fromUserFullName}} )</a>
+                                    wishes to be your <span class="quizzmate">Quizzmate.</span>
+                                    <div class="r-message quizzmate-request-message">
+                                        "{{item.quizzmateRequestMessage}}"
+                                    </div>
+
+                                    <div class="posted-date">
+                                        {{item.postedDate | formatDate}}
+                                    </div>
+                                </div>
+
+                                <div class="r-action">
+                                    <button type="button" class="btn btn-danger btn-xs" ng-disabled="item.disabled" ng-click="processRequest($index, item, 1)">
+                                        Accept <save-wait-is-ready item="item.acceptProcessing"></save-wait-is-ready>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-xs" ng-disabled="item.disabled" ng-click="processRequest($index, item, 0)">
+                                        Reject <save-wait-is-ready item="item.rejectProcessing"></save-wait-is-ready>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-notification-container" ng-if="pNotificationItem.isReady && pNotifications.length !== 0">
+                <div class="qz-page-sub-title">
+                    Pending Requests
+                </div>
+                <div class="nothing-found" ng-if="pNotifications.length == 0">
+                    No Requests Found
+                </div>
+                <div ng-if="pNotifications.length != 0">
+                    <div ng-repeat="item in pNotifications" class="r-notification">
+                        <!-- Quizzmate request  -->
+                        <div ng-if="item.rnType == 0">
+                            <div class="icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <div class="r-body">
+                                <div class="r-message">
+                                    <span class="quizzmate">Quizzmate</span> request to
+                                    <a ui-sref="si.quizzer({ quizzerId: item.toUserId })" class="quizzer">{{item.toUserName}}</a> with message
+                                    <span class="r-message quizzmate-request-message">
+                                        "{{item.quizzmateRequestMessage}}"
+                                    </span>
+
+                                    <div class="posted-date">
+                                        {{item.postedDate | formatDate}}
+                                    </div>
+                                </div>
+                                <div class="r-action">
+                                    <button type="button" class="btn btn-danger btn-xs" ng-disabled="item.disabled" ng-click="processRequest($index, item, 2)">
+                                        Resend <save-wait-is-ready item="item.resendProcessing"></save-wait-is-ready>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-xs" ng-disabled="item.disabled" ng-click="processRequest($index, item, 3)">
+                                        Cancel Request <save-wait-is-ready item="item.cancelProcessing"></save-wait-is-ready>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <quizzmates quizzer-id="0" title="My Quizzmates" self="1" control="quizzmateControl"></quizzmates>
+        </div>
+    </div>
+</div>

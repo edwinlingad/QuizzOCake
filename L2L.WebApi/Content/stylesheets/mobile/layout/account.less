@@ -1,0 +1,70 @@
+﻿@import "../../common/common";
+
+.mobile-account {
+    background-color: #f1b953;
+
+    .account-container {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .message {
+            padding: 10px;
+            background-color: white;
+            color: red;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            .item {
+                text-align: center;
+
+                .company-name-logo {
+                    font-size: 1.5em;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                }
+
+                .company-name-sub {
+                    color: @company-theme-color2;
+                    font-size: 0.9em;
+                }
+            }
+        }
+
+        .as-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 1.2em;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .button.button-assertive {
+            background-color: @company-theme-color2;
+        }
+    }
+}
+
+#mobile-sign-in {
+    background-size: cover;
+
+    .scroll {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        -moz-transform: translateY(-50%) !important;
+        -ms-transform: translateY(-50%) !important;
+        -o-transform: translateY(-50%) !important;
+        -webkit-transform: translateY(-50%) !important;
+        transform: translateY(-50%) !important;
+
+        .test-label-fix {
+            height: 1px;
+            opacity: 0;
+            min-height: 1px;
+        }
+    }
+}

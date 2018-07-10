@@ -1,0 +1,71 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+#relationship-notification-html .nothing-found {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+#relationship-notification-html .r-notification-container,
+#relationship-notification-html .p-notification-container {
+  margin-bottom: 10px;
+}
+#relationship-notification-html .r-notification {
+  background-color: white;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+#relationship-notification-html .r-notification .icon {
+  margin-top: 5px;
+  display: inline-block;
+  float: left;
+  color: #920000;
+  font-size: 1.3em;
+  text-shadow: 1px 1px 2px gray;
+}
+#relationship-notification-html .r-notification .r-body {
+  margin-top: 5px;
+  margin-left: 25px;
+}
+#relationship-notification-html .r-notification .r-body .posted-date {
+  margin-top: 5px;
+  font-size: 0.8em;
+}
+#relationship-notification-html .r-notification .r-body .r-action {
+  margin-top: 5px;
+  float: right;
+}
+#relationship-notification-html .r-notification .r-body .r-action button {
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#quizzmates-html .quizzmate-info {
+  background-color: white;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  min-height: 70px;
+}
+#quizzmates-html .quizzmate-info .quizzmate-detail-top .quizzmate-detail-mid {
+  font-size: 0.9em;
+  margin-left: 60px;
+}
+#quizzmates-html .quizzmate-info .quizzmate-detail-top .quizzmate-detail-mid .name {
+  font-size: 1.2em;
+}
+#quizzmates-html .quizzmate-info .quizzmate-detail-top .quizzmate-detail-mid .full-name {
+  color: #f07a18;
+  font-weight: 500;
+}
+#quizzmates-html .quizzmate-info .quizzmate-detail-top .quizzmate-detail-mid .quizzmate-detail-brag {
+  color: #e53d0e;
+  font-size: 0.85em;
+}
+#quizzmates-html .quizzmate-info .quizzmate-detail-right {
+  float: right;
+}

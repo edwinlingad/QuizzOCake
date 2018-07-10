@@ -1,0 +1,124 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div id="given-assignment-html" class="qz-page-container assignment-html ng-anim-fade" ng-hide="!page.isReady">
+    <div class="qz-page-title-action">
+        <div class="qz-page-title">
+            <h1>Given Assignments</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container assignment-container">
+        <div class="qz-header">
+            <div class="assignment-page-action">
+                <div class="views">
+                    <button ng-if="!isSingle" type="button" class="btn btn-danger btn-xs" ng-click="showCompletedBtn.click()">
+                        {{showCompletedBtn.name}}
+                    </button>
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="toggleDetailedViewBtn.click()">
+                        {{toggleDetailedViewBtn.name}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div class="qz-no-item" ng-if="assignmentGroups.length === 0">
+                You haven't given any assignments
+            </div>
+
+            <div ng-repeat="item in assignmentGroups" class="assignment-item ng-anim-fade qz-item-container" ng-class="{'past-due': item.numDaysDue < 0, 'due-today': item.numDaysDue == 0}">
+                <div class="asssignment-action">
+                    <span class="qz-title-right">Assignment Given</span>
+                    <div class="btn-group item-action-right" ng-if="!item.isCompleted">
+                        <button type="button" class="btn btn-default clear-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-ellipsis-h"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a ng-click="goToEdit(item)">
+                                    <i class="fa fa-edit"></i>
+                                    <span>Edit</span>
+                                </a>
+                            </li>
+                            <li class="delete-menu-item">
+                                <a ng-click="deleteAssignmentGroup($index, item)">
+                                    <i class="fa fa-trash"></i>
+                                    <span>Delete</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quizz-header">
+                    <add-category-icon-dyn category="item.quizz.category" add-class="quizz-category-icon"></add-category-icon-dyn>
+                    <div class="quizz-title-desc">
+                        <div class="quizz-title">
+                            <a ui-sref="si.quizzDetail({quizzId: item.quizz.id, view: 3})" class="quizz-title qz-title">
+                                {{item.quizz.title}}
+                            </a>
+                        </div>
+                        <div class="quizz-desc ng-anim-slide-down" ng-show="toggleDetailedViewBtn.value">{{item.quizz.description}}</div>
+                        <div>
+                            by: <span class="quizzer as-link" ng-click="goToQuizzer(item.quizz.ownerId)">{{item.quizz.ownerName}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assignment-detail row">
+                    <div class="col-sm-6">
+                        <div class="assignment-detail-item" ng-if="!item.noDueDate" ng-class="{'date-past-due': item.numDaysDue < 0, 'date-due-today': item.numDaysDue == 0}">
+                            <span class="title">Due :</span>
+                            <span class="detail">
+                                {{item.targetDate | dueDate}}
+                            </span>
+                        </div>
+                        <div class="ng-anim-slide-down" ng-show="toggleDetailedViewBtn.value">
+                            <div class="assignment-detail-item">
+                                <span class="title">Assigned : </span>
+                                <span class="detail">
+                                    {{item.dateAssigned | formatDate}}
+                                </span>
+                            </div>
+                            <div class="assignment-detail-item">
+                                <span class="title">Target Score : </span>
+                                <span class="detail">
+                                    {{item.targetScore}} %
+                                </span>
+                                <span class="target-score-value">( {{((item.targetScore/100)*item.numQuestions) | ceiling}} / {{item.numQuestions}} )</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="assignment-detail-item ng-anim-slide-down col-sm-6" ng-show="toggleDetailedViewBtn.value">
+                        <test-setting-summary settings="item.testSetting" total-qs="item.quizz.numQuestions"></test-setting-summary>
+                    </div>
+
+                    <div class="assignment-detail-item col-sm-12 assigned-to">
+                        <span class="title">Assigned To:</span>
+                        <div class="dependents">
+                            <div ng-repeat="dependent in item.assignments">
+                                <div>
+                                    <span class="as-link quizzer" ng-click="goToDependent(dependent.dependentId)">{{dependent.dependentFullName}}</span>
+                                    <div ng-if="dependent.isCompleted" class="completed">
+                                        <i class="fa fa-check-square-o"></i>
+                                        <span ng-click="goToTestLog(dependent, item)" class="as-link">{{dependent.completedDate | formatDate}} - {{dependent.completedScore}}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="assignment-detail-item col-sm-12 message" ng-show="toggleDetailedViewBtn.value">
+                        <span class="title">Message: </span>
+                        <span ng-if="item.message !== ''" class="detail">{{item.message}}</span>
+                        <span ng-if="item.message === ''" class="detail">Good Luck!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="showMoreBtn.visible" ng-click="showMoreBtn.click()">
+                Show More
+            </div>
+        </div>
+    </div>
+</div>

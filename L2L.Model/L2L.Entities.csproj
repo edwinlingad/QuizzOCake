@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E926B9F-5132-40C9-BFE8-E9E488AA5835}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>L2L.Entities</RootNamespace>
+    <AssemblyName>L2L.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LocalHost|AnyCPU'">
+    <OutputPath>bin\LocalHost\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activities\Activities.cs" />
+    <Compile Include="Assignments\Assignment.cs" />
+    <Compile Include="Classroom\ClassRoom.cs" />
+    <Compile Include="Editor\QzEditor.cs" />
+    <Compile Include="Enums\ActivityEnum.cs" />
+    <Compile Include="Enums\BuiltInTypeEnums.cs" />
+    <Compile Include="Enums\ModelEnums.cs" />
+    <Compile Include="Enums\ModifyPermissionFlags.cs" />
+    <Compile Include="Enums\NotificationsEnums.cs" />
+    <Compile Include="Enums\RelationshipNotificationTypeEnum.cs" />
+    <Compile Include="IQuestion.cs" />
+    <Compile Include="IReviewer.cs" />
+    <Compile Include="ITrackableModel.cs" />
+    <Compile Include="Notifications\NewNotification.cs" />
+    <Compile Include="Notifications\Notification.cs" />
+    <Compile Include="Quizzes\QuizzCategory.cs" />
+    <Compile Include="Quizzes\Reviewer\ReviewerItem.cs" />
+    <Compile Include="Quizzes\Types\MultiChoiceSame\MultiChoiceSame.cs" />
+    <Compile Include="Quizzes\Types\QuestionFlag.cs" />
+    <Compile Include="Quizzes\Reviewer\Reviewer.cs" />
+    <Compile Include="Quizzes\Test.cs" />
+    <Compile Include="Quizzes\QuizzFlag.cs" />
+    <Compile Include="QuizzPoints\QuizzPoints.cs" />
+    <Compile Include="Relationship\Dependent\Dependent.cs" />
+    <Compile Include="Relationship\Dependent\DependentRequestFromChild.cs" />
+    <Compile Include="Relationship\Dependent\DependentRequestFromUser.cs" />
+    <Compile Include="Relationship\FriendRelationship.cs" />
+    <Compile Include="Relationship\Messages\Messages.cs" />
+    <Compile Include="Relationship\PublicGroup\PublicGroup.cs" />
+    <Compile Include="Relationship\PublicGroup\PublicGroupMember.cs" />
+    <Compile Include="Relationship\PublicGroup\PublicGroupMembershipRequest.cs" />
+    <Compile Include="Relationship\RelationshipNotification.cs" />
+    <Compile Include="Relationship\UserGroup\UserGroup.cs" />
+    <Compile Include="Relationship\UserGroup\UserGroupMember.cs" />
+    <Compile Include="Quizzes\Question.cs" />
+    <Compile Include="Quizzes\Types\MultipleChoice\MultipleChoiceChoice.cs" />
+    <Compile Include="Quizzes\Types\MultipleChoice\MultipleChoiceQuestion.cs" />
+    <Compile Include="Quizzes\Types\MultipleChoice\MultipleChoiceQuestionFlag.cs" />
+    <Compile Include="Quizzes\Types\QandA\QandAAnswer.cs" />
+    <Compile Include="Quizzes\Types\QandA\QandAQuestion.cs" />
+    <Compile Include="Quizzes\Types\QandA\QandAQuestionFlag.cs" />
+    <Compile Include="Quizzes\Types\BuiltIn\QuizzBuiltIn.cs" />
+    <Compile Include="Quizzes\Types\BuiltIn\QuizzBuiltInQuestionFlag.cs" />
+    <Compile Include="Quizzes\QuizzTag.cs" />
+    <Compile Include="QuizzRating\QuizzRating.cs" />
+    <Compile Include="QuizzRating\QuizzUpvote.cs" />
+    <Compile Include="QuizzRating\QuizzUserRating.cs" />
+    <Compile Include="Quizzes\TestSetting.cs" />
+    <Compile Include="User\DependentPermission.cs" />
+    <Compile Include="User\Profile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quizzes\Quizz.cs" />
+    <Compile Include="TestLog\TestLog.cs" />
+    <Compile Include="User\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\L2L.Constants\L2L.Common.csproj">
+      <Project>{54011c6e-f990-4c42-9548-fc7aeee94e8e}</Project>
+      <Name>L2L.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Messages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Notifications\Notification.cs.d.ts">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Quizzes\QuizzCategory.cs.d.ts">
+      <DependentUpon>QuizzCategory.cs</DependentUpon>
+    </TypeScriptCompile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

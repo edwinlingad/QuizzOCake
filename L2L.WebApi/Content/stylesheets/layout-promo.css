@@ -1,0 +1,466 @@
+﻿/*Color*/
+/*@company-theme-color: #920000;*/
+/*add-category-tag*/
+/*Sizes*/
+/* */
+/*Media Sizes*/
+.account-page-background {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+.account-page-shroud {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  z-index: 1040;
+  position: absolute;
+  opacity: 0.7;
+  margin-top: -50px;
+}
+.nsi-page-html ul {
+  list-style: none;
+}
+.nsi-page-html ul li {
+  display: inline-block;
+}
+.nsi-page-html .container {
+  position: relative;
+  padding: 0;
+}
+.nsi-page-html .container .nsi-navbar-main {
+  position: absolute;
+  top: 50px;
+  background: none;
+  width: 100%;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.nsi-page-html .container .nsi-navbar-main .nsi-navbar-main-logo {
+  left: 0;
+}
+.nsi-page-html .container .nsi-navbar-main .nsi-navbar-main-nav {
+  float: right;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li,
+.nsi-page-html .container .nsi-navbar-main ul > li:hover {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 15px 10px;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li > a,
+.nsi-page-html .container .nsi-navbar-main ul > li:hover > a,
+.nsi-page-html .container .nsi-navbar-main ul > li > a:visited,
+.nsi-page-html .container .nsi-navbar-main ul > li:hover > a:visited,
+.nsi-page-html .container .nsi-navbar-main ul > li > a:hover,
+.nsi-page-html .container .nsi-navbar-main ul > li:hover > a:hover,
+.nsi-page-html .container .nsi-navbar-main ul > li > a:active,
+.nsi-page-html .container .nsi-navbar-main ul > li:hover > a:active,
+.nsi-page-html .container .nsi-navbar-main ul > li > a:focus,
+.nsi-page-html .container .nsi-navbar-main ul > li:hover > a:focus {
+  font-weight: bold;
+  color: white !important;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-home,
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-home > a:hover {
+  background-color: #FF6600;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-home > a:focus {
+  background-color: #FF6600;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-about,
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-about > a:hover {
+  background-color: #3333FF;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-about > a:focus {
+  background-color: #3333FF;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-contact,
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-contact > a:hover {
+  background-color: #33CC00;
+}
+.nsi-page-html .container .nsi-navbar-main ul > li.nav-contact > a:focus {
+  background-color: #33CC00;
+}
+.nsi-page-html .container .nsi-navbar-login {
+  position: absolute;
+  top: 10px;
+  /*right: 50px;*/
+  right: 0;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.nsi-page-html .container .nsi-navbar-login ul {
+  padding: 0;
+  float: right;
+  /*li {
+                    margin-right: 30px;
+                }*/
+}
+.nsi-page-html .container .nsi-navbar-login .account-action {
+  font-weight: 500;
+  color: white;
+  padding: 10px 15px;
+  margin: 3px;
+  text-shadow: 1px 1px 1px black;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.nsi-page-html .container .nsi-navbar-login .account-action:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.nsi-page-html nav.navbar {
+  width: 100%;
+  height: 48px;
+  background-color: #203248;
+  border: solid 1px #203248;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.nsi-page-html nav.navbar .navbar-brand {
+  font-family: Broadway, sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: -8px;
+  color: white;
+}
+.nsi-page-html nav.navbar .navbar-brand img {
+  width: 41px;
+  height: 37px;
+  display: inline;
+}
+.nsi-page-html nav.navbar .navbar-item {
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  color: #9b9b9b;
+}
+.nsi-page-html nav.navbar .navbar-item a:hover {
+  color: #e53d0e;
+}
+.nsi-page-html .nsi-page-background {
+  min-height: 617px;
+  background-image: url("../images/background/main-cover-large.jpg");
+}
+.nsi-page-html .nsi-page-background .text-container {
+  padding-left: 64px;
+  padding-right: 12px;
+  padding-top: 125px;
+}
+.nsi-page-html .nsi-page-background h1#nsi-img-text {
+  max-width: 591px;
+  font-family: Roboto, sans-serif;
+  font-size: 48px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: left;
+  color: #000000;
+}
+.nsi-page-html .nsi-page-background h1#nsi-img-text .subhead {
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 2.2px;
+  display: block;
+  margin-bottom: 20px;
+}
+.nsi-page-html .nsi-page-background h1#nsi-img-text strong {
+  font-weight: 300 !important;
+}
+.nsi-page-html .nsi-page-background #nsi-motto {
+  font-family: Roboto, sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: right;
+  margin-top: 125px;
+}
+.nsi-page-html .nsi-page-background #nsi-motto .subhead {
+  color: #e53d0e;
+}
+.nsi-page-html .nsi-page-background .down-button-div {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+.nsi-page-html .nsi-page-background .down-button-div i {
+  color: white;
+  opacity: 0.7;
+}
+.nsi-page-html .nsi-page-background .down-button-div i:hover {
+  opacity: 1;
+}
+.nsi-page-html #features {
+  font-family: Roboto, sans-serif;
+  color: #4a4a4a;
+}
+.nsi-page-html #features section {
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+.nsi-page-html #features section .content {
+  margin-left: 16px;
+  margin-top: 16px;
+}
+.nsi-page-html #features section.learning {
+  min-height: 500px;
+  background-image: url("../images/background/sub-cover-small.jpg");
+}
+.nsi-page-html #features .container {
+  padding-left: 64px;
+  padding-right: 64px;
+}
+.nsi-page-html #features h2 {
+  font-size: 36px;
+  font-weight: 900;
+  text-align: right;
+}
+.nsi-page-html #features h3 {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+.nsi-page-html #features h4 {
+  text-transform: lowercase;
+  font-size: 24px;
+  font-weight: 500;
+}
+.nsi-page-html #features p {
+  font-size: 18px;
+  font-weight: 300;
+}
+.nsi-page-html #features p .desc-bold {
+  font-weight: 500;
+}
+.nsi-page-html footer {
+  background-color: #203248;
+  border: solid 1px #203248;
+  color: white;
+  padding-top: 28px;
+  padding-bottom: 36px;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+}
+.nsi-page-html footer .container {
+  background-image: url("../images/icons/icon-logo-white-35.png");
+  background-size: 250px;
+  background-repeat: no-repeat;
+  background-position: right 10px top;
+}
+.nsi-page-html footer .company-name-logo {
+  font-size: 48px;
+}
+.nsi-page-html footer .feedback {
+  /*margin-top: 27px;*/
+}
+.nsi-page-html footer .feedback img {
+  position: relative;
+  width: 75px;
+}
+.nsi-page-html footer .subhead {
+  margin-top: -15px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #e53d0e;
+}
+.nsi-page-html footer .legal-group {
+  /*margin-top: 36px;*/
+  font-weight: 300;
+}
+.nsi-page-html footer a {
+  color: white;
+}
+.nsi-page-html footer .quizz-o-cake-logo-lg {
+  width: 226.5px;
+  height: 178.2px;
+  opacity: 0.5;
+  float: right;
+}
+.nsi-page-html .nav-button {
+  font-size: 50px;
+}
+#goto-top-button-div {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  opacity: 0;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#goto-top-button-div i {
+  color: #f07a18;
+}
+.qz-view-overview-modal {
+  padding: 40px 20px 20px 20px;
+}
+.qz-view-overview-modal button.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+.qz-view-overview-modal .video-container {
+  display: block;
+}
+.qz-view-overview-modal .close-btn-container {
+  margin-top: 10px;
+  text-align: right;
+}
+@media screen and (max-width: 970px) {
+  .nsi-page-html .nsi-page-background {
+    min-height: 375px;
+    background-image: url("../images/background/main-cover-small.jpg");
+  }
+  .nsi-page-html .nsi-page-background .text-container {
+    padding-left: 38px;
+    padding-right: 12px;
+    padding-top: 91px;
+  }
+  .nsi-page-html .nsi-page-background h1#nsi-img-text {
+    max-width: 100%;
+    font-size: 36px;
+  }
+  .nsi-page-html .nsi-page-background h1#nsi-img-text .subhead {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+  .nsi-page-html .nsi-page-background #nsi-motto {
+    font-size: 20px;
+    margin-top: 56px;
+  }
+  .nsi-page-html .nsi-page-background #nsi-motto .subhead {
+    color: #e53d0e;
+  }
+  .nsi-page-html #features section {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .nsi-page-html #features section .content {
+    margin-left: 0;
+    margin-top: 16px;
+  }
+  .nsi-page-html #features section.about {
+    padding-bottom: 0;
+  }
+  .nsi-page-html #features section.learning {
+    min-height: 500px;
+  }
+  .nsi-page-html #features section.learning .bottom-content {
+    margin-top: -8px;
+  }
+  .nsi-page-html #features .container {
+    padding-left: 40px;
+    padding-right: 16px;
+  }
+  .nsi-page-html #features h2 {
+    font-size: 26px;
+  }
+  .nsi-page-html #features h3 {
+    font-size: 24px;
+  }
+  .nsi-page-html #features h4 {
+    font-size: 20px;
+  }
+  .nsi-page-html #features p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #footer {
+    height: 200px !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .nsi-page-html .nsi-page-background {
+    min-height: 200px;
+    background-image: url("../images/background/main-cover-small.jpg");
+  }
+  .nsi-page-html .nsi-page-background .text-container {
+    padding-left: 18px;
+    padding-right: 8px;
+    padding-top: 30px;
+  }
+  .nsi-page-html .nsi-page-background h1#nsi-img-text {
+    max-width: 100%;
+    font-size: 20px;
+  }
+  .nsi-page-html .nsi-page-background h1#nsi-img-text .subhead {
+    font-size: 12px;
+    margin-bottom: 13px;
+  }
+  .nsi-page-html .nsi-page-background h1#nsi-img-text strong {
+    font-weight: 500 !important;
+  }
+  .nsi-page-html .nsi-page-background #nsi-motto {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+  .nsi-page-html .nsi-page-background #nsi-motto .subhead {
+    color: #e53d0e;
+  }
+  .nsi-page-html #features section {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .nsi-page-html #features section .content {
+    margin-left: 0;
+    margin-top: 16px;
+  }
+  .nsi-page-html #features section.about {
+    padding-bottom: 0;
+  }
+  .nsi-page-html #features section.learning {
+    min-height: 500px;
+  }
+  .nsi-page-html #features .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .nsi-page-html #features h2 {
+    font-size: 18px;
+  }
+  .nsi-page-html #features h3 {
+    font-size: 18px;
+  }
+  .nsi-page-html #features h4 {
+    font-size: 18px;
+  }
+  .nsi-page-html #features p {
+    font-size: 12px;
+  }
+  .nsi-page-html footer {
+    font-size: 14px;
+  }
+  .nsi-page-html footer .bg-image {
+    opacity: 0.2;
+  }
+  .nsi-page-html footer .company-name-logo {
+    font-size: 26px;
+  }
+  .nsi-page-html footer .subhead {
+    margin-top: -8px;
+    font-size: 16px;
+    line-height: 95%;
+  }
+}

@@ -1,0 +1,38 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container view-reviewer-html quizz-o-container quizz-common-header ng-anim-fade" ng-hide="page.isReady == false">
+    <div class="qz-page-title-action">
+        <div class="qz-page-title">
+            <h1>Flip Through Notes</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header quizzroom-head-container">
+            <div class="qz-header-action">
+                <a ui-sref="si.quizzDetail({quizzId: quizz.id, view: 1})" class="btn btn-danger btn-xs">
+                    Done
+                </a>
+            </div>
+            <div>
+                <div class="avatar-image">
+                    <add-category-icon-dyn category="quizz.category" add-class="quizz-category-icon category-icon-big" control="categoryIconControl"></add-category-icon-dyn>
+                </div>
+
+                <div class="main-info">
+                    <div class="quizz-title qz-title">
+                        {{quizz.title}}
+                    </div>
+                    <div class="qz-description">
+                        {{quizz.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div ui-view class="ng-anim-slide-left">
+
+            </div>
+        </div>
+    </div>
+</div>

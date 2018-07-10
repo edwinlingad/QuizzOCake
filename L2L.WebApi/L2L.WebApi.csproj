@@ -1,0 +1,1908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D88D1AA-C73A-4E26-A80D-2E4258449DA2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>L2L.WebApi</RootNamespace>
+    <AssemblyName>L2L.WebApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=6.3.4.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.3.1.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGridMail, Version=6.3.4.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGridMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MapConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="BuiltInQuestions\Math\Clock\ClockQuestionService.cs" />
+    <Compile Include="BuiltInQuestions\Math\Clock\HourHalfHourQuestionsCreator.cs" />
+    <Compile Include="BuiltInQuestions\Math\Clock\MinuteIncQuestionsGenerator.cs" />
+    <Compile Include="BuiltInQuestions\Math\SimpleAlgebra\FormattedQuestionString.cs" />
+    <Compile Include="BuiltInQuestions\Math\SimpleAlgebra\SubtractionQuestionsCreator.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Activity\ActivityController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\GradeLevelController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\Notification\NotificationController.cs" />
+    <Compile Include="Controllers\Notification\NotificationTypesController.cs" />
+    <Compile Include="Controllers\Quizz\Comments\QuizzCommentController.cs" />
+    <Compile Include="Controllers\Quizz\Reviewer\QuickNoteController.cs" />
+    <Compile Include="Controllers\Quizz\Reviewer\ReviewerFromQuestionsController.cs" />
+    <Compile Include="Controllers\Quizz\Reviewer\TextFlashCardController.cs" />
+    <Compile Include="Controllers\Quizz\Types\BuiltIn\BuiltInQuestionsController.cs" />
+    <Compile Include="Controllers\Quizz\Types\BuiltIn\BuiltInTypeFactory.cs" />
+    <Compile Include="Controllers\Quizz\Types\MultiChoiceSame\MultiChoiceSameChoiceController.cs" />
+    <Compile Include="Controllers\Quizz\Types\MultiChoiceSame\MultiChoiceSameChoiceGroupController.cs" />
+    <Compile Include="Controllers\Quizz\Types\MultiChoiceSame\MultiChoiceSameQuestionController.cs" />
+    <Compile Include="Controllers\Quizz\Types\MultpleChoice\MCChoiceController.cs" />
+    <Compile Include="Controllers\QuizzRating\QuizzUpvoteController.cs" />
+    <Compile Include="Controllers\Quizz\Types\MultpleChoice\MCQuestionController.cs" />
+    <Compile Include="Controllers\Quizz\Types\QandA\QAAnswerController.cs" />
+    <Compile Include="Controllers\Quizz\Types\QandA\QAQuestionController.cs" />
+    <Compile Include="Controllers\Quizz\QuestionController.cs" />
+    <Compile Include="Controllers\Quizz\QuizzCategoriesController.cs" />
+    <Compile Include="Controllers\Quizz\QuizzController.cs" />
+    <Compile Include="Controllers\Quizz\QuizzOverviewController.cs" />
+    <Compile Include="Controllers\Quizz\TestController.cs" />
+    <Compile Include="Controllers\Quizz\TestSettingController.cs" />
+    <Compile Include="Controllers\Resource\ResourceController.cs" />
+    <Compile Include="Controllers\Resource\ResourceFactory.cs" />
+    <Compile Include="Controllers\Search\SearchController.cs" />
+    <Compile Include="Controllers\TestLog\TestLogController.cs" />
+    <Compile Include="Controllers\Users\DependentController.cs" />
+    <Compile Include="Creator\Layout\LayoutModelCreator.cs" />
+    <Compile Include="BuiltInQuestions\Helpers\MultiChoiceQuestionModelCreator.cs" />
+    <Compile Include="BuiltInQuestions\Helpers\MultiChoiceSameChoiceGroupModelCreator.cs" />
+    <Compile Include="BuiltInQuestions\Helpers\MultiChoiceSameQuestionModelCreator.cs" />
+    <Compile Include="BuiltInQuestions\Helpers\QandQuestionModelCreator.cs" />
+    <Compile Include="Creator\Quizz\QuizzOverviewQueryableCreator.cs" />
+    <Compile Include="BuiltInQuestions\Helpers\TakeTestModelCreator.cs" />
+    <Compile Include="Enums\ModelTypeEnums.cs" />
+    <Compile Include="Enums\QuestionViewTypeEnum.cs" />
+    <Compile Include="Enums\SessionIdxEnum.cs" />
+    <Compile Include="Enums\SortActionEnum.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\IntArray.cs" />
+    <Compile Include="Interfaces\IBaseController.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Activities\ActivityModel.cs" />
+    <Compile Include="Models\Assignments\AssignmentModel.cs" />
+    <Compile Include="Models\Classrooms\ClassroomModels.cs" />
+    <Compile Include="Models\GenericModel.cs" />
+    <Compile Include="Models\Notifications\NewNotificationModel.cs" />
+    <Compile Include="Models\QuizzPoints\QuizzPointsModel.cs" />
+    <Compile Include="Models\QuizzRating\QuizzRatingModels.cs" />
+    <Compile Include="Models\Editor\QzEditorModel.cs" />
+    <Compile Include="Models\Relationship\DependentModels.cs" />
+    <Compile Include="Models\Relationship\FriendModels.cs" />
+    <Compile Include="Models\Relationship\MessageModels.cs" />
+    <Compile Include="Models\Relationship\RelationshipNotificationModels.cs" />
+    <Compile Include="Models\ResourceModel.cs" />
+    <Compile Include="Models\Search\SearchModel.cs" />
+    <Compile Include="Services\Activities\DeleteActivityService.cs" />
+    <Compile Include="Services\Activities\QuizzActivityService.cs" />
+    <Compile Include="Services\Activities\QuizzCommentActivityService.cs" />
+    <Compile Include="Models\CommonModels.cs" />
+    <Compile Include="Models\GradeLevelModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Layout\LayoutModel.cs" />
+    <Compile Include="Models\Layout\TopPanelModel.cs" />
+    <Compile Include="Models\Layout\LeftSideBarModel.cs" />
+    <Compile Include="Models\Notifications\NotificationModel.cs" />
+    <Compile Include="Models\Quizz\CreateQuestionModel.cs" />
+    <Compile Include="Models\Quizz\Types\MultiChoiceSame\MultiChoiceSameModel.cs" />
+    <Compile Include="Models\Quizz\Types\MultipleChoice\MCQuestionModel.cs" />
+    <Compile Include="Models\Quizz\Types\QandA\QAQuestionModel.cs" />
+    <Compile Include="Models\Quizz\QuestionModel.cs" />
+    <Compile Include="Models\Quizz\QuizzOverviewModel.cs" />
+    <Compile Include="Models\Quizz\QuizzModel.cs" />
+    <Compile Include="Models\Quizz\QuizzCategoryModel.cs" />
+    <Compile Include="Models\Quizz\TestModel.cs" />
+    <Compile Include="Models\Quizz\TestSettingModel.cs" />
+    <Compile Include="Models\Quizz\Reviewer\ReviewerModel.cs" />
+    <Compile Include="Models\TestLog\TestLogModel.cs" />
+    <Compile Include="Models\User\ProfileModel.cs" />
+    <Compile Include="Models\User\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\Activities\ActivityService.cs" />
+    <Compile Include="Services\Assignments\AssignmentGroupService.cs" />
+    <Compile Include="Services\Assignments\AssignmentService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\CakeHub.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassAnnouncementService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassCommentService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassInviteService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassJoinService.cs" />
+    <Compile Include="Services\Classrooms\Lessons\QuizzClassLessonCommentService.cs" />
+    <Compile Include="Services\Classrooms\Lessons\QuizzClassLessonMessageService.cs" />
+    <Compile Include="Services\Classrooms\Lessons\QuizzClassLessonService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassMemberInviteService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassMemberService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassMemberUpdateService.cs" />
+    <Compile Include="Services\Classrooms\Lessons\QuizzClassLessonQuizzService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassQuizzService.cs" />
+    <Compile Include="Services\Classrooms\QuizzClassService.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\external\EmailService.cs" />
+    <Compile Include="Services\Layout\LayoutService.cs" />
+    <Compile Include="Services\LoggingService.cs" />
+    <Compile Include="Services\Notifications\DeleteNotificationService.cs" />
+    <Compile Include="Services\Notifications\NewNotificationEditor.cs" />
+    <Compile Include="Services\Notifications\NotificationService.cs" />
+    <Compile Include="Services\Notifications\NotificationTypeService.cs" />
+    <Compile Include="Services\Notifications\NotificationTypeUtil.cs" />
+    <Compile Include="Services\Notifications\Types\AssignmentNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\DepQuizzCommentNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\DepQuizzmateNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\DepQuizzNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\QuestionNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\QuizzCommentNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\Relationship\QuizzlingNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\Relationship\QuizzmateNotificationService.cs" />
+    <Compile Include="Services\Notifications\Types\QuizzNotificationService.cs" />
+    <Compile Include="Services\Quizzer\QuizzerInfoService.cs" />
+    <Compile Include="Services\QuizzPoints\BadgeService.cs" />
+    <Compile Include="Services\QuizzPoints\DailyRewardService.cs" />
+    <Compile Include="Services\QuizzPoints\QuizzPointsService.cs" />
+    <Compile Include="Services\QuizzPoints\QuizzTakeRewardService.cs" />
+    <Compile Include="Services\QuizzRating\QuizzCurrentUserRatingService.cs" />
+    <Compile Include="Services\QuizzRating\QuizzUserRatingService.cs" />
+    <Compile Include="Services\Quizz\Comments\QuizzCommentService.cs" />
+    <Compile Include="Services\Quizz\Reviewer\QuickNoteService.cs" />
+    <Compile Include="Services\Quizz\Reviewer\ReviewerFromQuestionsService.cs" />
+    <Compile Include="BuiltInQuestions\Math\SimpleAlgebra\SimpleAlgebraQuestionService.cs" />
+    <Compile Include="Services\Quizz\TestSnapshotService.cs" />
+    <Compile Include="Services\Quizz\Types\MultiChoiceSame\MultiChoiceSameChoiceGroupService.cs" />
+    <Compile Include="Services\Quizz\Types\MultiChoiceSame\MultiChoiceSameChoiceService.cs" />
+    <Compile Include="Services\Quizz\Types\MultiChoiceSame\MultiChoiceSameQuestionService.cs" />
+    <Compile Include="Services\Quizz\Types\MultipleChoice\MCChoiceService.cs" />
+    <Compile Include="Services\Quizz\Types\MultipleChoice\MCQuestionService.cs" />
+    <Compile Include="Services\Quizz\Types\QandA\QAAnswerService.cs" />
+    <Compile Include="Services\Quizz\Types\QandA\QAQuestionService.cs" />
+    <Compile Include="Services\Quizz\QuestionService.cs" />
+    <Compile Include="Services\Quizz\Types\QuestionType\IQuestionType.cs" />
+    <Compile Include="Services\Quizz\Types\QuestionType\QuestionTypeFactory.cs" />
+    <Compile Include="Services\Quizz\Types\QuestionType\QuestionTypeService.cs" />
+    <Compile Include="Services\Quizz\QuizzOverviewService.cs" />
+    <Compile Include="Services\Quizz\QuizzCategoryService.cs" />
+    <Compile Include="Services\QuizzRating\QuizzUpvoteService.cs" />
+    <Compile Include="Services\Quizz\QuizzService.cs" />
+    <Compile Include="Services\Relationship\IRelationshipRespond.cs" />
+    <Compile Include="Services\Relationship\Messages\QuizzConnectMsgThreadService.cs" />
+    <Compile Include="Services\Relationship\Messages\QuizzmateChat.cs" />
+    <Compile Include="Services\Relationship\Messages\QuizzmateMsgService.cs" />
+    <Compile Include="Services\Relationship\Messages\QuizzmateMsgThreadMemberService.cs" />
+    <Compile Include="Services\Relationship\Messages\QuizzmateMsgThreadService.cs" />
+    <Compile Include="Services\Relationship\Notification\NewRelationshipNotificationService.cs" />
+    <Compile Include="Services\Relationship\Notification\RelationshipNotificationEditor.cs" />
+    <Compile Include="Services\Relationship\Notification\RelationshipNotificationResponseFactory.cs" />
+    <Compile Include="Services\Relationship\Notification\RelationshipNotificationService.cs" />
+    <Compile Include="Services\Relationship\Notification\Types\QuizzlingRNotificationService.cs" />
+    <Compile Include="Services\Relationship\Notification\Types\QuizzmateRNotificationService.cs" />
+    <Compile Include="Services\Relationship\QuizzlingRequestService.cs" />
+    <Compile Include="Services\Relationship\QuizzmateRequestService.cs" />
+    <Compile Include="Services\Relationship\QuizzmatesService.cs" />
+    <Compile Include="Services\Search\SearchService.cs" />
+    <Compile Include="Services\ServiceContainer.cs" />
+    <Compile Include="Services\ServiceException.cs" />
+    <Compile Include="Services\Quizz\TestService.cs" />
+    <Compile Include="Services\Quizz\TestSettingService.cs" />
+    <Compile Include="Services\TestLog\TestLogService.cs" />
+    <Compile Include="Services\Quizz\Reviewer\TextFlashCardService.cs" />
+    <Compile Include="Services\User\UserService.cs" />
+    <Compile Include="Services\User\DependentService.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\CloneJson.cs" />
+    <Compile Include="Utilities\DateTimeUtil.cs" />
+    <Compile Include="Utilities\GuestUtil.cs" />
+    <Compile Include="Utilities\HelperUtil.cs" />
+    <Compile Include="Utilities\ImageUtil.cs" />
+    <Compile Include="Utilities\JsonExtensions.cs" />
+    <Compile Include="Utilities\MappingUtil.cs" />
+    <Compile Include="Utilities\SessionHelper.cs" />
+    <Compile Include="Utilities\UserInfoUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
+    <Content Include="Content\Exam.css">
+      <DependentUpon>Exam.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Exam.min.css">
+      <DependentUpon>Exam.css</DependentUpon>
+    </Content>
+    <Content Include="Content\images\background\banner.jpg" />
+    <Content Include="Content\images\background\main-cover-large.jpg" />
+    <Content Include="Content\images\background\main-cover-small.jpg" />
+    <Content Include="Content\images\background\main.jpg" />
+    <Content Include="Content\images\background\background-2.jpg" />
+    <Content Include="Content\images\background\sub-cover-small.jpg" />
+    <Content Include="Content\images\classroom\class-default.jpg" />
+    <Content Include="Content\images\favicons\android-icon-144x144.png" />
+    <Content Include="Content\images\favicons\android-icon-192x192.png" />
+    <Content Include="Content\images\favicons\android-icon-36x36.png" />
+    <Content Include="Content\images\favicons\android-icon-48x48.png" />
+    <Content Include="Content\images\favicons\android-icon-72x72.png" />
+    <Content Include="Content\images\favicons\android-icon-96x96.png" />
+    <Content Include="Content\images\favicons\apple-icon-114x114.png" />
+    <Content Include="Content\images\favicons\apple-icon-120x120.png" />
+    <Content Include="Content\images\favicons\apple-icon-144x144.png" />
+    <Content Include="Content\images\favicons\apple-icon-152x152.png" />
+    <Content Include="Content\images\favicons\apple-icon-180x180.png" />
+    <Content Include="Content\images\favicons\apple-icon-57x57.png" />
+    <Content Include="Content\images\favicons\apple-icon-60x60.png" />
+    <Content Include="Content\images\favicons\apple-icon-72x72.png" />
+    <Content Include="Content\images\favicons\apple-icon-76x76.png" />
+    <Content Include="Content\images\favicons\apple-icon-precomposed.png" />
+    <Content Include="Content\images\favicons\apple-icon.png" />
+    <Content Include="Content\images\favicons\browserconfig.xml" />
+    <Content Include="Content\images\favicons\favicon-16x16.png" />
+    <Content Include="Content\images\favicons\favicon-32x32.png" />
+    <Content Include="Content\images\favicons\favicon-96x96.png" />
+    <Content Include="Content\images\favicons\favicon.ico" />
+    <Content Include="Content\images\favicons\ms-icon-144x144.png" />
+    <Content Include="Content\images\favicons\ms-icon-150x150.png" />
+    <Content Include="Content\images\favicons\ms-icon-310x310.png" />
+    <Content Include="Content\images\favicons\ms-icon-70x70.png" />
+    <Content Include="Content\images\features\mailbox.png" />
+    <Content Include="Content\images\Icons\icon-logo-white-35.png" />
+    <Content Include="Content\images\Icons\icon-logo-white.png" />
+    <Content Include="Content\images\Icons\icon-logo.png" />
+    <Content Include="Content\images\Icons\logo-sm.jpg" />
+    <Content Include="Content\images\Icons\logo.jpg" />
+    <Content Include="Content\images\Icons\points-1.0.png" />
+    <Content Include="Content\images\Icons\default-profile-1.0.jpg" />
+    <Content Include="Content\images\Icons\achievement-1.0.png" />
+    <Content Include="Content\images\medals\medal1.jpg" />
+    <Content Include="Content\images\medals\medal2.jpg" />
+    <Content Include="Content\images\medals\medal3.jpg" />
+    <Content Include="Content\images\medals\medal4.jpg" />
+    <Content Include="Content\images\medals\medal5.jpg" />
+    <Content Include="Content\images\medals\medal6.jpg" />
+    <Content Include="Content\images\profile\bear_user.png" />
+    <Content Include="Content\images\profile\pac_man.png" />
+    <Content Include="Content\images\profile\preferences_user_information.png" />
+    <Content Include="Content\images\profile\student.png" />
+    <Content Include="Content\images\profile\student2.png" />
+    <Content Include="Content\images\profile\user_info.png" />
+    <Content Include="Content\lib\animate\animate.css" />
+    <Content Include="Content\lib\animate\animate.min.css" />
+    <Content Include="Content\lib\bootstrap-theme.css" />
+    <Content Include="Content\lib\bootstrap-theme.min.css" />
+    <Content Include="Content\lib\bootstrap.css" />
+    <Content Include="Content\lib\bootstrap.min.css" />
+    <Content Include="Content\lib\font-awesome-4.4.0\css\font-awesome.css" />
+    <Content Include="Content\lib\font-awesome-4.4.0\css\font-awesome.min.css" />
+    <Content Include="Content\lib\font-awesome-4.4.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\lib\font-awesome-4.4.0\HELP-US-OUT.txt" />
+    <Content Include="Content\lib\hover\hover-min.css" />
+    <Content Include="Content\lib\hover\hover.css" />
+    <Content Include="Content\lib\ionic\css\ionic.css" />
+    <Content Include="Content\lib\ionic\css\ionic.min.css" />
+    <Content Include="Content\lib\ionic\fonts\ionicons.svg" />
+    <Content Include="Content\lib\ionic\scss\ionic.css">
+      <DependentUpon>ionic.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\ionic\scss\ionic.min.css">
+      <DependentUpon>ionic.css</DependentUpon>
+    </Content>
+    <Content Include="Content\lib\literally-canvas\css\literallycanvas.css" />
+    <Content Include="Content\lib\literally-canvas\img\alpha.png" />
+    <Content Include="Content\lib\literally-canvas\img\checkerboard-8x8.png" />
+    <Content Include="Content\lib\literally-canvas\img\dashed-line.png" />
+    <Content Include="Content\lib\literally-canvas\img\ellipse.png" />
+    <Content Include="Content\lib\literally-canvas\img\eraser.png" />
+    <Content Include="Content\lib\literally-canvas\img\eyedropper.png" />
+    <Content Include="Content\lib\literally-canvas\img\hue.png" />
+    <Content Include="Content\lib\literally-canvas\img\line-with-arrow.png" />
+    <Content Include="Content\lib\literally-canvas\img\line.png" />
+    <Content Include="Content\lib\literally-canvas\img\pan.png" />
+    <Content Include="Content\lib\literally-canvas\img\pencil.png" />
+    <Content Include="Content\lib\literally-canvas\img\polygon-cancel.png" />
+    <Content Include="Content\lib\literally-canvas\img\polygon-closed.png" />
+    <Content Include="Content\lib\literally-canvas\img\polygon-open.png" />
+    <Content Include="Content\lib\literally-canvas\img\polygon.png" />
+    <Content Include="Content\lib\literally-canvas\img\rectangle.png" />
+    <Content Include="Content\lib\literally-canvas\img\redo.png" />
+    <Content Include="Content\lib\literally-canvas\img\saturation.png" />
+    <Content Include="Content\lib\literally-canvas\img\screenshot.png" />
+    <Content Include="Content\lib\literally-canvas\img\text.png" />
+    <Content Include="Content\lib\literally-canvas\img\undo.png" />
+    <Content Include="Content\lib\literally-canvas\img\zoom-in.png" />
+    <Content Include="Content\lib\literally-canvas\img\zoom-out.png" />
+    <Content Include="Content\pattern.css">
+      <DependentUpon>pattern.less</DependentUpon>
+    </Content>
+    <Content Include="Content\pattern.min.css">
+      <DependentUpon>pattern.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common-site.css">
+      <DependentUpon>common-site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common-site.min.css">
+      <DependentUpon>common-site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\activities.css">
+      <DependentUpon>activities.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\activities.min.css">
+      <DependentUpon>activities.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\common.css">
+      <DependentUpon>common.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\common.min.css">
+      <DependentUpon>common.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\categories.css">
+      <DependentUpon>categories.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\categories.min.css">
+      <DependentUpon>categories.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\helpers.css">
+      <DependentUpon>helpers.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\helpers.min.css">
+      <DependentUpon>helpers.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\modals.css">
+      <DependentUpon>modals.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\modals.min.css">
+      <DependentUpon>modals.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\notifications.css">
+      <DependentUpon>notifications.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\notifications.min.css">
+      <DependentUpon>notifications.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\questionType.css">
+      <DependentUpon>questionType.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\questionType.min.css">
+      <DependentUpon>questionType.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\quizzOverview.css">
+      <DependentUpon>quizzOverview.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\quizzOverview.min.css">
+      <DependentUpon>quizzOverview.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\testSettings.css">
+      <DependentUpon>testSettings.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\testSettings.min.css">
+      <DependentUpon>testSettings.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Assignment\Assignments.css">
+      <DependentUpon>Assignments.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Assignment\Assignments.min.css">
+      <DependentUpon>Assignments.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Classroom\classrooms.css">
+      <DependentUpon>classrooms.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Classroom\classrooms.min.css">
+      <DependentUpon>classrooms.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\dependents\depActivities.css">
+      <DependentUpon>depActivities.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\dependents\depActivities.min.css">
+      <DependentUpon>depActivities.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Home\Index.css">
+      <DependentUpon>Index.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Home\Index.min.css">
+      <DependentUpon>Index.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\layout\siLayout.css">
+      <DependentUpon>siLayout.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\layout\siLayout.min.css">
+      <DependentUpon>siLayout.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\QuizzCommon.css">
+      <DependentUpon>QuizzCommon.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\QuizzCommon.min.css">
+      <DependentUpon>QuizzCommon.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzer\Quizzer.css">
+      <DependentUpon>Quizzer.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzer\Quizzer.min.css">
+      <DependentUpon>Quizzer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Categories.css">
+      <DependentUpon>Categories.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Categories.min.css">
+      <DependentUpon>Categories.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Category.css">
+      <DependentUpon>Category.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Category.min.css">
+      <DependentUpon>Category.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\CreateEdit.css">
+      <DependentUpon>CreateEdit.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\CreateEdit.min.css">
+      <DependentUpon>CreateEdit.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\GradeLevel.css">
+      <DependentUpon>GradeLevel.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\GradeLevel.min.css">
+      <DependentUpon>GradeLevel.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\quizzOverview.css">
+      <DependentUpon>quizzOverview.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\quizzOverview.min.css">
+      <DependentUpon>quizzOverview.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\viewAsFlash.css">
+      <DependentUpon>viewAsFlash.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\viewAsFlash.min.css">
+      <DependentUpon>viewAsFlash.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\ViewReviewer.css">
+      <DependentUpon>ViewReviewer.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\ViewReviewer.min.css">
+      <DependentUpon>ViewReviewer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\PrepTest.css">
+      <DependentUpon>PrepTest.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\PrepTest.min.css">
+      <DependentUpon>PrepTest.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\TakeTest.css">
+      <DependentUpon>TakeTest.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\TakeTest.min.css">
+      <DependentUpon>TakeTest.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\ViewResult.css">
+      <DependentUpon>ViewResult.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\ViewResult.min.css">
+      <DependentUpon>ViewResult.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTestSetting.css">
+      <DependentUpon>EditTestSetting.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTestSetting.min.css">
+      <DependentUpon>EditTestSetting.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameChoiceGroup.css">
+      <DependentUpon>editMultiChoiceSameChoiceGroup.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameChoiceGroup.min.css">
+      <DependentUpon>editMultiChoiceSameChoiceGroup.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameQuestion.css">
+      <DependentUpon>editMultiChoiceSameQuestion.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameQuestion.min.css">
+      <DependentUpon>editMultiChoiceSameQuestion.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoice\editMultiChoice.css">
+      <DependentUpon>editMultiChoice.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoice\editMultiChoice.min.css">
+      <DependentUpon>editMultiChoice.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\QandA\editQandA.css">
+      <DependentUpon>editQandA.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\QandA\editQandA.min.css">
+      <DependentUpon>editQandA.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTest.css">
+      <DependentUpon>EditTest.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTest.min.css">
+      <DependentUpon>EditTest.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\ViewQuizz.css">
+      <DependentUpon>ViewQuizz.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\ViewQuizz.min.css">
+      <DependentUpon>ViewQuizz.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\QuizzPoints\QuizzPoints.css">
+      <DependentUpon>QuizzPoints.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\QuizzPoints\QuizzPoints.min.css">
+      <DependentUpon>QuizzPoints.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Relationships\messages.css">
+      <DependentUpon>messages.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Relationships\messages.min.css">
+      <DependentUpon>messages.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Relationships\relationships.css">
+      <DependentUpon>relationships.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Relationships\relationships.min.css">
+      <DependentUpon>relationships.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Search\Search.css">
+      <DependentUpon>Search.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Search\Search.min.css">
+      <DependentUpon>Search.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\directives\quizz\test-log-grouped.css">
+      <DependentUpon>test-log-grouped.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\directives\quizz\test-log-grouped.min.css">
+      <DependentUpon>test-log-grouped.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\directives\qzEditor.css">
+      <DependentUpon>qzEditor.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\directives\qzEditor.min.css">
+      <DependentUpon>qzEditor.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\forms.css">
+      <DependentUpon>forms.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\forms.min.css">
+      <DependentUpon>forms.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\layout-promo.css">
+      <DependentUpon>layout-promo.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\layout-promo.min.css">
+      <DependentUpon>layout-promo.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\layout.css">
+      <DependentUpon>layout.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\layout.min.css">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\mobile\layout\account.css">
+      <DependentUpon>account.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\mobile\layout\account.min.css">
+      <DependentUpon>account.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\utils\ed-css.css">
+      <DependentUpon>ed-css.less</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\utils\ed-css.min.css">
+      <DependentUpon>ed-css.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\utils\edhelpers.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\lib\toastr\toastr.css" />
+    <Content Include="Content\lib\toastr\toastr.min.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\lib\angular-viewhead\angularjs-viewhead.js" />
+    <Content Include="Scripts\lib\angular\zInfiniteScroll.js" />
+    <Content Include="Scripts\lib\jQuery\jquery.scrollTo.js" />
+    <Content Include="Scripts\lib\jQuery\jquery.scrollTo.min.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\.gitignore" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\actions.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\bindEvents.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\canvasRenderer.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\defaultOptions.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\fontmetrics.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\lineEndCapShapes.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\LiterallyCanvas.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\localization.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\math.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\renderSnapshotToImage.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\renderSnapshotToSVG.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\shapes.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\svgRenderer.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\TextRenderer.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\core\util.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\ie_customevent.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\ie_setLineDash.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\index.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\literallycanvas-core.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\literallycanvas-core.min.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\literallycanvas.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\literallycanvas.min.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\optionsStyles\font.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\optionsStyles\line-options-and-stroke-width.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\optionsStyles\null.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\optionsStyles\optionsStyles.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\optionsStyles\polygon-and-stroke-width.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\optionsStyles\stroke-or-fill.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\optionsStyles\stroke-width.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\ClearButton.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\ColorWell.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\createSetStateOnEventMixin.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\createToolButton.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\init.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\initDOM.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\LiterallyCanvas.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\Options.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\Picker.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\React-shim.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\ReactDOM-shim.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\StrokeWidthPicker.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\UndoRedoButtons.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\reactGUI\ZoomButtons.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\base.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Ellipse.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Eraser.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Eyedropper.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Line.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Pan.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Pencil.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Polygon.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Rectangle.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\SelectShape.js" />
+    <Content Include="Scripts\lib\literally-canvas\js\tools\Text.js" />
+    <Content Include="Scripts\lib\literally-canvas\literallycanvas.js" />
+    <Content Include="Scripts\lib\react\react-0.14.3.js" />
+    <Content Include="Scripts\lib\react\react-dom-server.js" />
+    <Content Include="Scripts\lib\react\react-dom-server.min.js" />
+    <Content Include="Scripts\lib\react\react-dom.js" />
+    <Content Include="Scripts\lib\react\react-dom.min.js" />
+    <Content Include="Scripts\lib\react\react-with-addons.js" />
+    <Content Include="Scripts\lib\react\react-with-addons.min.js" />
+    <Content Include="Scripts\lib\react\react.js" />
+    <Content Include="Scripts\lib\react\react.min.js" />
+    <Content Include="Scripts\lib\signalR\angular-signalr-hub.js" />
+    <Content Include="Scripts\lib\signalR\angular-signalr-hub.min.js" />
+    <Content Include="Scripts\lib\signalR\jquery.signalR-2.0.0.js" />
+    <Content Include="Scripts\lib\signalR\jquery.signalR-2.0.0.min.js" />
+    <Content Include="Scripts\lib\signalR\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\lib\signalR\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\lib\signalR\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\lib\signalR\jquery.signalR-2.1.2.min.js" />
+    <Content Include="Scripts\lib\fastclick\fastclick.js" />
+    <Content Include="Scripts\lib\ionic\ionic-angular.js" />
+    <Content Include="Scripts\lib\ionic\ionic-angular.min.js" />
+    <Content Include="Scripts\lib\ionic\ionic.bundle.js" />
+    <Content Include="Scripts\lib\ionic\ionic.bundle.min.js" />
+    <Content Include="Scripts\lib\ionic\ionic.js" />
+    <Content Include="Scripts\lib\ionic\ionic.min.js" />
+    <Content Include="Scripts\lib\native-transitions\NativePageTransitions.js" />
+    <Content Include="Scripts\lib\native-transitions\NativePageTransitionsIonicAdapter.js" />
+    <Content Include="Scripts\templates\about\HelpAndSupport.html" />
+    <Content Include="Scripts\templates\about\VideoOverview.html" />
+    <Content Include="Scripts\templates\classroom\EnrolledQuizzClass.html" />
+    <Content Include="Scripts\templates\classroom\MyQuizzClass.html" />
+    <Content Include="Scripts\templates\classroom\QuizzClass.html" />
+    <Content Include="Scripts\templates\classroom\QuizzClassAll.html" />
+    <Content Include="Scripts\templates\classroom\QuizzClassLesson.html" />
+    <Content Include="Scripts\templates\classroom\QuizzClassMaterial.html" />
+    <Content Include="Scripts\templates\classroom\_DependentQuizzroom.html" />
+    <Content Include="Scripts\templates\classroom\_EnrolledQuizzroom.html" />
+    <Content Include="Scripts\templates\classroom\_MyQuizzroom.html" />
+    <Content Include="Scripts\templates\directives\add-help.html" />
+    <Content Include="Scripts\templates\directives\child-icon.html" />
+    <Content Include="Scripts\templates\directives\classrooms\classQuizzes.html" />
+    <Content Include="Scripts\templates\directives\classrooms\lessons\LessonAnnouncements.html" />
+    <Content Include="Scripts\templates\directives\classrooms\lessons\lessonDiscussions.html" />
+    <Content Include="Scripts\templates\directives\classrooms\lessons\LessonQuizzes.html" />
+    <Content Include="Scripts\templates\directives\classrooms\students.html" />
+    <Content Include="Scripts\templates\directives\classrooms\announcements.html" />
+    <Content Include="Scripts\templates\directives\classrooms\discussions.html" />
+    <Content Include="Scripts\templates\directives\classrooms\lessons.html" />
+    <Content Include="Scripts\templates\directives\dependent\dependentQuizzroom.html" />
+    <Content Include="Scripts\templates\directives\editor\qzEditor.html" />
+    <Content Include="Scripts\templates\directives\editor\qzEditorView.html" />
+    <Content Include="Scripts\templates\directives\editor\qzImageEditor.html" />
+    <Content Include="Scripts\templates\directives\messages\messages.html" />
+    <Content Include="Scripts\templates\directives\notification\notification-list.html" />
+    <Content Include="Scripts\lib\angular\angular-mocks.js" />
+    <Content Include="Scripts\lib\angular\angular.js" />
+    <Content Include="Scripts\lib\angular\angular.min.js" />
+    <Content Include="Scripts\templates\dependent\_DepProfile.html" />
+    <Content Include="Scripts\templates\dependent\_DepSettings.html" />
+    <Content Include="Scripts\templates\directives\quizz\comments\quizzComments.html" />
+    <Content Include="Scripts\templates\directives\quizz\reviewers\flashCards.html" />
+    <Content Include="Scripts\templates\directives\quizz\reviewers\quizzQuickNotes.html" />
+    <Content Include="Scripts\templates\directives\quizz\test\quizzTest.html" />
+    <Content Include="Scripts\templates\directives\relationships\quizzmates.html" />
+    <Content Include="Scripts\templates\layout\_LeftSideBar.html" />
+    <Content Include="Scripts\templates\legal\PrivacyNotice.html" />
+    <Content Include="Scripts\templates\legal\TermsAndConditions.html" />
+    <Content Include="Scripts\templates\mobile\account\SigIn.html" />
+    <Content Include="Scripts\templates\mobile\account\SignUpDependent.html" />
+    <Content Include="Scripts\templates\mobile\account\SignUpStandard.html" />
+    <Content Include="Scripts\templates\quizzer\_Achievements.html" />
+    <Content Include="Scripts\templates\quizzer\_Classes.html" />
+    <Content Include="Scripts\templates\QuizzPoints\DailyRewards.html" />
+    <Content Include="Scripts\templates\quizz\detail\quizzDetail.html" />
+    <Content Include="Scripts\templates\quizz\EditCategories.html" />
+    <Content Include="Scripts\app\utilities\savePix.js" />
+    <Content Include="Scripts\lib\angular-animate\angular-animate.js" />
+    <Content Include="Scripts\lib\angular-animate\angular-animate.min.js" />
+    <Content Include="Scripts\lib\angular-aria\angular-aria.js" />
+    <Content Include="Scripts\lib\angular-aria\angular-aria.min.js" />
+    <Content Include="Scripts\lib\angular-material\angular-material-mocks.js" />
+    <Content Include="Scripts\lib\angular-material\angular-material.js" />
+    <Content Include="Scripts\lib\angular-material\angular-material.min.js" />
+    <Content Include="Scripts\templates\layout\_Footer.html" />
+    <Content Include="Scripts\templates\quizz\takeTest\FinishTest.html" />
+    <Content Include="Scripts\lib\angular\angular-cookies.js" />
+    <Content Include="Scripts\lib\angular\angular-cookies.min.js" />
+    <Content Include="Scripts\templates\directives\assignments\assignments.html" />
+    <Content Include="Scripts\templates\assignment\EditAssignmentGroup.html" />
+    <Content Include="Scripts\templates\assignment\GivenAssignmentGroups.html" />
+    <Content Include="Scripts\templates\assignment\MyAssignments.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\textFlashCard\EditTextFlashCards.html" />
+    <Content Include="Scripts\lib\angular\angular-sanitize.js" />
+    <Content Include="Scripts\lib\angular\angular-sanitize.min.js" />
+    <Content Include="Scripts\templates\patttern.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\quickNote\ViewQuickNote.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\quickNote\ViewQuickNoteItem.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\textFlashCard\ViewAsFlashCard.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\textFlashCard\ViewAsFlashCardItem.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\textFlashCard\ViewMarkedFlashCards.html" />
+    <Content Include="Scripts\lib\angular\tinymce-ui\tinymce.js" />
+    <Content Include="Scripts\lib\angular\tinymce-ui\tinymce.min.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\external\jquery\jquery.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\index.html" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.css" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.min.css" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.min.js" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.structure.css" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.theme.css" />
+    <Content Include="Scripts\lib\jquery-ui-1.11.4.custom\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\lib\jQuery\jquery.easing.1.3.js" />
+    <Content Include="Scripts\lib\angular\angular-animate.js" />
+    <Content Include="Scripts\lib\angular\angular-animate.min.js" />
+    <Content Include="Scripts\templates\directives\activity\activityList.html" />
+    <Content Include="Scripts\templates\directives\add-guest-message.html" />
+    <Content Include="Scripts\templates\directives\input-radio-bool.html" />
+    <Content Include="Scripts\templates\directives\input-radio.html" />
+    <Content Include="Scripts\templates\directives\add-pager.html" />
+    <Content Include="Scripts\templates\directives\quizz-overview.html" />
+    <Content Include="Scripts\templates\directives\quizz-overviews.html" />
+    <Content Include="Scripts\templates\directives\test-setting-summary.html" />
+    <Content Include="Scripts\templates\account\management\ChangePassword.html" />
+    <Content Include="Scripts\templates\account\management\EditProfile.html" />
+    <Content Include="Scripts\templates\account\management\ForgotPassword.html" />
+    <Content Include="Scripts\templates\account\management\ResetPassword.html" />
+    <Content Include="Scripts\templates\notifications\AllNotifications.html" />
+    <Content Include="Scripts\templates\quizzer\ViewQuizzer.html" />
+    <Content Include="Scripts\templates\quizz\Category.html" />
+    <Content Include="Scripts\templates\quizz\common\_QuizzHeader.html" />
+    <Content Include="Scripts\templates\dependent\DepActivities.html" />
+    <Content Include="Scripts\templates\quizz\GradeLevel.html" />
+    <Content Include="Scripts\templates\quizz\GradeLevels.html" />
+    <Content Include="Scripts\templates\quizz\multipleChoice\EditMultipleChoice.html" />
+    <Content Include="Scripts\templates\quizz\multipleChoice\TakeTestMultiChoice.html" />
+    <Content Include="Scripts\templates\quizz\MyQuizzes.html" />
+    <Content Include="Scripts\templates\quizz\qandA\EditQandA.html" />
+    <Content Include="Scripts\templates\quizz\qandA\TakeTestQandA.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\EditQuickNote.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\PrepReviewer.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\quickNote\EditQuickNote.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\quickNote\ViewQuickNotes.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\textFlashCard\EditTextFlashCard.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\SelectReviewerType.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\textFlashCard\ViewTextFlashCards.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\ViewReviewer.html" />
+    <Content Include="Scripts\templates\quizz\takeTest\PrepTest.html" />
+    <Content Include="Scripts\templates\quizz\takeTest\TakeTest.html" />
+    <Content Include="Scripts\templates\quizz\takeTest\ViewResult.html" />
+    <Content Include="Scripts\templates\quizz\takeTest\TestProgress.html" />
+    <Content Include="Scripts\templates\quizz\test\TestResults.html" />
+    <Content Include="Scripts\templates\quizz\test\testSetting\EditTestSetting.html" />
+    <Content Include="Scripts\templates\quizz\types\multiChoiceSame\EditMultiChoiceSameChoiceGroup.html" />
+    <Content Include="Scripts\templates\quizz\types\multiChoiceSame\EditMultiChoiceSameQuestion.html" />
+    <Content Include="Scripts\lib\bootbox\bootbox.js" />
+    <Content Include="Scripts\lib\bootbox\bootbox.min.js" />
+    <Content Include="Scripts\lib\angular\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\lib\angular\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\lib\angular\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\lib\angular\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\templates\directives\input-password.html" />
+    <Content Include="Scripts\templates\directives\input-text.html" />
+    <Content Include="Scripts\app\Index.html" />
+    <Content Include="Scripts\templates\account\SignIn.html" />
+    <Content Include="Scripts\templates\account\SignUp.html" />
+    <Content Include="Scripts\templates\account\SignUpDependent.html" />
+    <Content Include="Scripts\templates\account\SignUpStandard.html" />
+    <Content Include="Scripts\templates\common\_CompanyName.html" />
+    <Content Include="Scripts\templates\common\_Logo.html" />
+    <Content Include="Scripts\templates\home\index.html" />
+    <Content Include="Scripts\templates\layout\nsiLayout.html" />
+    <Content Include="Scripts\templates\layout\siLayout.html" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Content\lib\bootstrap-theme.css.map" />
+    <Content Include="Content\lib\bootstrap-theme.min.css.map" />
+    <Content Include="Content\lib\bootstrap.css.map" />
+    <Content Include="Content\lib\bootstrap.min.css.map" />
+    <Content Include="Content\lib\font-awesome-4.4.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\lib\font-awesome-4.4.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\lib\font-awesome-4.4.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\lib\font-awesome-4.4.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\lib\font-awesome-4.4.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\animated.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\bordered-pulled.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\core.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\fixed-width.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\font-awesome.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\icons.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\larger.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\list.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\mixins.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\path.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\rotated-flipped.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\stacked.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\less\variables.less" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_animated.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_core.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_fixed-width.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_icons.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_larger.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_list.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_mixins.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_path.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_stacked.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\_variables.scss" />
+    <Content Include="Content\lib\font-awesome-4.4.0\scss\font-awesome.scss" />
+    <Content Include="Content\stylesheets\controllers\Home\Index.less" />
+    <Content Include="Content\stylesheets\controllers\Home\Index.css.map">
+      <DependentUpon>Index.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\QuizzCommon.less" />
+    <Content Include="Content\stylesheets\controllers\QuizzCommon.css.map">
+      <DependentUpon>QuizzCommon.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Categories.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Categories.css.map">
+      <DependentUpon>Categories.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Category.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Category.css.map">
+      <DependentUpon>Category.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\CreateEdit.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\CreateEdit.css.map">
+      <DependentUpon>CreateEdit.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTest.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTest.css.map">
+      <DependentUpon>EditTest.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\ViewQuizz.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\ViewQuizz.css.map">
+      <DependentUpon>ViewQuizz.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\forms.less" />
+    <Content Include="Content\stylesheets\forms.css.map">
+      <DependentUpon>forms.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\layout-promo.less" />
+    <Content Include="Content\stylesheets\layout-promo.css.map">
+      <DependentUpon>layout-promo.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\layout.less" />
+    <Content Include="Content\stylesheets\layout.css.map">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\site.less" />
+    <Content Include="Content\stylesheets\site.css.map">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Exam.less" />
+    <Content Include="Content\Exam.css.map">
+      <DependentUpon>Exam.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\templates\layout\_TopPanel.html" />
+    <Content Include="Scripts\templates\quizz\Categories.html" />
+    <Content Include="Scripts\templates\quizz\common\Overviews.html" />
+    <Content Include="Scripts\templates\quizz\common\_QuizzCategoryLogo.html" />
+    <Content Include="Scripts\templates\quizz\common\_QuizzInfo.html" />
+    <Content Include="Scripts\templates\quizz\EditQuizz.html" />
+    <Content Include="Scripts\templates\quizz\QuizzOverviews.html" />
+    <Content Include="Scripts\templates\quizz\reviewer\EditReviewer.html" />
+    <Content Include="Scripts\templates\quizz\test\EditTest.html" />
+    <Content Include="Scripts\templates\quizz\test\SelectType.html" />
+    <Content Include="Scripts\templates\quizz\ViewQuizz.html" />
+    <Content Include="Scripts\templates\relationships\messages\AllMessage.html" />
+    <Content Include="Scripts\templates\relationships\messages\QuizzmateMsg.html" />
+    <Content Include="Scripts\templates\relationships\Quizzmates.html" />
+    <Content Include="Scripts\templates\relationships\RelationshipNotifications.html" />
+    <Content Include="Scripts\templates\search\SearchAll.html" />
+    <Content Include="Scripts\templates\service\AlertModal.html" />
+    <Content Include="Scripts\templates\service\ConfirmModal.html" />
+    <Content Include="Scripts\templates\welcome\Dependent.html" />
+    <Content Include="Scripts\templates\welcome\Standard.html" />
+    <Content Include="Scripts\lib\angular\angular-resource.js" />
+    <Content Include="Scripts\lib\angular\angular-resource.min.js" />
+    <Content Include="Scripts\lib\angular\angular-route.js" />
+    <Content Include="Scripts\lib\angular\angular-route.min.js" />
+    <Content Include="Scripts\lib\angular\angular-touch.js" />
+    <Content Include="Scripts\lib\angular\angular-touch.min.js" />
+    <Content Include="Scripts\lib\angular\angular-ui\angular-ui-router.js" />
+    <Content Include="Scripts\lib\angular\angular-ui\angular-ui-router.min.js" />
+    <Content Include="Scripts\lib\angular\angular-ui\sortable.js" />
+    <Content Include="Scripts\lib\bootstrap.js" />
+    <Content Include="Scripts\lib\bootstrap.min.js" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_Assignments.html" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_AvailableQuizzes.html" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_Dependents.html" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_MyBookmarks.html" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_MyGroups.html" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_MyQuizzes.html" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_RecentQuizzes.html" />
+    <Content Include="Scripts\templates\layout\LeftSideBar\_SuggestedQuizzes.html" />
+    <Content Include="Content\lib\toastr\toastr.scss" />
+    <Content Include="Content\lib\toastr\toastr.less" />
+    <Content Include="Content\stylesheets\controllers\layout\siLayout.less" />
+    <Content Include="Content\stylesheets\controllers\layout\siLayout.css.map">
+      <DependentUpon>siLayout.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\common.less" />
+    <Content Include="Content\stylesheets\common\common.css.map">
+      <DependentUpon>common.css</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\stylesheets\common\categories.less" />
+    <Content Include="Content\stylesheets\common\categories.css.map">
+      <DependentUpon>categories.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\helpers.less" />
+    <Content Include="Content\stylesheets\common\helpers.css.map">
+      <DependentUpon>helpers.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\questionType.less" />
+    <Content Include="Content\stylesheets\common\questionType.css.map">
+      <DependentUpon>questionType.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\QandA\editQandA.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\QandA\editQandA.css.map">
+      <DependentUpon>editQandA.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoice\editMultiChoice.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoice\editMultiChoice.css.map">
+      <DependentUpon>editMultiChoice.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameQuestion.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameQuestion.css.map">
+      <DependentUpon>editMultiChoiceSameQuestion.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameChoiceGroup.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Types\MultiChoiceSame\editMultiChoiceSameChoiceGroup.css.map">
+      <DependentUpon>editMultiChoiceSameChoiceGroup.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\PrepTest.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\PrepTest.css.map">
+      <DependentUpon>PrepTest.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\testSettings.less" />
+    <Content Include="Content\stylesheets\common\testSettings.css.map">
+      <DependentUpon>testSettings.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\quizzOverview.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\quizzOverview.css.map">
+      <DependentUpon>quizzOverview.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\TakeTest.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\TakeTest.css.map">
+      <DependentUpon>TakeTest.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\directives\quizz\test-log-grouped.less" />
+    <Content Include="Content\stylesheets\directives\quizz\test-log-grouped.css.map">
+      <DependentUpon>test-log-grouped.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\notifications.less" />
+    <Content Include="Content\stylesheets\common\notifications.css.map">
+      <DependentUpon>notifications.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\dependents\depActivities.less" />
+    <Content Include="Content\stylesheets\controllers\dependents\depActivities.css.map">
+      <DependentUpon>depActivities.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\activities.less" />
+    <Content Include="Content\stylesheets\common\activities.css.map">
+      <DependentUpon>activities.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\quizzOverview.less" />
+    <Content Include="Content\stylesheets\common\quizzOverview.css.map">
+      <DependentUpon>quizzOverview.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\ViewReviewer.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\ViewReviewer.css.map">
+      <DependentUpon>ViewReviewer.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\viewAsFlash.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Reviewers\viewAsFlash.css.map">
+      <DependentUpon>viewAsFlash.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\ViewResult.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\TakeTest\ViewResult.css.map">
+      <DependentUpon>ViewResult.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTestSetting.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\Tests\EditTestSetting.css.map">
+      <DependentUpon>EditTestSetting.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Assignment\Assignments.less" />
+    <Content Include="Content\stylesheets\controllers\Assignment\Assignments.css.map">
+      <DependentUpon>Assignments.css</DependentUpon>
+    </Content>
+    <Content Include="Content\pattern.less" />
+    <Content Include="Content\pattern.css.map">
+      <DependentUpon>pattern.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\common\modals.less" />
+    <Content Include="Content\stylesheets\common\modals.css.map">
+      <DependentUpon>modals.css</DependentUpon>
+    </Content>
+    <Content Include="Content\stylesheets\controllers\Quizzes\GradeLevel.less" />
+    <Content Include="Content\stylesheets\controllers\Quizzes\GradeLevel.css.map">
+      <DependentUpon>GradeLevel.css</DependentUpon>
+    </Content>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\stylesheets\controllers\Quizzer\Quizzer.less" />
+    <Content Include="Content\stylesheets\controllers\QuizzPoints\QuizzPoints.less" />
+    <Content Include="Content\lib\ionic\fonts\ionicons.eot" />
+    <Content Include="Content\lib\ionic\fonts\ionicons.ttf" />
+    <Content Include="Content\lib\ionic\fonts\ionicons.woff" />
+    <Content Include="Content\stylesheets\mobile\layout\account.less" />
+    <Content Include="Content\stylesheets\mobile\mobile-site.less" />
+    <Content Include="Content\stylesheets\mobile\layout\mSiLayout.less" />
+    <Content Include="Content\lib\ionic\scss\ionic.scss" />
+    <Content Include="Content\lib\ionic\scss\_action-sheet.scss" />
+    <Content Include="Content\lib\ionic\scss\_animations.scss" />
+    <Content Include="Content\lib\ionic\scss\_backdrop.scss" />
+    <Content Include="Content\lib\ionic\scss\_badge.scss" />
+    <Content Include="Content\lib\ionic\scss\_bar.scss" />
+    <Content Include="Content\lib\ionic\scss\_button-bar.scss" />
+    <Content Include="Content\lib\ionic\scss\_button.scss" />
+    <Content Include="Content\lib\ionic\scss\_checkbox.scss" />
+    <Content Include="Content\lib\ionic\scss\_form.scss" />
+    <Content Include="Content\lib\ionic\scss\_grid.scss" />
+    <Content Include="Content\lib\ionic\scss\_items.scss" />
+    <Content Include="Content\lib\ionic\scss\_list.scss" />
+    <Content Include="Content\lib\ionic\scss\_loading.scss" />
+    <Content Include="Content\lib\ionic\scss\_menu.scss" />
+    <Content Include="Content\lib\ionic\scss\_mixins.scss" />
+    <Content Include="Content\lib\ionic\scss\_modal.scss" />
+    <Content Include="Content\lib\ionic\scss\_platform.scss" />
+    <Content Include="Content\lib\ionic\scss\_popover.scss" />
+    <Content Include="Content\lib\ionic\scss\_popup.scss" />
+    <Content Include="Content\lib\ionic\scss\_progress.scss" />
+    <Content Include="Content\lib\ionic\scss\_radio.scss" />
+    <Content Include="Content\lib\ionic\scss\_range.scss" />
+    <Content Include="Content\lib\ionic\scss\_refresher.scss" />
+    <Content Include="Content\lib\ionic\scss\_reset.scss" />
+    <Content Include="Content\lib\ionic\scss\_scaffolding.scss" />
+    <Content Include="Content\lib\ionic\scss\_select.scss" />
+    <Content Include="Content\lib\ionic\scss\_slide-box.scss" />
+    <Content Include="Content\lib\ionic\scss\_slides.scss" />
+    <Content Include="Content\lib\ionic\scss\_spinner.scss" />
+    <Content Include="Content\lib\ionic\scss\_tabs.scss" />
+    <Content Include="Content\lib\ionic\scss\_toggle.scss" />
+    <Content Include="Content\lib\ionic\scss\_transitions.scss" />
+    <Content Include="Content\lib\ionic\scss\_type.scss" />
+    <Content Include="Content\lib\ionic\scss\_util.scss" />
+    <Content Include="Content\lib\ionic\scss\_variables.scss" />
+    <Content Include="Content\stylesheets\common-site.less" />
+    <Content Include="Content\stylesheets\controllers\Relationships\relationships.less" />
+    <Content Include="Content\stylesheets\controllers\Search\Search.less" />
+    <Content Include="Content\stylesheets\controllers\Relationships\messages.less" />
+    <Content Include="Content\stylesheets\controllers\Classroom\classrooms.less" />
+    <Content Include="Content\stylesheets\directives\qzEditor.less" />
+    <Content Include="Content\images\favicons\manifest.json" />
+    <Content Include="Content\stylesheets\utils\ed-css.less" />
+    <Content Include="Content\fonts\BROADW.TTF" />
+    <None Include="Properties\PublishProfiles\edwin-test-2.pubxml" />
+    <Content Include="Scripts\lib\angular\angular-animate.min.js.map" />
+    <Content Include="Scripts\lib\angular\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\lib\angular\angular-cookies.min.js.map" />
+    <Content Include="Scripts\lib\angular\angular.min.js.map" />
+    <None Include="Scripts\lib\jQuery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\lib\jQuery\jquery-2.1.4.js" />
+    <Content Include="Scripts\lib\jQuery\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\lib\jQuery\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\lib\jQuery\jquery-ui-1.11.4.min.js" />
+    <None Include="Scripts\lib\jQuery\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\lib\jQuery\jquery.validate.js" />
+    <Content Include="Scripts\lib\jQuery\jquery.validate.min.js" />
+    <Content Include="Scripts\lib\jQuery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\lib\jQuery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\modernizr-2.6.2.js" />
+    <Content Include="Scripts\lib\respond.js" />
+    <Content Include="Scripts\lib\respond.min.js" />
+    <Content Include="Scripts\lib\tinymce\license.txt" />
+    <Content Include="Scripts\lib\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\lib\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\example\dialog.html" />
+    <Content Include="Scripts\lib\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\lib\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\lib\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\lib\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\lib\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\lib\wow\wow.js" />
+    <Content Include="Scripts\lib\wow\wow.min.js" />
+    <Content Include="Scripts\lib\tinymce\langs\readme.md" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\lib\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Scripts\lib\literally-canvas\js\.npmignore" />
+    <None Include="Scripts\lib\_references.js" />
+    <Content Include="Scripts\lib\toastr\toastr.js" />
+    <Content Include="Scripts\lib\toastr\toastr.min.js" />
+    <Content Include="Texts\description.txt" />
+    <Content Include="Views\staticHtml\SendRequest.html" />
+    <Content Include="Views\staticHtml\ForgotPassword.html" />
+    <Content Include="Views\staticHtml\ConfirmEmail.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\lib\jQuery\jquery-2.1.4.min.map" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\lib\ionic\scss\ionicons\" />
+    <Folder Include="Models\Quizz\Types\BuiltIn\" />
+    <Folder Include="Scripts\app\controllers\quizz\builtIn\" />
+    <Folder Include="Scripts\app\directives\activity\templates\" />
+    <Folder Include="Scripts\lib\animate\" />
+    <Folder Include="Scripts\templates\quizz\builtIn\" />
+    <Folder Include="Scripts\typings\angular-signalr-hub\" />
+    <Folder Include="Scripts\typings\bezier-easing\" />
+    <Folder Include="Services\Quizz\Types\BuiltIn\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\lib\angular\angular-resource.min.js.map" />
+    <Content Include="Scripts\lib\angular\angular-route.min.js.map" />
+    <Content Include="Scripts\lib\angular\angular-touch.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Models\AccountBindingModels.cs.d.ts">
+      <DependentUpon>AccountBindingModels.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\AccountViewModels.cs.d.ts">
+      <DependentUpon>AccountViewModels.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Activities\ActivityModel.cs.d.ts">
+      <DependentUpon>ActivityModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Assignments\AssignmentModel.cs.d.ts">
+      <DependentUpon>AssignmentModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Layout\LeftSideBarModel.cs.d.ts">
+      <DependentUpon>LeftSideBarModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Notifications\NewNotificationModel.cs.d.ts">
+      <DependentUpon>NewNotificationModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Notifications\NotificationModel.cs.d.ts">
+      <DependentUpon>NotificationModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\QuizzPoints\QuizzPointsModel.cs.d.ts">
+      <DependentUpon>QuizzPointsModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\QuizzRating\QuizzRatingModels.cs.d.ts">
+      <DependentUpon>QuizzRatingModels.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Quizz\CreateQuestionModel.cs.d.ts">
+      <DependentUpon>CreateQuestionModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Quizz\QuestionModel.cs.d.ts">
+      <DependentUpon>QuestionModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Quizz\QuizzCategoryModel.cs.d.ts">
+      <DependentUpon>QuizzCategoryModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Quizz\QuizzModel.cs.d.ts">
+      <DependentUpon>QuizzModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Relationship\DependentModels.cs.d.ts">
+      <DependentUpon>DependentModels.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Relationship\FriendModels.cs.d.ts">
+      <DependentUpon>FriendModels.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Relationship\MessageModels.cs.d.ts">
+      <DependentUpon>MessageModels.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\Relationship\RelationshipNotificationModels.cs.d.ts">
+      <DependentUpon>RelationshipNotificationModels.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\TestLog\TestLogModel.cs.d.ts">
+      <DependentUpon>TestLogModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\User\UserModel.cs.d.ts">
+      <DependentUpon>UserModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\app\animation\animate.ts" />
+    <TypeScriptCompile Include="Scripts\app\constants.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\about\helpAndSupportCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\about\videoOverviewCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\loginRetCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\management\changePasswordCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\management\confirmEmailCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\management\editProfileCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\management\resetPasswordCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\registerUserCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\management\forgotPasswordCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\signInCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\account\signUpCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\assignment\editAssignmentGroupCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\assignment\givenAssignmentGroupsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\assignment\myAssignmentsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\classroom\enrolledQuizzClassCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\classroom\myQuizzClassCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\classroom\quizzClassAllCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\classroom\quizzClassCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\classroom\quizzClassLessonCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\classroom\quizzClassMaterialCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\dependent\depActivitiesCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\home\homeIndexCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\mobile\layout\mSignInCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\mobile\layout\mSignUpDependentCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\mobile\layout\mSignUpStandardCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizzPoints\dailyRewardsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\detail\quizzDetailCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\relationships\messages\allMessageCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\relationships\messages\quizzmateMsgCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\relationships\quizzmatesCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\search\searchAllCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\addHelp.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\childIcon.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\announcements.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\discussions.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\lessons.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\lessons\lessonAnnouncements.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\lessons\lessonDiscussions.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\lessons\lessonQuizz.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\quizzClassQuizzes.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\classrooms\students.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\dependent\dependentQuizzroom.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\editor\qzEditor.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\editor\qzEditorView.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\editor\qzImageEditor.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\messages\messages.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\quizz\comments\quizzComments.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\quizz\reviewers\flashCards.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\quizz\reviewers\quizzQuickNotes.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\quizz\test\quizzTest.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\relationships\quizzmates.ts" />
+    <TypeScriptCompile Include="Scripts\app\l2lControllers.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\layout\nsiLayoutCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\layout\siLayoutCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\notifications\allNotificationsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\classrooms\classroomModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizzPoints\quizzPoints.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\Relationships\messageModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\Relationships\RelationshipsModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\relationships\relationshipNotificationsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\search\searchModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\account\facebookSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\account\oAuthSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\hubs\hubSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\layout\topPanelContentService.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\search\searchSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\_patterns\controllerPatternCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizzer\viewQuizzerCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\editQuizzCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\gradeLevelCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\gradeLevelsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\multipleChoice\editMultipleChoiceCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\multipleChoice\takeTestMultiChoiceCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\myQuizzes.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\qandA\editQandACtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\qandA\takeTestQandACtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\quizzCategoriesCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\quizzCategoryCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\quizzEditCategoriesCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\quizzOverviewsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\quickNote\editQuickNoteCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\quickNote\viewQuickNoteCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\quickNote\viewQuickNoteItemCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\quickNote\viewQuickNotesCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\textFlashCard\editTextFlashCardCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\textFlashCard\editTextFlashCardsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\textFlashCard\viewAsFlashCardItemCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\textFlashCard\viewAsFlashCardCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\textFlashCard\viewMarkedflashCards.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\textFlashCard\viewTextFlashCardsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\reviewer\viewReviewerCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\takeTest\finishTestCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\takeTest\loadTestCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\takeTest\prepTestCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\takeTest\takeTestCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\takeTest\viewResultCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\test\editTestCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\test\testResultsCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\test\testSetting\editTestSettingCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\types\multiChoiceSame\editMultiChoiceSameChoiceGroupCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\types\multiChoiceSame\editMultiChoiceSameQuestionCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\types\multiChoiceSame\takeTestMultiChoiceSameCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\controllers\quizz\viewQuizzCtrl.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\activity\activityList.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\addCategoryBg.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\addCategoryIcon.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\addGuestMessage.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\addQIcon.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\assignments\assignments.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\clockRender.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\focus.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\forms.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\loadWait.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\notification\notificationTypeIcon.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\notification\notificationList.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\quizzOverview.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\quizz\quizzOverviews.ts" />
+    <TypeScriptCompile Include="Scripts\app\directives\quizz\testLogGrouped.ts" />
+    <Content Include="Scripts\templates\directives\quizz\test-log-grouped.html" />
+    <TypeScriptCompile Include="Scripts\app\directives\testSettingSummary.ts" />
+    <TypeScriptCompile Include="Scripts\app\filters\filters.ts" />
+    <TypeScriptCompile Include="Scripts\app\l2lApp.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\accounts\AccountBindingModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\activities\activityModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\assignments\assignmentModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\common.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\instantiator.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\layout\LayoutModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\notifications\newNotificationModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\notifications\notificationModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizzRating\quizzRatingModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\quizzCommentModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\QuizzModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\reviewers\reviewerModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\testLogModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\testModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\types\multiChoiceSameModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\types\multipleChoiceModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\quizz\types\qAndAModels.ts" />
+    <TypeScriptCompile Include="Scripts\app\models\user\UserModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\account\account.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\activity\activitySvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\broadcastSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\cachedDataSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\currentUser.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\dialogSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\gradeLevelSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\layout\layoutService.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\notificationSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\notification\userNotificationSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\_patterns\patternSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizzRating\quizzUserRatingSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\comments\quizzCommentSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\questionTypeSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizzRating\quizzUpvoteSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\multipleChoice\mcChoiceSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\multipleChoice\mcQuestionSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\qandA\qaAnswerSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\qandA\qaQuestionSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\questionSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\quizzCategorySvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\quizzOverviewSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\quizzSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\reviewer\flashCardReviewerSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\reviewer\flashCardSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\reviewer\quickNoteSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\reviewer\textFlashCardSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\takeTest\takeTestCtrlSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\takeTest\testProgressSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\testSettingSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\testSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\types\builtIn\builtInQuestionsSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\types\multiChoiceSame\multiChoiceSameChoiceSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\types\multiChoiceSame\multiChoiceSameChoiceGroupSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\quizz\types\multiChoiceSame\multiChoiceSameQuestionSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\resourceSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\testLog\testLogSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\services\user\dependentSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\utilities\cacheData.ts" />
+    <TypeScriptCompile Include="Scripts\app\utilities\helper.ts" />
+    <TypeScriptCompile Include="Scripts\app\utilities\loginModalSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\utilities\modalSvc.ts" />
+    <TypeScriptCompile Include="Scripts\app\_patterns\directivePattern.ts" />
+    <TypeScriptCompile Include="Scripts\settings.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-material\angular-material-0.9.0.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-material\angular-material.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-ui-router\angular-ui-router.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\bootbox\bootbox.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\bootstrap-dialog\bootstrap-dialog.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\bootstrap\bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\cordova-ionic\cordova-ionic.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\cordova-ionic\plugins\keyboard.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\es6-promise\es6-promise.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\ionic\ionic.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery.scrollTo\jquery.scrollTo.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery.ui.layout\jquery.ui.layout.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\modernizr\modernizr.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\signalr\signalr.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
+    <TypeScriptCompile Include="Scripts\utils\ClockRenderer.ts" />
+    <TypeScriptCompile Include="Scripts\utils\edHelpers.ts" />
+    <TypeScriptCompile Include="Scripts\utils\Utilities.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\L2L.Data\L2L.Data.csproj">
+      <Project>{1b95aebe-36cc-4c95-964b-9b1ce6b677b4}</Project>
+      <Name>L2L.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\L2L.Model\L2L.Entities.csproj">
+      <Project>{5e926b9f-5132-40c9-bfe8-e9e488aa5835}</Project>
+      <Name>L2L.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59546</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59546/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\BuildWebCompiler.1.10.306\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.10.306\build\BuildWebCompiler.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.10.306\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.10.306\build\BuildWebCompiler.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

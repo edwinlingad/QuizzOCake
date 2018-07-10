@@ -1,0 +1,565 @@
+﻿@import "common/common";
+@nav-home-bg-color: #FF6600;
+@nav-about-bg-color: #3333FF;
+@nav-contact-bg-color: #33CC00;
+@nav-grow-size: 1.2;
+
+.account-page-background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.account-page-shroud {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    z-index: 1040;
+    position: absolute;
+    opacity: 0.7;
+    margin-top: -50px;
+}
+
+.nsi-page-html {
+    ul {
+        list-style: none;
+
+        li {
+            display: inline-block;
+        }
+    }
+
+    .container {
+        position: relative;
+        padding: 0;
+
+        .nsi-navbar-main {
+            position: absolute;
+            top: 50px;
+            background: none;
+            width: 100%;
+            -moz-transition: all linear 0.5s;
+            -o-transition: all linear 0.5s;
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+
+            .nsi-navbar-main-logo {
+                left: 0;
+            }
+
+            .nsi-navbar-main-nav {
+                float: right;
+                -moz-transition: all linear 0.5s;
+                -o-transition: all linear 0.5s;
+                -webkit-transition: all linear 0.5s;
+                transition: all linear 0.5s;
+            }
+
+            ul {
+                > li, > li:hover {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    padding: 15px 10px;
+
+                    > a, > a:visited, > a:hover, > a:active, > a:focus {
+                        font-weight: bold;
+                        color: white !important;
+                    }
+                }
+
+                > li.nav-home, > li.nav-home > a:hover {
+                    background-color: @nav-home-bg-color;
+                }
+
+                > li.nav-home > a:focus {
+                    background-color: @nav-home-bg-color;
+                }
+
+                > li.nav-about, > li.nav-about > a:hover {
+                    background-color: @nav-about-bg-color;
+                }
+
+                > li.nav-about > a:focus {
+                    background-color: @nav-about-bg-color;
+                }
+
+                > li.nav-contact, > li.nav-contact > a:hover {
+                    background-color: @nav-contact-bg-color;
+                }
+
+                > li.nav-contact > a:focus {
+                    background-color: @nav-contact-bg-color;
+                }
+            }
+        }
+
+        .nsi-navbar-login {
+            position: absolute;
+            top: 10px;
+            /*right: 50px;*/
+            right: 0;
+            -moz-transition: all linear 0.5s;
+            -o-transition: all linear 0.5s;
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+
+            ul {
+                padding: 0;
+                float: right;
+                /*li {
+                    margin-right: 30px;
+                }*/
+            }
+
+            .account-action {
+                font-weight: 500;
+                color: white;
+                padding: 10px 15px;
+                margin: 3px;
+                text-shadow: 1px 1px 1px black;
+                -moz-transition: all linear 0.5s;
+                -o-transition: all linear 0.5s;
+                -webkit-transition: all linear 0.5s;
+                transition: all linear 0.5s;
+            }
+
+            .account-action:hover {
+                background-color: rgba(255,255,255, 0.3);
+            }
+        }
+    }
+
+    nav.navbar {
+        width: 100%;
+        height: 48px;
+        background-color: #203248;
+        border: solid 1px #203248;
+        border-radius: 0;
+        margin-bottom: 0;
+
+        .navbar-brand {
+            font-family: Broadway, sans-serif;
+            font-size: 24px;
+            font-weight: normal;
+            margin-top: -8px;
+            color: white;
+
+            img {
+                width: 41px;
+                height: 37px;
+                display: inline;
+            }
+        }
+
+        .navbar-item {
+            font-family: Roboto, sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            color: #9b9b9b;
+
+            a:hover {
+                color: @company-theme-color;
+            }
+        }
+    }
+
+    .nsi-page-background {
+        min-height: 617px;
+        background-image: url("../images/background/main-cover-large.jpg");
+
+        .text-container {
+            padding-left: 64px;
+            padding-right: 12px;
+            padding-top: 125px;
+        }
+
+        h1#nsi-img-text {
+            max-width: 591px;
+            font-family: Roboto, sans-serif;
+            font-size: 48px;
+            font-weight: 100;
+            font-style: normal;
+            font-stretch: normal;
+            text-align: left;
+            color: #000000;
+
+            .subhead {
+                font-size: 20px;
+                font-family: Roboto;
+                font-weight: 900;
+                font-style: normal;
+                font-stretch: normal;
+                letter-spacing: 2.2px;
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            strong {
+                font-weight: 300 !important;
+            }
+        }
+
+        #nsi-motto {
+            font-family: Roboto, sans-serif;
+            font-size: 28px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            text-align: right;
+            margin-top: 125px;
+
+            .subhead {
+                color: @company-theme-color;
+            }
+        }
+
+        .down-button-div {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .down-button-div i {
+            color: white;
+            opacity: 0.7;
+        }
+
+        .down-button-div i:hover {
+            opacity: 1;
+        }
+    }
+
+    #features {
+        font-family: Roboto, sans-serif;
+        color: #4a4a4a;
+
+        section {
+            margin-top: 16px;
+            margin-bottom: 32px;
+
+            .content {
+                margin-left: 16px;
+                margin-top: 16px;
+            }
+        }
+
+        section.learning {
+            min-height: 500px;
+            background-image: url("../images/background/sub-cover-small.jpg");
+        }
+
+        .container {
+            padding-left: 64px;
+            padding-right: 64px;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 900;
+            text-align: right;
+        }
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 30px;
+            font-weight: 500;
+            color: #2e2e2e;
+        }
+
+        h4 {
+            text-transform: lowercase;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 300;
+
+            .desc-bold {
+                font-weight: 500;
+            }
+        }
+    }
+
+    footer {
+        background-color: #203248;
+        border: solid 1px #203248;
+        color: white;
+        padding-top: 28px;
+        padding-bottom: 36px;
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-weight: 100;
+
+        .container {
+            background-image: url("../images/icons/icon-logo-white-35.png");
+            background-size: 250px;
+            background-repeat: no-repeat;
+            background-position: right 10px top;
+        }
+
+        .company-name-logo {
+            font-size: 48px;
+        }
+
+        .feedback {
+            /*margin-top: 27px;*/
+
+            img {
+                position: relative;
+                width: 75px;
+            }
+        }
+
+        .subhead {
+            margin-top: -15px;
+            font-size: 20px;
+            font-weight: 300;
+            color: @company-theme-color;
+        }
+
+        .legal-group {
+            /*margin-top: 36px;*/
+            font-weight: 300;
+        }
+
+        a {
+            color: white;
+        }
+
+        .quizz-o-cake-logo-lg {
+            width: 226.5px;
+            height: 178.2px;
+            opacity: 0.5;
+            float: right;
+        }
+    }
+
+    .nav-button {
+        font-size: 50px;
+    }
+}
+
+#goto-top-button-div {
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    opacity: 0;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#goto-top-button-div i {
+    color: @company-theme-color2;
+}
+
+.qz-view-overview-modal {
+    padding: 40px 20px 20px 20px;
+
+    button.close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
+
+    .video-container {
+        display: block;
+    }
+
+    .close-btn-container {
+        margin-top: 10px;
+        text-align: right;
+    }
+} 
+
+@media screen and (max-width: @desktop-mid-max-width) {
+    .nsi-page-html {
+        .nsi-page-background {
+            min-height: 375px;
+            background-image: url("../images/background/main-cover-small.jpg");
+
+            .text-container {
+                padding-left: 38px;
+                padding-right: 12px;
+                padding-top: 91px;
+            }
+
+            h1#nsi-img-text {
+                max-width: 100%;
+                font-size: 36px;
+
+                .subhead {
+                    font-size: 18px;
+                    margin-bottom: 18px;
+                }
+            }
+
+            #nsi-motto {
+                font-size: 20px;
+                margin-top: 56px;
+
+                .subhead {
+                    color: @company-theme-color;
+                }
+            }
+        }
+
+        #features {
+            section {
+                margin-top: 8px;
+                margin-bottom: 8px;
+
+                .content {
+                    margin-left: 0;
+                    margin-top: 16px;
+                }
+            }
+
+            section.about {
+                padding-bottom: 0;
+            }
+
+            section.learning {
+                min-height: 500px;
+
+                .bottom-content {
+                    margin-top: -8px;
+                }
+            }
+
+            .container {
+                padding-left: 40px;
+                padding-right: 16px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            h4 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #footer {
+        height: 200px !important;
+    }
+
+    .nsi-page-html {
+
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .nsi-page-html {
+        .nsi-page-background {
+            min-height: 200px;
+            background-image: url("../images/background/main-cover-small.jpg");
+
+            .text-container {
+                padding-left: 18px;
+                padding-right: 8px;
+                padding-top: 30px;
+            }
+
+            h1#nsi-img-text {
+                max-width: 100%;
+                font-size: 20px;
+
+                .subhead {
+                    font-size: 12px;
+                    margin-bottom: 13px;
+                }
+
+                strong {
+                    font-weight: 500 !important;
+                }
+            }
+
+            #nsi-motto {
+                font-size: 12px;
+                margin-top: 15px;
+
+                .subhead {
+                    color: @company-theme-color;
+                }
+            }
+        }
+
+        #features {
+            section {
+                margin-top: 8px;
+                margin-bottom: 8px;
+
+                .content {
+                    margin-left: 0;
+                    margin-top: 16px;
+                }
+            }
+
+            section.about {
+                padding-bottom: 0;
+            }
+
+            section.learning {
+                min-height: 500px;
+            }
+
+            .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            h4 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+
+        footer {
+            font-size: 14px;
+            .bg-image {
+                opacity: 0.2;
+            }
+
+            .company-name-logo {
+                font-size: 26px;
+            }
+
+            .subhead {
+                margin-top: -8px;
+                font-size: 16px;
+                line-height: 95%;
+            }
+        }
+    }
+ }

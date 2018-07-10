@@ -1,0 +1,127 @@
+﻿<div>
+    <load-wait page="page"></load-wait>
+    <div class="quizz-o-container ng-anim-fade" ng-show="page.isReady">
+        <div class="quizz-o-overview qz-item-container">
+            <div class="quizz-o-top-extra">
+                <div class="quizz-o-top-extra-actions">
+                    <span ng-if="model.dailyReward !== undefined" class="daily-reward">
+                        <span ng-if="model.dailyReward.isTaken == false" uib-tooltip="{{model.dailyReward.availablePoints}} cake points for scores 80% and above" tooltip-placement="left">
+                            <span class="daily-reward-possible-points">+{{model.dailyReward.availablePoints}}</span>
+                            <img class="point-image" src="/Content/images/Icons/points-1.0.png" alt="points" />
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="quizz-o-head ">
+                <div class="quizz-o-head-left">
+                    <add-category-icon-dyn category="model.category" add-class="quizz-category-icon category-icon-big"></add-category-icon-dyn>
+                </div>
+
+                <div class="quizz-o-head-right icon-info">
+                    <div class="icon-info-row">
+                        <a ui-sref="si.quizzDetail({quizzId: model.id, view: 0})" class="icon-item" uib-tooltip="comments" tooltip-placement="left">
+                            <i class="fa fa-comments"></i>
+                        </a>
+                        <a ui-sref="si.quizzDetail({quizzId: model.id, view: 1})" class="icon-item" uib-tooltip="notes" tooltip-placement="left">
+                            <i class="fa fa-sticky-note-o"></i>
+                        </a>
+                    </div>
+                    <div class="icon-info-row">
+                        <a ui-sref="si.quizzDetail({quizzId: model.id, view: 2})" class="icon-item" uib-tooltip="flash cards" tooltip-placement="left">
+                            <i class="fa fa-clone"></i>
+                        </a>
+                        <a ui-sref="si.quizzDetail({quizzId: model.id, view: 3})" class="icon-item" uib-tooltip="test" tooltip-placement="left">
+                            <i class="fa fa-file-text-o"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="quizz-o-head-middle category-icon-big-right-container">
+                    <a ui-sref="si.quizzDetail({quizzId: model.id, view: 3})" class="quizz-title qz-title">
+                        {{model.title}}
+                    </a>
+                    <div class="qz-description">
+                        {{model.description}}
+                    </div>
+                    <div class="quizz-owner">
+                        by: <a ui-sref="si.quizzer({quizzerId: model.ownerId })" class="quizzer">{{model.ownerName}}</a>
+                        <child-icon age="{{model.age}}"></child-icon>
+                        <a class="quizz-owner-points" ui-sref="si.quizzer({quizzerId: model.ownerId, view: 2})">
+                            ( {{model.ownerPoints}} <img class="point-image" src="/Content/images/Icons/points-1.0.png" alt="points" />
+                            {{model.totalBadge}} <img class="badge-image" src="/Content/images/Icons/achievement-1.0.png" /> )
+                        </a>
+                    </div>
+                    <div>
+                        <span class="grade-level">{{model.gradeLevelMin | gradeLevelEnumToString}}</span>
+                        <span class="grade-level" ng-hide="model.gradeLevelMin == model.gradeLevelMax">
+                            to {{model.gradeLevelMax | gradeLevelEnumToString}}
+                        </span>
+                    </div>
+                    <!--<div class="rating">
+                        Rating: <uib-rating ng-model="rating.uiValue" max="5" readonly="true" aria-labelledby="default-rating"></uib-rating>
+                        <span> ({{rating.numRatings}})</span>
+                        <item-load-wait item="rating" class="rating-load"></item-load-wait>
+                    </div>-->
+                    <!--<div class="tags">
+                        Tags: {{model.quizzTags}}
+                    </div>-->
+                </div>
+            </div>
+            <hr />
+            <div class="quizz-o-foot">
+                <div class="quizz-o-info">
+                    <span>
+                        <span ng-if="!model.isBuiltIn">{{model.numQuestions}}</span>
+                        <span ng-if="model.isBuiltIn">&infin;</span>
+                        questions
+                    </span>
+                </div>
+                <!--<div class="quizz-o-info">
+                    <button class="quizz-o-like-btn clear-btn {{upVoteBtn.addClass}}" ng-click="upVoteBtn.click()" ng-disabled="upVoteBtn.isEnabled == false">
+                        {{model.numLikes}} likes
+                        <i class="fa fa-thumbs-up"></i>
+                        <i class="fa fa-spinner fa-pulse" ng-hide="upVoteBtn.isEnabled"></i>
+                    </button>
+                </div>-->
+                <div class="quizz-o-info">
+                    <span>
+                        {{model.numTaken}}x taken
+                    </span>
+                </div>
+                <div class="quizz-o-info">
+                    <button class="quizz-o-comments-btn clear-btn" ng-click="comment.toggleShow()">
+                        {{model.numComments}} comments
+                        <i class="fa" ng-class="{'fa-chevron-circle-down': !comment.isOpen, 'fa-chevron-circle-up': comment.isOpen}"></i>
+                    </button>
+                </div>
+                <div class="btn-group share-btn quizz-o-info">
+                    <button type="button" class="btn btn-xs dropdown-toggle clear-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        share <i class="fa fa-share-alt"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a ng-click="shareControl.share('facebook')">
+                                <i class="fa fa-facebook-official"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="quizz-o-info" ng-if="user.asUserDependents.length != 0">
+                    <button class="quizz-o-assignment-btn clear-btn" ng-click="goToAssign()">
+                        Assign
+                    </button>
+                </div>
+                <div class="quizz-o-info">
+
+                </div>
+            </div>
+        </div>
+        <div class="ng-anim-slide-down" ng-show="comment.isOpen">
+            <div ng-if="comment.isLoaded">
+                <quizz-comments quizz="model" quizz-overview="model" is-summary="1"></quizz-comments>
+            </div>
+        </div>
+    </div>
+</div>
+

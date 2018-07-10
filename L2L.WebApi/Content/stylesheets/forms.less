@@ -1,0 +1,46 @@
+﻿@import "common/common";
+.input-radio-group {
+    input[type=radio] {
+        display: none;
+        margin: 10px;
+    }
+
+    .input-radio-choice {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    input[type=radio] + label {
+        margin: -2px;
+        padding: 5px;
+        background-color: @company-theme-color3;
+        text-align: left;
+        font-size: 0.85em;
+        width: 100%;
+
+        .input-radio-icon {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .input-radio-main-text {
+        }
+
+        .fa {
+            opacity: 0;
+        }
+    }
+
+    input[type=radio]:checked + label {
+        position: relative;
+        background-image: none;
+        background-color: @compnay-theme-color6;
+        color: white;
+
+        .fa {
+            opacity: 1;
+        }
+    }
+}

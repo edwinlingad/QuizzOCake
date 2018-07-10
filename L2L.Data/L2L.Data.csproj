@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B95AEBE-36CC-4C95-964B-9B1CE6B677B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>L2L.Data</RootNamespace>
+    <AssemblyName>L2L.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LocalHost|AnyCPU'">
+    <OutputPath>bin\LocalHost\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationUnit.cs" />
+    <Compile Include="Configuration\Activities\ActivitiesConfiguration.cs" />
+    <Compile Include="Configuration\Assignments\AssignmentConfiguration.cs" />
+    <Compile Include="Configuration\ClassRooms\ClassRoomConfigurations.cs" />
+    <Compile Include="Configuration\Constants.cs" />
+    <Compile Include="Configuration\Notifications\NewNotificationConfiguration.cs" />
+    <Compile Include="Configuration\Notifications\NotificationConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Reviewer\ReviewerItemConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\QuestionFlagConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\MultiChoiceSame\MultiChoiceSameConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Reviewer\ReviewerConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\QuizzFlagConfiguration.cs" />
+    <Compile Include="Configuration\QuizzPoints\QuizzPointsConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\Messages\MessageConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\RelationshipNotificationConfiguration.cs" />
+    <Compile Include="Configuration\User\DependentPermissionConfiguration.cs" />
+    <Compile Include="CustomDatabaseInitializer.cs" />
+    <Compile Include="Configuration\Quizzes\QuestionConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\QuizzConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\QuizQandA\QuizQandAAnswerConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\QuizQandA\QuizQandAQuestionConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\QuizSettingConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\QuizQandA\QuizQandAQuestionFlagConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\MultipleChoice\MultipleChoiceChoiceConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\MultipleChoice\MultipleChoiceQuestionConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\MultipleChoice\MultipleChoiceQuestionFlagConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\BuiltIn\QuizBuiltInConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\Types\BuiltIn\QuizBuiltInTypeQuestionFlagConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\TestConfiguration.cs" />
+    <Compile Include="Configuration\QuizzLog\QuizzLogConfiguration.cs" />
+    <Compile Include="Configuration\Quizzes\QuizzTagConfiguration.cs" />
+    <Compile Include="Configuration\QuizzRating\QuizzRatingConfiguration.cs" />
+    <Compile Include="Configuration\QuizzRating\QuizzUpvoteConfiguration.cs" />
+    <Compile Include="Configuration\QuizzRating\QuizzUserRatingConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\Dependents\DependentConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\Dependents\DependentRequestFromChildConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\Dependents\DependentRequestFromUserConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\FriendRelationshipConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\PublicGroup\PublicGroupConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\PublicGroup\PublicGroupMemberConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\PublicGroup\PublicGroupMembershipRequestConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\UserGroup\UserGroupConfiguration.cs" />
+    <Compile Include="Configuration\Relationship\UserGroup\UserGroupMemberConfiguration.cs" />
+    <Compile Include="Configuration\User\ProfileConfiguration.cs" />
+    <Compile Include="Configuration\User\UserConfiguration.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Activities\ActivityRepository.cs" />
+    <Compile Include="Repositories\Assignments\AssignmentRepository.cs" />
+    <Compile Include="Repositories\Classrooms\ClassroomRepositories.cs" />
+    <Compile Include="Repositories\Notification\NewNotificationRepository.cs" />
+    <Compile Include="Repositories\Notification\NotificationRepository.cs" />
+    <Compile Include="Repositories\Quizzes\QuizzFlagRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Reviewer\ReviewerItemRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Reviewer\ReviewerRepository.cs" />
+    <Compile Include="Repositories\Quizzes\TestRepository.cs" />
+    <Compile Include="Repositories\Quizzes\QuizzTagRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\MultiChoiceSame\MultiChoiceSameRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\QuestionFlagRepository.cs" />
+    <Compile Include="Repositories\QuizzLog\QuizzLogRepository.cs" />
+    <Compile Include="Repositories\QuizzPoints\QuizzPointsRepository.cs" />
+    <Compile Include="Repositories\QuizzRating\QuizzRatingRepository.cs" />
+    <Compile Include="Repositories\QuizzRating\QuizzUpvoteRepository.cs" />
+    <Compile Include="Repositories\QuizzRating\QuizzUserRatingRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\BuiltIn\QuizBuiltInQuestionFlagRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\BuiltIn\QuizBuiltInRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\MultipleChoice\MultipleChoiceChoiceRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\MultipleChoice\MultipleChoiceQuestionFlagRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\MultipleChoice\MultipleChoiceQuestionRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\QandA\QandAAnswerRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\QandA\QandAQuestionFlagRepository.cs" />
+    <Compile Include="Repositories\Quizzes\Types\QandA\QandAQuestionRepository.cs" />
+    <Compile Include="Repositories\Quizzes\QuestionRepository.cs" />
+    <Compile Include="Repositories\Quizzes\QuizzRepository.cs" />
+    <Compile Include="Repositories\Quizzes\TestSettingRepository.cs" />
+    <Compile Include="Repositories\Relationship\Dependents\DependentRepository.cs" />
+    <Compile Include="Repositories\Relationship\Dependents\DependentRequestFromChildRepository.cs" />
+    <Compile Include="Repositories\Relationship\Dependents\DependentRequestFromUserRepository.cs" />
+    <Compile Include="Repositories\Relationship\Messages\Messages.cs" />
+    <Compile Include="Repositories\Relationship\RelationshipRepositories.cs" />
+    <Compile Include="Repositories\Relationship\PublicGroup\PublicGroupMemberRepository.cs" />
+    <Compile Include="Repositories\Relationship\PublicGroup\PublicGroupMembershipRequestRepository.cs" />
+    <Compile Include="Repositories\Relationship\PublicGroup\PublicGroupRepository.cs" />
+    <Compile Include="Repositories\Relationship\UserGroup\UserGroupMemberRepository.cs" />
+    <Compile Include="Repositories\Relationship\UserGroup\UserGroupRepository.cs" />
+    <Compile Include="Repositories\User\ProfileRepository.cs" />
+    <Compile Include="Repositories\User\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\L2L.Constants\L2L.Common.csproj">
+      <Project>{54011c6e-f990-4c42-9548-fc7aeee94e8e}</Project>
+      <Name>L2L.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\L2L.Model\L2L.Entities.csproj">
+      <Project>{5e926b9f-5132-40c9-bfe8-e9e488aa5835}</Project>
+      <Name>L2L.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\QuizzGroup\" />
+    <Folder Include="Configuration\Relationship\Friend\" />
+    <Folder Include="Repositories\QuizzGroup\" />
+    <Folder Include="Repositories\Relationship\Friends\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,67 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container view-reviewer-html ng-anim-fade" ng-hide="page.isReady == false">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>Flash Card Reviewer</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+                <div class="btn-group" ng-if="!quizz.isBuiltIn">
+                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div>
+                            Flash <br /> Cards <span class="caret"></span>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a ng-click="openFlashCards('ordered')">In Order</a></li>
+                        <li><a ng-click="openFlashCards('random')">Random</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-info btn-xs" ng-if="quizz.isBuiltIn" ng-click="openFlashCards('ordered')">
+                    <div>
+                        Flash <br /> Cards 
+                    </div>
+                </button>
+            </div>
+            <div class="quizz-name-icon">
+                <ng-include src="'scripts/templates/quizz/common/_QuizzHeader.html'"></ng-include>
+            </div>
+        </div>
+
+        <div class="qz-body" ng-if="!quizz.isBuiltIn">
+            <div class="reviewer-item-action">
+                <button type="button" class="btn btn-default btn-xs" ng-click="openAllAnswers()">show all answers</button>
+                <button type="button" class="btn btn-default btn-xs" ng-click="closeAllAnswers()">close all answers</button>
+            </div>
+            <div class="reviewer-item" ng-repeat="reviewer in reviewers">
+                <div class="reviewer-question">
+                    <div class="col-number">
+                        {{$index + 1}}.
+                    </div>
+                    <button class="show-answer-btn clear-btn">
+                        <i class="as-link fa" ng-class="{'fa-chevron-circle-down': !reviewer.isAnswerShown, 'fa-chevron-circle-up': reviewer.isAnswerShown}" ng-click="toggleShowAnswer(reviewer)"></i>
+                    </button>
+                    <div class="reviewer-question-text tinymce-formatted" ng-bind-html="reviewer.question">
+                    </div>
+                </div>
+
+                <div class="reviewer-answer ng-anim-slide-down" ng-show="reviewer.isAnswerShown">
+                    <div ng-repeat="answer in reviewer.answers">
+                        <div class="col-letter" ng-show="reviewer.answers.length > 1">
+                            {{$index | letter}}
+                        </div>
+                        <div class="reviewer-answer-text">
+                            {{answer.answer}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

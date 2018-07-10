@@ -1,0 +1,47 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container view-as-flash-card-html view-reviewer-html quizz-common-header ng-anim-fade" ng-hide="page.isReady == false">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <!--<button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>Flash Cards</h1>
+        </div>
+    </div>
+
+    <div class="alert alert-danger" ng-if="user.id === 0">
+        <div>
+            Ooops! Only 5 flash cards are available to non-registered users.
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+                <button type="button" class="btn btn-danger btn-xs" ng-click="finishBtn.click()">
+                    {{finishBtn.name}}
+                </button>
+            </div>
+            <div class="quizz-name-icon">
+                <div class="avatar-image">
+                    <add-category-icon-dyn category="quizz.category" add-class="quizz-category-icon category-icon-big" control="categoryIconControl"></add-category-icon-dyn>
+                </div>
+
+                <div class="main-info">
+                    <div class="quizz-title qz-title">
+                        {{quizz.title}}
+                    </div>
+                    <div class="qz-description">
+                        {{quizz.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div ui-view class="ng-anim-slide-left">
+
+            </div>
+        </div>
+    </div>
+</div>

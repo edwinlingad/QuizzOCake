@@ -1,0 +1,59 @@
+﻿@import "../../common/common";
+
+.categories-html {
+
+    .qz-content-container {
+        .qz-header {
+            display: none;
+            min-height: 10px;
+            height: 15px;
+            background-color: @company-theme-color2;
+            
+        }
+
+        .qz-body {
+            margin-top: 5px;
+            .quizz-categories {
+                .quizz-category {
+                    overflow: hidden;
+
+                    .category-icon-container {
+                        float: left;
+                    }
+
+                    .category-item-body {
+                        margin-right: 90px;
+
+                        .category-item-name {
+                        }
+
+                        .category-item-description {
+                        }
+                    }
+
+                    .category-right-info {
+                        float: right;
+                        font-weight: 700;
+                        font-size: 0.75em;
+                        color: #aaaaaa;
+                    }
+                }
+
+                @media screen and (max-width: @mobile-mid-max-width) {
+                    .quizz-category {
+
+                        .category-item-body {
+                            margin-right: 50px;
+                        }
+
+                        .category-right-info {
+                            .uizze {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

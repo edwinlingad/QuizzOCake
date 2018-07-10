@@ -1,0 +1,31 @@
+﻿<ul>
+    <li class="item item-divider link-container">
+        <a  ui-sref="si.myQuizzes({userId: user.id, availOnly: 0 })" class="link-elem"></a>
+        <span>My Quizzes</span>
+        <span class="lsb-more" ng-if="layout.leftSideBar.hasMoreMyQuizzes">More</span>
+    </li>
+    <li class="item item-icon-left item-add link-container link-ng" ng-if="user.isGuest">
+        <i class="fa fa-plus icon"></i>
+        <div class="item-text">Create New Quizz</div>
+    </li>
+    <li class="item item-icon-left item-add link-container" ng-if="!user.isGuest">
+        <a ui-sref="si.editQuizz({ quizzId: -1 })"  class="link-elem"></a>
+        <i class="fa fa-plus icon"></i>
+        <div class="item-text">Create New Quizz</div>
+    </li>
+    <li ng-repeat="item in layout.leftSideBar.myQuizzes" class="item item-icon-left link-container">
+        <a  ui-sref="si.quizzDetail({ quizzId: item.id, view: 3 })" class="link-elem"></a>
+        <div class="icon-with-category">
+            <div add-category-icon-dyn add-class="icon-category" category="item.category">
+            </div>
+        </div>
+        <div class="item-text">{{item.title}}</div>
+    </li>
+    <li ng-if="layout.leftSideBar.myQuizzes.length == 0" class="item item-nothing">
+        <div class="item-text">No Items Found</div>
+    </li>
+    <li ng-if="layout.leftSideBar.hasMoreMyQuizzes" class="item item-more link-container">
+        <a ui-sref="si.myQuizzes({userId: user.id, availOnly: 0 })" class="link-elem"></a>
+        <div class="item-text">More...</div>
+    </li>
+</ul>

@@ -1,0 +1,22 @@
+﻿<ul>
+    <li class="item item-divider link-container">
+        <a  ui-sref="si.testResults" class="link-elem"></a>
+        <span>Recent Test Results</span>
+        <span class="lsb-more" ng-if="layout.leftSideBar.hasMoreRecentQuizzes">More</span>
+    </li>
+    <li ng-if="layout.leftSideBar.recentQuizzes.length > 0" class="item item-icon-left link-container" ng-repeat="item in layout.leftSideBar.recentQuizzes">
+        <a  ui-sref="si.viewResult({ testLogId: item.id, quizzId: item.quizzId })" class="link-elem"></a>
+        <div class="icon-with-category">
+            <div add-category-icon-dyn add-class="icon-category" category="item.category">
+            </div>
+        </div>
+        <div class="item-text">{{item.quizzName}}</div>
+    </li>
+    <li ng-if="layout.leftSideBar.recentQuizzes.length == 0" class="item item-nothing">
+        <div class="item-text">No Items Found</div>
+    </li>
+    <li ng-if="layout.leftSideBar.hasMoreRecentQuizzes" class="item item-more link-container">
+        <a  ui-sref="si.testResults" class="link-elem"></a>
+        <div class="item-text">More...</div>
+    </li>
+</ul>

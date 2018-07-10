@@ -1,0 +1,76 @@
+﻿<page-load-wait page="page"></page-load-wait>
+<div class="qz-page-container view-reviewer-html ng-anim-fade" ng-hide="page.isReady == false">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+            <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>
+        </div>
+        <div class="qz-page-title">
+            <h1>Pattern</h1>
+        </div>
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-header">
+            <div class="qz-header-action">
+
+            </div>
+            <div class="quizz-name-icon">
+                <ng-include src="'scripts/templates/quizz/common/_QuizzHeader.html'"></ng-include>
+            </div>
+        </div>
+
+        <div class="qz-body">
+            <div class="reviewer-item-action">
+                <div ng-show="!isEdit">
+                    <button type="button" class="btn btn-default btn-xs" ng-click="openAllAnswers()">show all answers</button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="closeAllAnswers()">close all answers</button>
+                </div>
+                <div ng-show="!isEdit">
+                    <button type="button" class="btn btn-default btn-xs" ng-click="openAllAnswers()">create new</button>
+                </div>
+            </div>
+
+            <div class="reviewer-item" ng-repeat="item in quickNotes">
+                <div class="reviewer-title">
+                    <div class="col-number">
+                        {{$index + 1}}.
+                    </div>
+
+                    <div class="reviewer-title-action">
+                        <div ng-show="!isEdit">
+                            <i class="as-link fa" ng-class="{'fa-chevron-circle-down': !item.isViewOpen, 'fa-chevron-circle-up': item.isViewOpen}" ng-click="toggleOpenView(item)"></i>
+                        </div>
+                        <div ng-show="isEdit">
+                            <div>
+                                <label>
+                                    Title
+                                </label>
+                                <input type="text" ng-model="item.title" autocomplete="off"/>
+                                <label>
+                                    Notes
+                                </label>
+                                <textarea ng-model="item.notes"></textarea>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-xs" ng-click="saveEditBtn.click(item)">Save</button>
+                                <button class="btn btn-default btn-xs" ng-click="cancelEdit(item)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviewer-title-text">
+                        {{item.title}}
+                    </div>
+
+                </div>
+
+                <div class="reviewer-answer ng-anim-slide-down" ng-show="item.isViewOpen">
+                    <div class="reviewer-answer-text">
+                        {{item.notes}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

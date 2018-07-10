@@ -1,0 +1,35 @@
+﻿<div class="qz-page-container all-notifications-html qz-page-no-header">
+    <div class="qz-page-title-action">
+        <div class="qz-go-back-action">
+           <!-- <button type="button" class="btn btn-danger btn-sm " ng-click="goBack()" ng-disabled="page.disabled">Go Back</button>-->
+        </div>
+        <div class="qz-page-title">
+            <h1>
+                Notifications
+                <i class="fa fa-question-circle" ng-click="helpControl.open()"></i>
+            </h1>
+        </div>
+
+        <div class="alert alert-success help-alert ng-anim-fade" role="alert" ng-if="user.isGuest || helpControl.vars.isOpen">
+            <button type="button" class="close" ng-click="helpControl.close()"><span aria-hidden="true">&times;</span></button>
+            <div class="message">
+                Receive <strong>Notifications</strong> when <span class="quizzer">Quizzers</span> like, comment, flag, etc. your <span class="quizz">Quizzes</span>
+                <br />
+                Additionally, <strong>parents</strong> or <strong>guardians</strong> will get <strong>notifications</strong> from their <span class="quizzling">Quizzling's</span> work.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="qz-content-container">
+        <div class="qz-body">
+            <div class="qz-no-item" ng-if="notificationItem.isReady == true && notifications.length == 0">
+                No notifications found
+            </div>
+            <notification-list list="notifications"></notification-list>
+            <div class="page-load-wait-icon">
+                <item-load-wait item="notificationItem" ></item-load-wait>
+            </div>
+        </div>
+    </div>
+</div>

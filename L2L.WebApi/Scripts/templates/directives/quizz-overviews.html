@@ -1,0 +1,59 @@
+﻿<div>
+    <div class="quizz-overview-html">
+        <div class="quizz-overview-action" ng-if="hideSearch != 1">
+            <form>
+                <input type="text" class="form-control" ng-model="searchCondition.searchString" placeholder="Search Quizz..." ng-change="searchChanged()">
+                <div class="more-options">
+                    <div class="search-option-label">Search Option:</div>
+                    <div class="search-item form-group">
+                        <select ng-model="sortByOption.selected" class="form-control">
+                            <option ng-repeat="item in sortByOption.options" value="{{item.value}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <div class="search-item form-group">
+                        <select ng-model="sortTypeOption.selected" class="form-control">
+                            <option ng-repeat="item in sortTypeOption.options" value="{{item.value}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <div ng-hide="hideCategory" class="search-item form-group">
+                        <label>Category:</label>
+                        <select ng-model="categoryOption.selected" class="form-control">
+                            <option ng-repeat="item in categoryOption.options" value="{{item.value}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <div ng-hide="hideGradeLevel">
+                        <div class="search-item form-group">
+                            <label>Min Grade Level:</label>
+                            <select ng-model="minGradeLevelOption.selected" ng-change='gradeLevelChanged("min")' class="form-control">
+                                <option ng-repeat="item in minGradeLevelOption.options" value="{{item.value}}">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div class="search-item form-group">
+                            <label>Max Grade Level:</label>
+                            <select ng-model="maxGradeLevelOption.selected" ng-change='gradeLevelChanged("max")' class="form-control">
+                                <option ng-repeat="item in minGradeLevelOption.options" value="{{item.value}}">{{item.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="quizz-overview-html" ng-show="quizzOverviews.length == 0 && page.isReady == true">
+            <div class="nothing-found">
+                No Quizzes Found
+            </div>
+        </div>
+        <div ng-show="page.isReady == true && quizzOverviews.length != 0">
+            <div class="page-container">
+                <uib-pagination boundary-links="true" total-items="pager.totalItems" ng-model="pager.currentPage" ng-change="pager.pageChanged()" max-size="6" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+            </div>
+            <div ng-repeat="item in quizzOverviews">
+                <quizz-overview model="item" idx="{{$index}}" detailed=false delete-idx="deleteIdx"></quizz-overview>
+            </div>
+            <div class="page-container">
+                <uib-pagination boundary-links="true" total-items="pager.totalItems" ng-model="pager.currentPage" ng-change="pager.pageChanged()" max-size="6" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+            </div>
+        </div>
+        <page-load-wait page="page"></page-load-wait>
+    </div>
+</div>
